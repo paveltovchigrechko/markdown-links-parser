@@ -51,7 +51,14 @@ class File:
             inbound_links_list = []
 
             def process_heading (heading_match):
-                return "-".join(heading_match.group().strip("# ").lower().split())
+                raw_heading = heading_match.group().strip("# ").lower()
+                heading_words = raw_heading.split()
+                processed_words = []
+                for word in heading_words:
+                    processed_word = word.strip("!?:()*")
+                    processed_words.append(processed_word)
+                return "-".join(processed_words)
+                # return "-".join(heading_match.group().strip("# ").lower().split())
 
             def process_heading_id (heading_id_match):
                 return heading_id_match.group().strip("{#}")
@@ -198,4 +205,3 @@ dir.parse_files()
 dir.check_internal_links()
 dir.check_external_links()
 dir.print_broken_links()
-
