@@ -63,7 +63,7 @@ class File:
             def process_heading_id (heading_id_match):
                 return heading_id_match.group().strip("{#}")
 
-            for (line_num, line) in enumerate(file):
+            for (line_num, line) in enumerate(file, start=1):
                 if ignore_commented_lines:
                     # If a line is commented, ignore it
                     commented_line = re.search(COMMENTED_LINE_PATTERN, line)
@@ -89,14 +89,14 @@ class File:
                         if link.path is None:
                             # If a link has no path and file, then it is internal link
                             if link.file == '':
-                                self.internal_links.append((line_num + 1, link))
+                                self.internal_links.append((line_num, link))
                             else:
-                                self.external_links.append((line_num + 1, link))
+                                self.external_links.append((line_num, link))
                         # If a link contains protocol, it leads outside
                         elif "://" in link.path:
-                            self.outside_links.append((line_num + 1, link))
+                            self.outside_links.append((line_num, link))
                         else:
-                            self.external_links.append((line_num + 1, link))
+                            self.external_links.append((line_num, link))
 
         if inbound_links_list:
             self.inbound_links = set(inbound_links_list)
@@ -110,7 +110,19 @@ class File:
                 broken_internal_links.append((line_num, internal_link))
         return broken_internal_links
 
-    def print_links(self):
+    def search(self, string_to_search):
+        lower_string = string_to_search.lower()
+        search_matches = []
+        with open(self.path_with_name) as file:
+            for (line_num, line) in enumerate(file, start=1):
+                lower_line = line.lower()
+                occurrences = re.findall(lower_string, lower_line)
+                if occurrences:
+                    search_matches.append((line_num, len(occurrences)))
+        return search_matches
+
+
+    def print_all_links(self):
         print(f"\n********\nFile:", self.path_with_name)
         print(f"Inbound links:")
         for inbound_link in self.inbound_links:
@@ -124,7 +136,7 @@ class File:
                 f"Line {line_num}: path: {external_link.path}, file: {external_link.file}, heading: {external_link.heading}")
         print(f"========\nOutside links:")
         for (line_num, outside_link) in self.outside_links:
-            print(f"Line {line_num}: path: {outside_link.path + outside_link.file}")
+            print(f"Line {line_num}: path: {outside_link}")
 
 
 class Dir:
@@ -179,6 +191,22 @@ class Dir:
             if broken_external_links:
                 self.broken_external_links[file.path_with_name] = broken_external_links
 
+    def search(self, string_to_search):
+        search_result = {}
+
+        for filename in self.filenames:
+            new_file = File(str(filename))
+            occurrences_in_file = new_file.search(string_to_search)
+            if occurrences_in_file:
+                search_result[filename] = occurrences_in_file
+
+        if search_result:
+            print(f"Search results for {string_to_search}")
+            for file in search_result.keys():
+                print(f"File: {file}")
+                for (line_num, occurrences) in search_result[file]:
+                    print(f"Line {line_num}: found {occurrences} occurrence(s)")
+
     def print_broken_links(self):
         if not self.broken_external_links and not self.broken_internal_links:
             return
@@ -198,9 +226,9 @@ class Dir:
 docs_directory = "/home/pavel/dev/python/markdown-links-parser/docs-test"
 dev_directory = "/home/pavel/dev/python/markdown-links-parser/dev-docs-test"
 directory = docs_directory
-
 dir = Dir(directory)
 dir.scan_filenames()
+search = dir.search("UNLIMIT")
 dir.parse_files()
 dir.check_internal_links()
 dir.check_external_links()
