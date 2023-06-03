@@ -17,7 +17,7 @@ MARKDOWN_LINK_PATTERN = re.compile(r"\(([^)]+)\)")
 SPLIT_LINK_PATTERN = re.compile(r"^(.*?\/)?([^\/#]*)(?:#(.*))?$")
 
 
-class MarkdownLink:
+class Link:
     def __init__(self, link_string):
         link_parts = re.match(SPLIT_LINK_PATTERN, link_string)
         self.path = link_parts.group(1)
@@ -85,7 +85,7 @@ class File:
                     # Find all full Markdown links in a line
                     full_markdown_links = re.findall(MARKDOWN_FULL_LINK_PATTERN, line)
                     for full_link in full_markdown_links:
-                        link = MarkdownLink(re.search(MARKDOWN_LINK_PATTERN, full_link).group(1))
+                        link = Link(re.search(MARKDOWN_LINK_PATTERN, full_link).group(1))
                         if link.path is None:
                             # If a link has no path and file, then it is internal link
                             if link.file == '':
