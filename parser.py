@@ -123,21 +123,45 @@ class File:
 
 
     def print_all_links(self):
-        print(f"\n********\nFile:", self.path_with_name)
-        print(f"Inbound links:")
-        for inbound_link in self.inbound_links:
-            print(f"{inbound_link}")
-        print(f"========\nInternal links:")
-        for (line_num, internal_link) in self.internal_links:
-            print(f"Line {line_num}: {internal_link.heading}")
-        print(f"========\nExternal links:")
-        for (line_num, external_link) in self.external_links:
-            print(
-                f"Line {line_num}: path: {external_link.path}, file: {external_link.file}, heading: {external_link.heading}")
-        print(f"========\nOutside links:")
-        for (line_num, outside_link) in self.outside_links:
-            print(f"Line {line_num}: path: {outside_link}")
+        print(f"\nFile:", self.path_with_name)
+        self.print_inbound_links()
+        self.print_internal_links()
+        self.print_external_links()
+        self.print_outside_links()
 
+    def print_inbound_links(self):
+        print(f"Inbound links:")
+        if self.inbound_links:
+            for inbound_link in self.inbound_links:
+                print(f"{inbound_link}")
+        else:
+            print("No inbound links found.")
+
+    def print_internal_links(self):
+        print(f"Internal links:")
+        if self.internal_links:
+            for (line_num, internal_link) in self.internal_links:
+                print(f"Line {line_num}: {internal_link.heading}")
+        else:
+            print("No internal links found.")
+
+    def print_external_links(self):
+        print("External links:")
+        if self.external_links:
+            for (line_num, external_link) in self.external_links:
+                print(f"Line {line_num}: path: {external_link.path}, "
+                      f"file: {external_link.file}, "
+                      f"heading: {external_link.heading}")
+        else:
+            print("No external links found")
+
+    def print_outside_links(self):
+        print("Outside links:")
+        if self.outside_links:
+            for (line_num, outside_link) in self.outside_links:
+                print(f"Line {line_num}: path: {outside_link}")
+        else:
+            print("No outside links found.")
 
 class Dir:
     def __init__(self, path):
@@ -223,13 +247,5 @@ class Dir:
                 for (line, link) in self.broken_external_links[file]:
                     print(f"Line {line}: not found {link}")
 
-docs_directory = "/home/pavel/dev/python/markdown-links-parser/docs-test"
-dev_directory = "/home/pavel/dev/python/markdown-links-parser/dev-docs-test"
-directory = docs_directory
-dir = Dir(directory)
-dir.scan_filenames()
-search = dir.search("UNLIMIT")
-dir.parse_files()
-dir.check_internal_links()
-dir.check_external_links()
-dir.print_broken_links()
+if __name__ == "__main__":
+    pass
