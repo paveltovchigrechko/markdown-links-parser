@@ -14,7 +14,7 @@ MARKDOWN_LINK_PATTERN = re.compile(r"\(([^)]+)\)")
 # Splits any string into 3 groups. 1 group includes any characters from the beginning to the '/' symbol.
 # Equals to the file path. 2 group includes any characters from '/' symbol to the '#' symbol.
 # Equals to the file. 3 group includes everything after '#' symbol. Equals to the heading.
-SPLIT_LINK_PATTERN = re.compile(r"^(.*?\/)?([^\/#]*)(?:#(.*))?$")
+SPLIT_LINK_PATTERN = re.compile(r"^(.*?/)?([^/#]*)(?:#(.*))?$")
 
 
 class Link:
@@ -48,8 +48,6 @@ class File:
 
     def parse_links(self, ignore_commented_lines=True):
         with open(self.path_with_name) as file:
-            inbound_links_list = []
-
             def process_heading (heading_match):
                 raw_heading = heading_match.group().strip("# ").lower()
                 heading_words = raw_heading.split()
@@ -58,10 +56,11 @@ class File:
                     processed_word = word.strip("!?:()*")
                     processed_words.append(processed_word)
                 return "-".join(processed_words)
-                # return "-".join(heading_match.group().strip("# ").lower().split())
 
             def process_heading_id (heading_id_match):
                 return heading_id_match.group().strip("{#}")
+
+            inbound_links_list = []
 
             for (line_num, line) in enumerate(file, start=1):
                 if ignore_commented_lines:
@@ -130,7 +129,7 @@ class File:
         self.print_outside_links()
 
     def print_inbound_links(self):
-        print(f"Inbound links:")
+        print(f"\nInbound links:")
         if self.inbound_links:
             for inbound_link in self.inbound_links:
                 print(f"{inbound_link}")
@@ -138,7 +137,7 @@ class File:
             print("No inbound links found.")
 
     def print_internal_links(self):
-        print(f"Internal links:")
+        print(f"\nInternal links:")
         if self.internal_links:
             for (line_num, internal_link) in self.internal_links:
                 print(f"Line {line_num}: {internal_link.heading}")
@@ -146,7 +145,7 @@ class File:
             print("No internal links found.")
 
     def print_external_links(self):
-        print("External links:")
+        print("\nExternal links:")
         if self.external_links:
             for (line_num, external_link) in self.external_links:
                 print(f"Line {line_num}: path: {external_link.path}, "
@@ -156,10 +155,10 @@ class File:
             print("No external links found")
 
     def print_outside_links(self):
-        print("Outside links:")
+        print("\nOutside links:")
         if self.outside_links:
             for (line_num, outside_link) in self.outside_links:
-                print(f"Line {line_num}: path: {outside_link}")
+                print(f"Line {line_num}: {outside_link}")
         else:
             print("No outside links found.")
 
