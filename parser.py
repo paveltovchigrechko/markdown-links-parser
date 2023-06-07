@@ -247,7 +247,7 @@ class Dir:
                     print(f"Line {line}: not found {link}")
 
 if __name__ == "__main__":
-    directory = "../docs"
+    directory = "./"
     dir = Dir(directory)
     dir.scan_filenames()
     dir.parse_files()
