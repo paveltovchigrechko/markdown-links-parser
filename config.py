@@ -15,8 +15,8 @@ DEFAULT_CONFIG = configparser.ConfigParser()
 DEFAULT_CONFIG['MAIN'] = {
     "root": ".",
     "file_extension": ".mdx",
-    "output": Output.CONSOLE,
-    "action": Action.CHECK_LINKS,
+    "output": Output.CONSOLE.value,
+    "action": Action.CHECK_LINKS.value,
 }
 
 def set_config():
