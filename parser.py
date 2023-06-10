@@ -216,15 +216,19 @@ class Dir:
 
     def search(self, string_to_search):
         search_result = {}
+        found_matches = 0
 
         for filename in self.filenames:
             new_file = File(str(filename))
             occurrences_in_file = new_file.search(string_to_search)
             if occurrences_in_file:
                 search_result[filename] = occurrences_in_file
+                for (line, matches) in occurrences_in_file:
+                    found_matches += matches
 
         if search_result:
             print(f"Search results for {string_to_search}")
+            print(f"Found total: {found_matches} matches")
             for file in search_result.keys():
                 print(f"File: {file}")
                 for (line_num, occurrences) in search_result[file]:
@@ -232,6 +236,7 @@ class Dir:
 
     def print_broken_links(self):
         if not self.broken_external_links and not self.broken_internal_links:
+            print("No broken links found")
             return
         print("Broken internal links\n================")
         for file in self.broken_internal_links:
@@ -246,11 +251,11 @@ class Dir:
                 for (line, link) in self.broken_external_links[file]:
                     print(f"Line {line}: not found {link}")
 
+    def print_all_links(self):
+        if not self.parsed_files:
+            return
+        for file in self.parsed_files.values():
+            file.print_all_links()
+
 if __name__ == "__main__":
-    directory = "./"
-    dir = Dir(directory)
-    dir.scan_filenames()
-    dir.parse_files()
-    dir.check_internal_links()
-    dir.check_external_links()
-    dir.print_broken_links()
+    pass

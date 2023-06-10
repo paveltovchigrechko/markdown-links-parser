@@ -2,7 +2,7 @@ from parser import Link, File, Dir
 import unittest
 
 
-class MarkdownLinkTests(unittest.TestCase):
+class LinkTests(unittest.TestCase):
     def test_init_with_full_link(self):
         link = Link("path/to/file#heading")
         self.assertEqual(link.path, "path/to/")
