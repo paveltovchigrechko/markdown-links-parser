@@ -171,7 +171,7 @@ class Dir:
         self.broken_external_links = {}
 
     def scan_filenames(self, extension=".mdx"):
-        path = Path(self.path)
+        path = Path(self.path).absolute()
         self.filenames = list(path.glob(f'**/*{extension}'))
 
     def parse_files(self):

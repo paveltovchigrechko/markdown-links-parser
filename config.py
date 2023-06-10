@@ -14,7 +14,7 @@ def set_config():
     try:
         config.read(CONFIG_NAME)
     except configparser.MissingSectionHeaderError:
-        print("Configuration file is misses sections. Using default configuration.")
+        print("Configuration file misses sections. Using default configuration.")
         config = DEFAULT_CONFIG
 
     if not config.sections():
