@@ -1,12 +1,22 @@
+from enum import Enum
 import configparser
+
+class Output(Enum):
+    CONSOLE = "console"
+    FILE = "file"
+
+class Action(Enum):
+    CHECK_LINKS = "check_links"
+    PRINT_LINKS = "print_links"
+    SEARCH = "search"
 
 CONFIG_NAME = "config.ini"
 DEFAULT_CONFIG = configparser.ConfigParser()
 DEFAULT_CONFIG['MAIN'] = {
     "root": ".",
     "file_extension": ".mdx",
-    "output": "console",
-    "action": "check_links",
+    "output": Output.CONSOLE,
+    "action": Action.CHECK_LINKS,
 }
 
 def set_config():
