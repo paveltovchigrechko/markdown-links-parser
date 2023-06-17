@@ -64,7 +64,7 @@ class FileTests(unittest.TestCase):
         self.assertEqual(len(broken_links), 0)
 
     def test_check_internal_links_negative(self):
-        self.file.inbound_links = {"heading1", "heading2", "heading3"}
+        self.file.inbound_links = {"heading1", "heading2"}
         self.file.internal_links = [(1, Link("#heading1")),
                                     (10, Link("#heading2")),
                                     (30, Link("#heading4"))]
