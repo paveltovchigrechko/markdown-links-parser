@@ -20,36 +20,34 @@ DEFAULT_CONFIG['MAIN'] = {
 }
 
 def set_config():
+    # TODO: check if 'root' is path and is not empty
     config = configparser.ConfigParser()
     try:
         config.read(CONFIG_NAME)
     except configparser.MissingSectionHeaderError:
         print("Configuration file misses sections. Using default configuration.")
-        config = DEFAULT_CONFIG
+        return DEFAULT_CONFIG
 
     if not config.sections():
-        print("Configuration file is empty. Using default configuration.")
-        config = DEFAULT_CONFIG
+        print("No configuration file found or configuration file is empty. Using default configuration.")
+        return DEFAULT_CONFIG
     else:
         if "MAIN" not in config.sections():
             print("MAIN section is missing. Using default configuration.")
-            config = DEFAULT_CONFIG
+            return DEFAULT_CONFIG
         else:
             for obligatory_key in DEFAULT_CONFIG["MAIN"]:
                 if obligatory_key not in config["MAIN"]:
-                    print(f"Missing obligatory {obligatory_key} parameter: "
-                          f"using value from default configuration ({DEFAULT_CONFIG['MAIN'][obligatory_key]})")
+                    print(f"Missing obligatory '{obligatory_key}' parameter: "
+                          f"using value from default configuration ('{DEFAULT_CONFIG['MAIN'][obligatory_key]}')")
                     config["MAIN"][obligatory_key] = DEFAULT_CONFIG['MAIN'][obligatory_key]
                 elif obligatory_key == "action" or obligatory_key == "output":
                     value = config["MAIN"][obligatory_key]
-                    print(value)
                     action_values = [item.value for item in Action]
-                    print(action_values)
                     output_values = [item.value for item in Output]
-                    print(output_values)
-                    if value not in action_values or value not in output_values:
-                        print(f"Key {obligatory_key} has incorrect value, "
-                              f"using value from default configuration ({DEFAULT_CONFIG['MAIN'][obligatory_key]})")
+                    if value not in action_values and value not in output_values:
+                        print(f"Key '{obligatory_key}' has incorrect value, "
+                              f"using value from default configuration ('{DEFAULT_CONFIG['MAIN'][obligatory_key]}')")
                         config["MAIN"][obligatory_key] = DEFAULT_CONFIG['MAIN'][obligatory_key]
     return config
 
