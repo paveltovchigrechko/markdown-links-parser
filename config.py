@@ -1,4 +1,5 @@
 from enum import Enum
+from pathlib import Path
 import configparser
 
 class Output(Enum):
@@ -20,7 +21,6 @@ DEFAULT_CONFIG['MAIN'] = {
 }
 
 def set_config():
-    # TODO: check if 'root' is path and is not empty
     config = configparser.ConfigParser()
     try:
         config.read(CONFIG_NAME)
@@ -41,6 +41,7 @@ def set_config():
                     print(f"Missing obligatory '{obligatory_key}' parameter: "
                           f"using value from default configuration ('{DEFAULT_CONFIG['MAIN'][obligatory_key]}')")
                     config["MAIN"][obligatory_key] = DEFAULT_CONFIG['MAIN'][obligatory_key]
+
                 elif obligatory_key == "action" or obligatory_key == "output":
                     value = config["MAIN"][obligatory_key]
                     action_values = [item.value for item in Action]
@@ -49,6 +50,19 @@ def set_config():
                         print(f"Key '{obligatory_key}' has incorrect value, "
                               f"using value from default configuration ('{DEFAULT_CONFIG['MAIN'][obligatory_key]}')")
                         config["MAIN"][obligatory_key] = DEFAULT_CONFIG['MAIN'][obligatory_key]
+
+                elif obligatory_key == "root":
+                    root_value = config["MAIN"][obligatory_key]
+                    if root_value == "":
+                        print(f"Key '{obligatory_key}' is empty, "
+                              f"using value from default configuration ('{DEFAULT_CONFIG['MAIN'][obligatory_key]}')")
+                        config["MAIN"][obligatory_key] = DEFAULT_CONFIG['MAIN'][obligatory_key]
+                    else:
+                        path = Path(config["MAIN"][obligatory_key]).absolute()
+                        if not Path.exists(path) or not Path.is_dir(path):
+                            print(f"Directory in '{obligatory_key}' was not found, "
+                                  f"using value from default configuration ('{DEFAULT_CONFIG['MAIN'][obligatory_key]}')")
+                            config["MAIN"][obligatory_key] = DEFAULT_CONFIG['MAIN'][obligatory_key]
     return config
 
 if __name__ == "__main__":

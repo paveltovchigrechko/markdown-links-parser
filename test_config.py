@@ -67,5 +67,24 @@ class ConfigTests(unittest.TestCase):
 
         os.remove(config.CONFIG_NAME)
 
+    def test_config_file_with_empty_root(self):
+        with open(config.CONFIG_NAME, mode='w') as config_file:
+            config_file.write('''[MAIN]\nroot: \nfile_extension: .mdx\noutput: file\naction: check_links''')
+
+        cfg = config.set_config()
+        self.assertEqual(cfg["MAIN"]["root"], config.DEFAULT_CONFIG["MAIN"]["root"])
+
+        os.remove(config.CONFIG_NAME)
+
+    def test_config_file_with_root_not_directory(self):
+        with open(config.CONFIG_NAME, mode='w') as config_file:
+            config_file.write('''[MAIN]\nroot: ./test_config.py\nfile_extension: .mdx\noutput: file\naction: check_links''')
+
+        cfg = config.set_config()
+        self.assertEqual(cfg["MAIN"]["root"], config.DEFAULT_CONFIG["MAIN"]["root"])
+
+        os.remove(config.CONFIG_NAME)
+
+
 if __name__ == "__main__":
     unittest.main()
