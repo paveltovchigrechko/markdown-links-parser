@@ -6,12 +6,23 @@ import unittest
 
 
 class ConfigTests(unittest.TestCase):
-    def test_read_correct_config_file(self):
+    def test_correct_config_file(self):
         with open(config.CONFIG_NAME, mode='w') as config_file:
             config_file.write('''[MAIN]\nroot: .\nfile_extension: .mdx\noutput: console\naction: check_links''')
 
         cfg = config.set_config()
         self.assertEqual(cfg, config.DEFAULT_CONFIG)
+
+        os.remove(config.CONFIG_NAME)
+
+    def test_correct_config_with_additional_keys(self):
+        with open(config.CONFIG_NAME, mode='w') as config_file:
+            config_file.write('''[MAIN]\nroot: .\nfile_extension: .mdx\noutput: console\naction: check_links\nfirst_parameter: value_01\n
+            second_parameter: value_02\nthird_parameter: value_03\nforth_parameter: value_04''')
+
+        cfg = config.set_config()
+        for obligatory_key in config.DEFAULT_CONFIG["MAIN"]:
+            self.assertTrue(obligatory_key in cfg["MAIN"])
 
         os.remove(config.CONFIG_NAME)
 
