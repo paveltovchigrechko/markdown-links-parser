@@ -1,5 +1,6 @@
 from pathlib import Path
 import re
+import time
 
 # Matches a string with HTML comment tag: starts with '<!--', ends with '-->'.
 COMMENTED_LINE_PATTERN = re.compile(r"<!--.+-->")
@@ -122,7 +123,7 @@ class File:
 
 
     def print_all_links(self):
-        print(f"\nFile:", self.path_with_name)
+        print("\nFile:", self.path_with_name)
         self.print_inbound_links()
         self.print_internal_links()
         self.print_external_links()
@@ -214,7 +215,7 @@ class Dir:
             if broken_external_links:
                 self.broken_external_links[file.path_with_name] = broken_external_links
 
-    def search(self, string_to_search):
+    def search(self, string_to_search, output):
         search_result = {}
         found_matches = 0
 
@@ -226,13 +227,30 @@ class Dir:
                 for (line, matches) in occurrences_in_file:
                     found_matches += matches
 
-        if search_result:
-            print(f"Search results for {string_to_search}")
-            print(f"Found total: {found_matches} matches")
-            for file in search_result.keys():
-                print(f"File: {file}")
-                for (line_num, occurrences) in search_result[file]:
-                    print(f"Line {line_num}: found {occurrences} occurrence(s)")
+        if output == "console":
+            if search_result:
+                print(f"Search results for {string_to_search}")
+                print(f"Found total: {found_matches} matches")
+                for file in search_result.keys():
+                    print(f"File: {file}")
+                    for (line_num, occurrences) in search_result[file]:
+                        print(f"Line {line_num}: found {occurrences} occurrence(s)")
+
+            else:
+                print(f"{string_to_search} was not found.")
+
+        elif output == "file":
+            with open(time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime())+f'-search-result-{string_to_search}.txt', 'w') as output_file:
+                if search_result:
+                    output_file.write(f"Search results for {string_to_search}\n")
+                    output_file.write(f"Found total: {found_matches} matches\n")
+                    for file in search_result.keys():
+                        output_file.write(f"=============\nFile: {file}\n")
+                        for (line_num, occurrences) in search_result[file]:
+                            output_file.write(f"Line {line_num}: found {occurrences} occurrence(s)\n")
+
+                else:
+                    output_file.write(f"{string_to_search} was not found.\n")
 
     def print_broken_links(self):
         if not self.broken_external_links and not self.broken_internal_links:
@@ -251,11 +269,66 @@ class Dir:
                 for (line, link) in self.broken_external_links[file]:
                     print(f"Line {line}: not found {link}")
 
+    def fprint_broken_links(self):
+        with open(time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime())+'-broken-links.txt', 'w') as output_file:
+            if not self.broken_external_links and not self.broken_internal_links:
+                output_file.write("No broken links found")
+                return
+            output_file.write("Broken internal links\n================")
+            for file in self.broken_internal_links:
+                if self.broken_internal_links[file]:
+                    output_file.write(f"\nFile: {file}")
+                    for (line, link) in self.broken_internal_links[file]:
+                        output_file.write(f"Line {line}: not found {link}")
+            output_file.write("\nBroken external links\n================")
+            for file in self.broken_external_links:
+                if self.broken_external_links[file]:
+                    output_file.write(f"\nFile: {file}")
+                    for (line, link) in self.broken_external_links[file]:
+                        output_file.write(f"Line {line}: not found {link}")
+
     def print_all_links(self):
         if not self.parsed_files:
             return
         for file in self.parsed_files.values():
             file.print_all_links()
+
+    def fprint_all_links(self):
+        with open(time.strftime('%Y-%m-%d-%H:%M:%S', time.localtime()) + '-all-links.txt', 'w') as output_file:
+            if not self.parsed_files:
+                output_file.write("No links were found.")
+                return
+            for file in self.parsed_files.values():
+                output_file.write(f"\n=============\nFile: {file.path_with_name}")
+                output_file.write(f"\nInbound links:")
+                if file.inbound_links:
+                    for inbound_link in file.inbound_links:
+                        output_file.write(f"\n{inbound_link}")
+                else:
+                    output_file.write("\nNo inbound links found.")
+
+                output_file.write(f"\nInternal links:")
+                if file.internal_links:
+                    for (line_num, internal_link) in file.internal_links:
+                        output_file.write(f"\nLine {line_num}: {internal_link.heading}")
+                else:
+                    output_file.write("\nNo internal links found.")
+
+                output_file.write("\nExternal links:")
+                if file.external_links:
+                    for (line_num, external_link) in file.external_links:
+                        output_file.write(f"\nLine {line_num}: path: {external_link.path}, "
+                              f"file: {external_link.file}, "
+                              f"heading: {external_link.heading}")
+                else:
+                    output_file.write("\nNo external links found")
+
+                output_file.write("\nOutside links:")
+                if file.outside_links:
+                    for (line_num, outside_link) in file.outside_links:
+                        output_file.write(f"\nLine {line_num}: {outside_link}")
+                else:
+                    output_file.write("\nNo outside links found.")
 
 if __name__ == "__main__":
     pass
