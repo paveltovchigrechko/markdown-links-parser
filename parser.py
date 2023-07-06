@@ -121,7 +121,6 @@ class File:
                     search_matches.append((line_num, len(occurrences)))
         return search_matches
 
-
     def print_all_links(self):
         print("\nFile:", self.path_with_name)
         self.print_inbound_links()
@@ -240,7 +239,8 @@ class Dir:
                 print(f"{string_to_search} was not found.")
 
         elif output == "file":
-            with open(time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime())+f'-search-result-{string_to_search}.txt', 'w') as output_file:
+            with open(time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime())+f'-search-result-{string_to_search}.txt', 'w')\
+                    as output_file:
                 if search_result:
                     output_file.write(f"Search results for {string_to_search}\n")
                     output_file.write(f"Found total: {found_matches} matches\n")
