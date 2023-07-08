@@ -215,6 +215,8 @@ class Dir:
                 self.broken_external_links[file.path_with_name] = broken_external_links
 
     def search(self, string_to_search, output):
+        if string_to_search == "":
+            return
         search_result = {}
         found_matches = 0
 
