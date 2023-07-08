@@ -18,7 +18,9 @@ The script is configurable. You can define a `config.ini` file in a script direc
   * `file` creates a `txt` file in script directory with the result 
 
 If `config.ini` misses `[MAIN]` section, the default configuration is used.
-If `config.ini` misses one or more parameters in `[MAIN]` section, the default value for this parameter is used.
+If `config.ini` misses one or more obligatory parameters in `[MAIN]` section, the default values are used.
+If a path specified in `root` parameter is not found or not a directory or empty string, the default value is used.
+If `action` and / or `output` parameters have the value that is not accepted, the default value is used.
 All other sections and parameters are ignored.
 
 Default configuration:
@@ -29,3 +31,10 @@ file_extension: .mdx
 action: check_links
 output: console
 ```
+
+## Script files
+
+* `main.py` is the main runner. Reads config and runs the corresponding methods
+* `parser.py` contains the objects and methods for parsing directories, files, checking links, searching given line
+* `config.py` contains the config object and methods
+* `test_config.py` and `test_parser.py` contain tests for the corresponding files
