@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 import re
 import sys
@@ -259,18 +260,24 @@ class Dir:
         if not self.broken_external_links and not self.broken_internal_links:
             print("No broken links found")
             return
-        sys.stderr.write("Broken internal links\n================")
+
+        print("Broken internal links\n================")
+
         for file in self.broken_internal_links:
             if self.broken_internal_links[file]:
-                sys.stderr.write(f"\nFile: {file}")
+                print(f"\nFile: {file}")
                 for (line, link) in self.broken_internal_links[file]:
-                    sys.stderr.write(f"Line {line}: not found {link}")
-        sys.stderr.write("\nBroken external links\n================")
+                    print(f"Line {line}: not found {link}")
+
+        print("\nBroken external links\n================")
+
         for file in self.broken_external_links:
             if self.broken_external_links[file]:
-                sys.stderr.write(f"\nFile: {file}")
+                print(f"\nFile: {file}")
                 for (line, link) in self.broken_external_links[file]:
-                    sys.stderr.write(f"Line {line}: not found {link}")
+                    print(f"Line {line}: not found {link}")
+
+        sys.exit("Found broken links!")
 
     def fprint_broken_links(self):
         with open(time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime())+'-broken-links.txt', 'w') as output_file:
@@ -293,14 +300,17 @@ class Dir:
     def print_all_links(self):
         if not self.parsed_files:
             return
+
         for file in self.parsed_files.values():
             file.print_all_links()
 
     def fprint_all_links(self):
         with open(time.strftime('%Y-%m-%d-%H:%M:%S', time.localtime()) + '-all-links.txt', 'w') as output_file:
+
             if not self.parsed_files:
                 output_file.write("No links were found.")
                 return
+
             for file in self.parsed_files.values():
                 output_file.write(f"\n=============\nFile: {file.path_with_name}")
                 output_file.write(f"\nInbound links:")
