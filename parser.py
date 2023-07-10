@@ -1,5 +1,6 @@
 from pathlib import Path
 import re
+import sys
 import time
 
 # Matches a string with HTML comment tag: starts with '<!--', ends with '-->'.
@@ -258,18 +259,18 @@ class Dir:
         if not self.broken_external_links and not self.broken_internal_links:
             print("No broken links found")
             return
-        print("Broken internal links\n================")
+        sys.stderr.write("Broken internal links\n================")
         for file in self.broken_internal_links:
             if self.broken_internal_links[file]:
-                print(f"\nFile: {file}")
+                sys.stderr.write(f"\nFile: {file}")
                 for (line, link) in self.broken_internal_links[file]:
-                    print(f"Line {line}: not found {link}")
-        print("\nBroken external links\n================")
+                    sys.stderr.write(f"Line {line}: not found {link}")
+        sys.stderr.write("\nBroken external links\n================")
         for file in self.broken_external_links:
             if self.broken_external_links[file]:
-                print(f"\nFile: {file}")
+                sys.stderr.write(f"\nFile: {file}")
                 for (line, link) in self.broken_external_links[file]:
-                    print(f"Line {line}: not found {link}")
+                    sys.stderr.write(f"Line {line}: not found {link}")
 
     def fprint_broken_links(self):
         with open(time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime())+'-broken-links.txt', 'w') as output_file:
