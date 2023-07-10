@@ -189,7 +189,8 @@ class Dir:
             return
         for file in self.parsed_files.values():
             broken_links = file.check_internal_links()
-            self.broken_internal_links[file.path_with_name] = broken_links
+            if broken_links:
+                self.broken_internal_links[file.path_with_name] = broken_links
 
     def check_external_links(self):
         if not self.parsed_files:
