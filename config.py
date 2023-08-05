@@ -20,10 +20,10 @@ DEFAULT_CONFIG['MAIN'] = {
     "action": Action.CHECK_LINKS.value,
 }
 
-def set_config():
+def set_config(config_file=CONFIG_NAME):
     config = configparser.ConfigParser()
     try:
-        config.read(CONFIG_NAME)
+        config.read(config_file)
     except configparser.MissingSectionHeaderError:
         print("Configuration file misses sections. Using default configuration.")
         return DEFAULT_CONFIG
