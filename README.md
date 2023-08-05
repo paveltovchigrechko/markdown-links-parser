@@ -38,3 +38,41 @@ output: console
 * `parser.py` contains the objects and methods for parsing directories, files, checking links, searching given line
 * `config.py` contains the config object and methods
 * `test_config.py` and `test_parser.py` contain tests for the corresponding files
+
+## Using as Git action
+
+You can run the script as a Github action, for example, when someone creates a new PR.
+
+1. Create a `yaml` file in `.github/workflows` directory.
+2. Copy the following snippet into `yaml` file:
+```
+name: Check Markdown links
+
+on: 
+  pull_request:    
+    branches: [ "main", "test", "develop" ]
+
+  workflow_dispatch:
+
+jobs:
+  links-checker:
+    name: links-checker
+    runs-on: ubuntu-latest
+    steps:
+    - name: Normal checkout
+      uses: actions/checkout@v3
+      
+    - name: Check-out parser repository
+      uses: actions/checkout@v2
+      with:
+        repository: paveltovchigrechko/markdown-parser
+        path: "markdown-parser"
+        
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+
+    - name: Run parser
+      run: python3 markdown-parser/main.py      
+``` 
