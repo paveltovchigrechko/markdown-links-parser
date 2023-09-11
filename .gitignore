@@ -14,4 +14,4 @@ __pycache__/
 
 # Test direstories and files
 dev-docs-test/
-docs-test/
+docs/

@@ -1,6 +1,6 @@
 import unittest
 
-from parser import link, parsedfile
+from parser import link, file
 
 class LinkTests(unittest.TestCase):
     def test_init_with_full_link(self):
@@ -37,7 +37,7 @@ class LinkTests(unittest.TestCase):
 class FileTests(unittest.TestCase):
     def setUp(self):
         self.path = "path/to/file"
-        self.file = parsedfile.File(self.path)
+        self.file = file.File(self.path)
 
     def test_init(self):
         self.assertEqual(self.file.path, "path/to/")
