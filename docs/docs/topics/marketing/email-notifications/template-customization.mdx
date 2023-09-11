@@ -1,0 +1,181 @@
+---
+title: Template customization
+sidebar_position: 10
+description: Email template customization allows changing the style for all your store emails at once.
+keywords:
+    - email customization
+    - email template
+    - logo    
+---
+
+import Image from "@site/src/components/Image";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+While every email in **Email notifications** has unique content, they share the same style and design. Email template customization allows changing the style for all your store emails at once. 
+
+In the email template editor, you can:
+* [set a logo image or text](#logo)
+* [change the color styles for email interactive elements](#styles) (such as buttons)
+
+To customize the email template:
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+1. In store admin interface, go **Marketing** > **Email notifications**
+2. In **Email notifications**, select **Customize template**
+
+</TabItem>
+
+<TabItem value="tablet">
+
+1. In admin interface, select <Image src="/img/hamburger-menu-button.png" alt="Menu button" width={20} height={20} />
+2. In the sidebar, select **Marketing**, then **Email notifications**
+3. In **Email notifications**, select <Image src="/img/customize-email-template-button.png" alt="Customize email template button" height={20} />
+
+</TabItem>
+
+<TabItem value="mobile">
+
+1. In admin interface, select <Image src="/img/hamburger-menu-button.png" alt="Menu button" height={20} />
+2. In the sidebar, select **Marketing**, then **Email notifications**
+3. In **Email notifications**, select <Image src="/img/customize-email-template-button.png" alt="Customize email template button" height={20} />
+
+</TabItem>
+</Tabs>
+
+## Interface {#interface}
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+In desktop view, the template editor divides into three areas:
+1. The control bar with buttons appears at the top
+2. The sidebar appears on the left. It contains the common settings for all emails. Use <Image src="/img/website-editor-return-button.png" alt="Return button" width={20} height={20} /> in the upper panel to return to **Email notifications**
+3. The email template preview appears on the right. The preview instantly applies all changes you make in the template settings
+
+The control bar contains buttons:
+* **Close**. It closes the template editor and returns you to **Email notifications**. If you have unsaved changes, a pop-up window appears. You can discard the unsaved changes or stay in the template editor and save them
+
+:::caution
+
+When you close the template editor, all unsaved changes will be permanently lost!
+
+:::
+<!-- Subject to change and check -->
+* The preview buttons. You can use the preview buttons to display your template email in other modes. To do so, select the button:
+    * <Image src="/img/desktop-view-icon.png" alt="Desktop view button" height={20} /> for desktop mode (enabled by default)
+    * <Image src="/img/tablet-view-icon.png" alt="Tablet view button" height={20} /> for tablet mode
+    * <Image src="/img/mobile-view-icon.png" alt="Mobile view button" height={20} /> for mobile devices mode
+* **Save**. Use this button to save all changes made in the template editor
+
+</TabItem>
+
+<TabItem value="tablet">
+
+In tablet view, the template editor divides into three areas:
+1. The upper panel with the buttons:
+    * <Image src="/img/website-editor-return-button.png" alt="Return button" width={20} height={20} /> returns you to <strong>Email notifications</strong>
+    * <Image src="/img/hamburger-menu-button.png" alt="Menu button" width={20} height={20} /> opens the sidebar with common settings for all emails
+2. The control bar with buttons
+3. The email template preview appears under the control bar. The preview instantly applies all changes you make in the template settings
+
+The control bar contains buttons:
+* **Close**. It closes the template editor and returns you to **Email notifications**. If you have unsaved changes, a pop-up window appears. You can discard the unsaved changes or stay in the template editor and save them
+
+:::caution
+
+When you close the template editor, all unsaved changes will be permanently lost!
+
+:::
+
+* **Save**. Use this button to save all changes made in the template editor
+
+</TabItem>
+
+<TabItem value="mobile">
+
+In mobile view, the template editor divides into three areas:
+1. The upper panel with the buttons:
+    * <Image src="/img/website-editor-return-button.png" alt="Return button" width={20} height={20} /> returns you to <strong>Email notifications</strong>
+    * <Image src="/img/hamburger-menu-button.png" alt="Menu button" width={20} height={20} /> opens the sidebar with common settings for all emails
+2. The control bar with buttons
+3. The email template preview appears under the control bar. The preview instantly applies all changes you make in the template settings
+
+The control bar contains buttons:
+* **Close**. It closes the template editor and returns you to **Email notifications**. If you have unsaved changes, a pop-up window appears. You can discard the unsaved changes or stay in the template editor and save them
+
+:::caution
+
+When you close the template editor, all unsaved changes will be permanently lost!
+
+:::
+
+* **Save**. Use this button to save all changes made in the template editor
+
+</TabItem>
+</Tabs>
+
+:::tip
+
+The **Save** button becomes active only if you have unsaved changes.
+
+:::
+
+## Logo {#logo}
+
+By default, the logo appears at the top of the store emails. You can set a logo as an image or as text. 
+
+You can add a logo image in different ways:
+* In the template editor sidebar, select the frame and choose the image file in the file explorer
+* Drag and drop the image file on the frame (for the desktop version)
+
+:::note Image requirements
+
+File extension: jpeg, jpg, png, gif
+
+Size up to 20 Mb or 4472x4472 px
+
+:::
+
+To delete the logo image:
+1. Select <Image src="/img/delete-icon.png" alt="Delete collection button" width={20} height={20} /> in the image upper-right corner
+2. In the pop-up window, select **Delete**
+
+When you add a logo image, an additional slider for the image width appears in the sidebar. You can set the width relative to the width of the email body. 
+
+To set a logo as a text:
+1. In the template editor sidebar, fill in the logo text in **Logo name**
+2. Select the logo text font in **Font-family**
+3. Select the logo text weight in **Font-weight**
+4. In the control bar, select **Save**
+
+:::info
+
+If you add a logo image, the logo text settings do not have any effect on your emails.
+
+:::
+
+## Set up styles for interactive elements {#styles}
+
+You can apply color styles for such interactive elements as buttons in your emails:
+1. In the sidebar, select the color you want to change:
+    * **Main color** applies to the background of interactive elements 
+    * **Text color** applies to the text of interactive elements
+2. In the color picker, select the color
+3. In the control bar, select **Save**

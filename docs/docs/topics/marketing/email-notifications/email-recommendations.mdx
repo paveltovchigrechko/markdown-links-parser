@@ -1,0 +1,338 @@
+---
+title: Tips for email customization
+sidebar_position: 30
+description: Find general tips for email customization.
+keywords:
+    - email customization
+    - email tips
+---
+
+import Code from "@site/src/components/Code";
+
+This article describes the general tips for [email customization](email-customizing.mdx) in the email editor.
+
+:::tip
+
+You can find the description of the default emails in the main [email notifications](email-notifications.mdx#default-emails) article. You can also [customize the email template](template-customization.mdx).
+
+:::
+
+Even if you do not feel comfortable with HTML, CSS, and Liquid, you still can change an email text. Just avoid deleting any HTML tags or CSS attributes. Remember, you can [reset an email to the default](email-customizing.mdx#reset) anytime.
+
+If you are familiar with HTML, CSS, and Liquid, you can change an email completely. When customizing an email, we suggest using the techniques:
+* [Tables](#tables)
+* [Universally supported HTML tags and attributes](#universal-html)
+* [Inline CSS styles with universally supported properties](#inline-css)
+* [Restrict the email body width](#body-width)
+* [Declare explicitly HTML attributes](#explicit-html)
+* [Safe fonts](#safe-fonts)
+* [Hex color codes](#color)
+* [Conditional comments](#conditional-comments)
+* [Responsive layout](#layout)
+
+:::tip
+
+You can find the list of available Liquid variables in the [email notification variables reference](email-notifications-variables-reference.mdx).
+
+:::
+
+## Tables {#tables}
+
+You customers can open your email in different email clients and browsers. Some of them do not support the newer versions of HTML and CSS. For such customers, your emails may appear with a broken layout which makes them difficult to read. Using HTML tag <Code>table</Code> ensures that emails displayed correctly on all platforms.
+
+The email basis is a table. In the table cells you can use smaller tables that contain the email content: text, images, buttons, and other elements.
+
+## Universally supported HTML {#universal-html}
+
+Some email clients do not support a range of HTML tags. Universal HTML tags and attributes are supported by all email clients and browsers. Use them to make sure your email appears the same everywhere. 
+
+| HTML tag |                                              Attributes                                              |
+|:--------:|:----------------------------------------------------------------------------------------------------:|
+| a        | class, href, id, style, target                                                                       |
+| b        | class, id, style                                                                                     |
+| br       | class, id, style                                                                                     |
+| div      | align, class, dir, id, style                                                                         |
+| font     | class, color, face, id, size, style                                                                  |
+| h1...h6  | align, class, dir, id, style                                                                         |
+| head     | dir, lang                                                                                            |
+| hr       | align, size, width                                                                                   |
+| img      | align, border, class, height, hspace, id, src, style, usemap, vspace, width                          |
+| label    | class, id, style                                                                                     |
+| li       | class, dir, id, style, type                                                                          |
+| ol       | class, dir, id, style, type                                                                          |
+| p        | align, class, dir, id, style                                                                         |
+| span     | class, id, style                                                                                     |
+| strong   | class, id, style                                                                                     |
+| table    | align, bgcolor, border, cellpadding, cellspacing, class, dir, frame, id, rules, style, width         |
+| td       | abbr, align, bgcolor, class, colspan, dir, height, id, lang, rowspan, scope, style, valign, width    |
+| th       | abbr, align, background, bgcolor, class, colspan, dir, height, id, lang, scope, style, valign, width |
+| tr       | align, bgcolor, class, dir, id, style, valign                                                        |
+| u        | class, id, style                                                                                     |
+| ul       | class, dir, id, style                                                                                |
+
+## Inline CSS {#inline-css}
+
+Generally, you can apply CSS to HTML document in three ways:
+* Inline CSS by using the <Code>style</Code> attribute inside HTML elements
+* Internal CSS by using a <Code>style</Code> element in the <Code>head</Code> element
+* External CSS by using a <Code>link</Code> element to link to an external CSS file
+
+Using an external or internal style sheet for CSS may display email content incorrectly. Instead, use inline CSS for HTML elements in email content, for example:
+```
+<h1 style="color:blue;text-align:center;">This is a heading</h1>
+<p style="color:red;">This is a paragraph.</p>
+```
+
+Additionally, use universally supported CSS properties only.
+<details>
+<summary>The list of universally supported CSS properties</summary>
+<div>
+
+
+* background
+* background-color
+* border
+* border-bottom
+* border-bottom-color
+* border-bottom-style
+* border-bottom-width
+* border-color
+* border-left
+* border-left-color
+* border-left-style
+* border-left-width
+* border-right
+* border-right-color
+* border-right-style
+* border-right-width	
+* border-style
+* border-top
+* border-top-color
+* border-width
+* color
+* display
+* font
+* font-family
+* font-size
+* font-style
+* font-variant
+* font-weight
+* height
+* letter-spacing
+* line-height
+* list-style-type
+* padding
+* padding-bottom
+* padding-left
+* padding-right
+* padding-top
+* table-layout
+* text-align
+* text-decoration
+* text-indent
+* text-transform
+* vertical-align
+
+</div>
+</details>
+
+## Email body width {#body-width}
+
+Restrict the email body width to make it easier to read on mobile devices. For example, you can use the snippet:
+```
+<table style="max-width:600px; width=100%;"></table>
+```
+
+## Explicit HTML attributes {#explicit-html}
+
+Some HTML tags require specific attributes. If you do not set them explicitly, your customer email client set the value for these attributes according to its settings. This may lead to incorrect email appearance.
+
+We recommend you always declare the attributes for the following email elements.
+
+_**Tables**_. Use the HTML attributes:
+<ul>
+<li><Code>border="0"</Code> for the width of the table border</li>
+<li><Code>cellpadding="0"</Code> for the distance in pixels between the cell border and the cell content </li>
+<li><Code>cellspacing="0"</Code> for the distance in pixels between the table cells</li>
+</ul>
+
+Also, use the CSS properties:
+<ul>
+<li><Code>"margin: 0;"</Code></li>
+<li><Code>"padding: 0;"</Code></li>
+</ul>
+
+Example:
+```
+<table border="0" cellpadding="0" cellspacing="0" style="margin: 0; padding: 0;">
+</table>
+```
+
+_**Inline elements**_. Use the CSS properties:
+<ul>
+<li><Code>"color: #0F0E0E;"</Code> for the color of the element</li>
+<li><Code>"font: 13px Georgia, serif;"</Code> for the font parameters</li>
+<li><Code>"line-height: 25px;"</Code> for the height between the lines</li>
+<li><Code>"-webkit-text-size-adjust: none;"</Code> for disallowing mobile devices to adjust the text size</li>
+</ul>
+
+:::tip
+
+Check out the paragraphs on [the color](#color) and [font](#safe-fonts) of the inline elements.
+
+:::
+
+For <Code>a</Code> tag use <Code>"target="_blank""</Code> CSS property to open links in new browser tabs. Example:
+```
+<a href="#" style="color: #0F0E0E; font: 14 px Georgia, serif; line-height: 30 px; 
+-webkit-text-size-adjust: none;" target="_blank">Link text</a>
+```
+
+_**Images**_. Use the HTML attributes:
+<ul>
+<li><Code>src="#"</Code> for the image source</li>
+<li><Code>alt=""</Code> for the image alternative description. You can leave it blank, but we recommend filling in the attribute</li>
+<li><Code>border="0"</Code> for the width of the image border</li>
+<li><Code>width="75"</Code> for the image width</li>
+<li><Code>height="50"</Code> for the image height</li>
+</ul>
+
+Also, use the CSS properties:
+<ul>
+<li><Code>"display: block;"</Code> for making the image a block element</li>
+</ul>
+
+Example:
+```
+<img src="#" alt="Alternative description" border="0" width="100" height="75" style="display: block;"/>
+```
+
+## Safe fonts {#safe-fonts}
+
+Use safe fonts for your emails. A safe font is a font that most browsers and email clients render correctly. 
+
+<details>
+<summary>The list of safe fonts</summary>
+<div>
+
+* Arial
+* Arial Black
+* Courier
+* Courier New
+* Georgia
+* Tahoma
+* Times
+* Times New Roman
+* Trebuchet MS
+* Verdana
+
+</div>
+</details>
+
+:::tip
+
+You can use unsafe fonts for your emails. In this case, we recommend adding a safe font that an email client should use if it cannot render the unsafe one. You should also add a font family as the last fallback. Example:
+```
+<p style="font-family: Helvetica, Times New Roman, sans-serif;"> </p>
+```
+
+In this example, Helvetica is the unsafe default font for <Code>p</Code> tag. If a user's device does not have Helvetica installed, it uses Times New Roman for <Code>p</Code> tag. If a user's device does not have Times New Roman installed, it uses the available sans-serif font.
+
+:::
+
+## Hex color codes {#color}
+
+Some email clients cannot process RGB or 3-digits hex color codes. Hence, you should use a 6-digit hex color code, for example:
+```
+#0F0F0F
+```
+
+You should apply the hex color code for the <Code>table</Code> HTML tag using <Code>background</Code> and <Code>bgcolor</Code> attributes.
+
+Some email clients do not render the background color set in CSS, so we recommend avoiding them.
+
+## Conditional comments {#conditional-comments}
+
+Conditional comments are statements to display specific email content if some condition is true. This is useful for rendering emails in specific clients or browsers, such as Microsoft Outlook and Internet Explorer. You should use <Code>mso</Code> tag for Microsoft Outlook and <Code>IE</Code> tag for Internet Explorer to control the email content.
+
+Conditional comments have the syntax:
+```
+<!--[if IE]>
+    <p>This information will display only if the used browser is Internet Explorer.</p>    
+<!--<![endif]-->
+```
+
+If you invert the condition with <Code>!</Code> sign  for Microsoft Outlook, you should add an empty comment after condition:
+```
+<!--[if !mso]><!-->
+    <p>This information will not display in Microsoft Outlook.</p>
+<!--<![endif]-->
+```
+
+You can target specific Microsoft Outlook versions by declaring the version number after <Code>if mso</Code>: 
+
+| Microsoft Outlook version |     Code    |
+|:-------------------------:|:-----------:|
+| All versions              | [if mso]    |
+| Outlook 2000              | [if mso 9]  |
+| Outlook 2002              | [if mso 10] |
+| Outlook 2003              | [if mso 11] |
+| Outlook 2007              | [if mso 12] |
+| Outlook 2010              | [if mso 14] |
+| Outlook 2013              | [if mso 15] |
+| Outlook 2016 and 2019     | [if mso 16] |
+
+If you need to target multiple conditions or invert expression, you can use the syntax:
+
+| Code | Definition               | Example                                                                                                |
+|:----:|:------------------------:|:------------------------------------------------------------------------------------------------------:|
+| !    | not                      | [if !mso] If not Microsoft Outlook                                                                     |
+| gt   | Greater than             | [if gt mso 14] Greater than Microsoft Outlook 2010                                                     |
+| lt   | Less than                | [if lt mso 12] Less than Microsoft Outlook 2007                                                        |
+| gte  | Greater than or equal to | [if gte mso 15] Greater than or equal to Microsoft Outlook 2013                                        |
+| lte  | Less than or equal to    | [if lte mso 11] Less than or equal to Microsoft Outlook 2003                                           |
+| \|   | or                       | [if mso 9 \| mso 10] If Microsoft Outlook 2000 or 2002                                                 |
+| &    | and                      | [if gt mso 11 & lt mso 15] If greated than Microsoft Outlook 2003 and less than Microsoft Outlook 2013 |
+
+## Responsive layout {#layout}
+
+A responsive layout adjusts an email to the size of the user device and makes it easier to read on smaller screens. There are some approaches you can follow to make an email responsive:
+1. Layout columns. You can wrap the email content in <Code>table</Code> tag with <Code>max-width</Code> attribute and make 2 or 3 columns using <Code>span</Code> tag with fixed width. On mobile devices with smaller screens, the columns will rearrange into one.
+
+Example:
+```
+<table cellpadding="0" cellspacing="0" style="margin:0; padding:0" width="100%">
+    <tr>
+        <td> 
+            <table cellpadding="0" cellspacing="0" style="margin:0; padding:0" style="max-width:600px; width:100%">
+                <tr>
+                    <td>
+                        <p style="display: inline-block; width: 300px">First column</p>
+                        <p style="display: inline-block; width: 300px">Second column</p>
+                    </td>                    
+                </tr>
+            </table>          
+        </td>
+    </tr>
+</table>
+```
+
+If a screen width is smaller than 600 pixels (as specified in <Code>max-width</Code> attribute), the <Code>p</Code> tags will be displayed one above another. 
+
+2. HTML <Code>media</Code> attribute. Media queries are commands that adjust the email layout to the screen resolution. You can use them to change the font size and color of buttons, as well as the position of blocks and images depending on the screen size. 
+
+Example:
+```
+<style>
+    body {
+        font-size: 18px;
+    }
+    @media (max-width: 600px) {
+        body {
+            font-size: 16px;
+        }
+    }
+</style>
+```
+
+The default font for the elements in <Code>body</Code> tag is 18 pixels. If the screen width is smaller than 600 pixels, the font size is 16 pixels.

@@ -1,0 +1,277 @@
+---
+title: Email notifications variables reference
+sidebar_position: 40
+description: Email notifications use Liquid to render their content. Find Liquid objects you can use in our article.
+keywords:
+    - email
+    - Liquid
+---
+
+import Code from "@site/src/components/Code";
+
+Email notifications use Liquid to render their content. Liquid is a template language that provides a simple syntax to display the dynamic variables in emails. For example, using Liquid you can display a customer name, an order number, and its content in the email.
+
+This article describes the Liquid objects and their properties you can use when editing an email body in [email editor](email-customizing.mdx):
+* [order](#order) 
+* [line item](#line-item)
+* [transaction](#transaction)
+* [customer](#customer)
+* [address](#address)
+* [shop](#shop)
+* [abandoned checkout](#abandoned-checkout)
+* [refund](#refund)
+<!-- * [tax line](#tax-line) -->
+
+:::info
+
+You can set the basic email features for all emails at once using [email template customizing](template-customization.mdx). 
+
+:::
+
+A reference to an object in Liquid should be always enclosed in double curly braces: <Code>{{ customer.first_name }}</Code>. In this case, Liquid renders the <Code>first_name</Code> property of the <Code>customer</Code> object. 
+
+## Order {#order}
+
+The <Code>[order](../../orders/orders.mdx)</Code> object is available to use in the following emails:
+* [Successful order payment](email-notifications.mdx#successful-order-payment)
+* [Order refund](email-notifications.mdx#order-refund)
+* [Order cancellation](email-notifications.mdx#order-cancellation)
+<!-- Abandoned cart? -->
+* [Order is in the delivery service](email-notifications.mdx#order-is-in-the-delivery-service)
+* [Successful delivery](email-notifications.mdx#successful-delivery)
+
+:::note
+
+You should call the order object directly: use <Code>{{ property }}</Code> notation instead of <Code>{{ order.property }}</Code>.
+
+:::
+
+| Property              | Description                                                                                                         |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------|
+| id                    | The order identifier unique within the Unistore system                                                              |
+| email                 | The email associated with the order                                                                                 |
+| name                  | The order name consisted of symbol # and order number. Example: #12345                                              |
+| order_name            | The same as name                                                                                                    |
+| order_number          | The order unique number within the store                                                                            |
+| created_at            | The date and time when the order was created                                                                        |
+| tags                  | An array of order's [tags](../../admin-tools/tags.mdx)                                                              |
+| transactions          | An array of order's [transactions](#transaction)                                                         |
+| customer              | The [customer](../../customers/customers.mdx) associated with the order                                             |
+| billing_address       | The billing [address](#address) of the order                                                             |
+| shop                  | The [store](#shop) where the order was placed                                                                       |
+| subtotal_price        | The subtotal price of order line items with discounts applied                                                       |
+| total_price           | The total price of order line items                                                                                 |
+| financial_status      | The [payment status](../../orders/orders.mdx#payment-status) of the order                                           |
+| requires_shipping     | A Boolean value that returns true if at least one [line item](#line-item) in the order requires shipping |
+| shipping_method.title | The name of [delivery option](../../store-settings/delivery-options.mdx) used in the order                          |
+| shipping_method.price | The delivery price of the order including any delivery discount                                                     |
+| shipping_price        | The delivery price of the order in the order currency                                                               |
+| shipping_address      | The shipping [address](#address) of the order                                                            |
+| line_items            | An array of the [line items](#line-item) in the order                                                    |
+| item_count            | The total quantity of all [line items](#line-item) in the order                                          |
+| fulfillment_status    | The [fulfillment status](../../orders/orders.mdx#fulfillment-status) of the order                                   |
+| note                  | The order comment                                                                                                   |
+| cancelled             | A Boolean value that returns true if the order was canceled                                                         |
+| cancelled_at          | The date and time when the order was canceled                                                                       |
+| cancel_reason         | The reason of the order cancellation                                                                                |
+| order_status_url      | The URL for the order status page                                                                                   |
+| tax_price             | The total amount of taxes applied to the order                                                                      |
+| total_discounts       | The total amount of all discounts applied to the order                                                              |
+| refund                | The [refund](#refund) associated with the order                                                              |
+
+<!-- | tax_lines             | An array of [tax lines](#tax-line) in the order                                                                     | -->
+
+## Line item {#line-item}
+
+A line item is a single position in the order. It represents a product variant and its quantity in order. The <Code>line_item</Code> object is available to use in the same emails as the <Code>order</Code> object:
+* [Successful order payment](email-notifications.mdx#successful-order-payment)
+* [Order refund](email-notifications.mdx#order-refund)
+* [Order cancellation](email-notifications.mdx#order-cancellation)
+<!-- Abandoned cart? -->
+* [Order is in the delivery service](email-notifications.mdx#order-is-in-the-delivery-service)
+* [Successful delivery](email-notifications.mdx#successful-delivery)
+
+The property <Code>line_items</Code> of <Code>order</Code> object returns all line items in an order. You can use Liquid tags to iterate by order line items:
+```
+{% for line_item in line_items %}
+  {{ line_item.title }}
+{% endfor %}
+```
+
+|         Property         |Description                                                                                                                                                                              |
+|:------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| grams                    |Weight of a single line item in grams                                                                                                                                                    |
+| image.id                 |The identifier of the line item image                                                                                                                                                    |
+| image.alt                |The image alternative text                                                                                                                                                               |
+| image.height             |The image height in pixels                                                                                                                                                               |
+| image.src                |The image source                                                                                                                                                                         |
+| image.weight             |The image width in pixels                                                                                                                                                                |
+| line_price               |The price for the line item in the order currency. It equals the single item price (check <Code>price</Code> property) multiplied by item quantity (check <Code>quantity</Code> property)|
+| original_line_price      |The <Code>line_price</Code> without discounts                                                                                                                                            |
+| final_line_price         |The <Code>line_price</Code> with discounts                                                                                                                                               |
+| price                    |The price for a single item in the order currency                                                                                                                                        |
+| product.title            |The title of the [product](../../products/products.mdx)                                                                                                                                  |
+| product.vendor           |The [vendor](../../products/vendors/vendors.mdx) of the product                                                                                                                          |
+| quantity                 |The quantity of the line item                                                                                                                                                            |
+| requires_shipping        |A Boolean value that returns <Code>true</Code> if the line item requires shipping                                                                                                        |
+| taxable                  |A Boolean value that returns <Code>true</Code> if the line item is taxable                                                                                                               |
+| title                    |The title of the line item. It includes the product title and the variant name                                                                                                           |
+| url                      |The relative URL of the line item's variant page                                                                                                                                         |
+| variant.barcode          |The barcode associated with the variant of the line item                                                                                                                                 |
+| variant.compare_at_price |The compare-at price associated with the variant of the line item                                                                                                                        |
+| variant.image            |The variant image                                                                                                                                                                        |
+| variant.sku              |The SKU associated with the variant of the line item                                                                                                                                     |
+| variant.title            |The title of the variant associated with the line item                                                                                                                                   |
+| refunded.quantity        |The quantity of the line item that can be refunded                                                                                                                                       |
+
+## Transaction {#transaction}
+
+A transaction is a money exchange in an order currency associated with an order. An order can have several transactions. The <Code>transaction</Code> object is available to use in the same emails as the <Code>order</Code> object:
+* [Successful order payment](email-notifications.mdx#successful-order-payment)
+* [Order refund](email-notifications.mdx#order-refund)
+* [Order cancellation](email-notifications.mdx#order-cancellation)
+<!-- Abandoned cart? -->
+* [Order is in the delivery service](email-notifications.mdx#order-is-in-the-delivery-service)
+* [Successful delivery](email-notifications.mdx#successful-delivery)
+
+The property <Code>transactions</Code> of <Code>order</Code> object returns all transactions in an order. You can use Liquid tags to iterate by order line items:
+```
+{% for transaction in transactions %}
+  {{ transaction.amount }}
+{% endfor %}
+```
+
+|Property                           |Description                                                        |
+|:---------------------------------:|:-----------------------------------------------------------------:|
+|amount                             |The total transaction amount in the order currency                 |
+|created_at                         |The date and time when the transaction was created                 |
+|gateway                            |The handler of the provider used for the transaction               |
+|gateway_display_name               |The name of the provider used for the transaction                  |
+|id                                 |The transaction unique identifier                                  |
+|kind                               |The transaction type                                               |
+|name                               |The transaction name                                               |
+|payment_details.credit_card_number |The card number that was used for the transaction                  |
+|payment_details.credit_card_company|The card company                                                   |
+|receipt                            |The information about transaction receipt from the payment provider|
+|status                             |The status of the transaction                                      |
+|status_label                       |The status of the transaction based on the current locale          |
+
+## Customer {#customer}
+
+A <Code>[customer](../../customers/customers.mdx)</Code> object is always available, so you can use it in any email.
+<!-- Abandoned cart for unregistered users? -->
+
+|Property              |Description                                                                                        |
+|:--------------------:|:-------------------------------------------------------------------------------------------------:|
+|account_activation_url|A URL to activate the customer's account                                                           |
+|accepts_marketing     |A Boolean value that returns true if the customer agreed to receive marketing emails               |
+|addresses             |An array of the customer's shipping [addresses](#address)                               |
+|addresses_count       |The number of customer's shipping [addresses](#address)                                 |
+|default_address       |The default shipping [address](#address) of the customer (link to the object properties)|
+|email                 |The customer's email                                                                               |
+|first_name            |The customer first name                                                                            |
+|id                    |The unique identifier of the customer                                                              |
+|last_name             |The customer's last name                                                                           |
+|last_order            |The customer's last [order](../../orders/orders.mdx)                                               |
+|name                  |The customer's full name                                                                           |
+|orders                |An array of all customer's [orders](../../orders/orders.mdx)                                       |
+|orders_count          |The number of customer's [orders](../../orders/orders.mdx)                                         |
+|phone                 |The customer's phone number                                                                        |
+|reset_password_url    |A URL to reset the customer's account password                                                     |
+|tags                  |An array of the [tags](../../admin-tools/tags.mdx) associated with the customer                    |
+
+## Address {#address}
+
+An <Code>address</Code> object can be accessed through <Code>order</Code> or <Code>customer</Code> objects.
+
+|    Property   |Description                                        |
+|:-------------:|:--------------------------------------------------|
+| address1      |The first line of the address                      |
+| address2      |The second line of the address                     |
+| city          |The city of the address                            |
+| company       |The company of the address                         |
+| country       |The country of the address                         |
+| country_code  |The address country in the ISO 3166-1 alpha-2 code |
+| first_name    |The first name associated with the address         |
+| id            |The unique identifier of the address               |
+| last_name     |The last name associated with the address          |
+| phone         |The phone number associated with the address       |
+| province      |The province of the address                        |
+| province_code |The address province in the ISO 3166-1 alpha-2 code|
+| street        |The combination of `address1` and `address2`       |
+| zip           |The address ZIP or postal code                     |
+
+## Shop {#shop}
+
+A <Code>shop</Code> object represents the store. You can use it in any email.
+
+| Property           | Description                                           |
+|:------------------:|:-----------------------------------------------------:|
+| email              | The store's email                                     |
+| email_accent_color | The RGB code of the accent color used in store emails |
+| email_font_family  | The font family used in emails                        |
+| email_font_weight  | The font weight used in emails                        |
+| email_logo_url     | The URL of the store logo used in emails              |
+| email_logo_name    | The text used as store logo in emails                 |
+| email_logo_width   | The width of the store logo used in emails            |
+| legal_address      | The store's address                                   |
+| legal_name         | The store's legal name                                |
+| name               | The store's name                                      |
+| phone              | The store's phone number                              |
+| url                | The store website URL                                 |
+
+## Abandoned checkout {#abandoned-checkout}
+
+The <Code>abandoned_checkout</Code> represents [abandoned cart](../abandoned-carts.mdx). You can use it in corresponding [abandoned cart](email-notifications.mdx#abandoned-cart) email.
+
+|Property        |Description                                                     |
+|:--------------:|:--------------------------------------------------------------:|
+|billing_address |The billing [address](#address) used in the cart     |
+|line_items      |An array of the [line items](#line-item) in the order|
+|item_count      |The total quantity of all line items in the order               |
+|link_to_checkout|The URL to the cart in a store                                  |
+
+## Refund {#refund}
+
+The <Code>refund</Code> represents a refund for a paid order. It is available to use in [order refund](email-notifications.mdx#order-refund) email. 
+
+|Property         |Description                         |
+|:---------------:|:----------------------------------:|
+|amount           |The total refunded money amount     |
+|refund_line_items|An array of the  refunded line items|
+
+You can use Liquid tags to iterate by refund line items:
+```
+{% for item in refund_line_items %}
+  {{ item.line_item.title }}
+{% endfor %}
+```
+
+|Property |Description                                    |
+|:-------:|:---------------------------------------------:|
+|line_item|The refunded [line item](#line-item)|
+|quantity |The refunded quantity of the line item         |
+
+<!-- ## Tax line {#tax-line} -->
+
+<!-- A <Code>tax_line</Code> object represents information about a tax in an order. It is available to use in the same emails as the <Code>order</Code> object: -->
+<!-- * [Successful order payment](email-notifications.mdx#successful-order-payment) -->
+<!-- * [Order refund](email-notifications.mdx#order-refund) -->
+<!-- * [Order cancellation](email-notifications.mdx#order-cancellation) -->
+<!-- Abandoned cart? -->
+<!-- * [Order is in the delivery service](email-notifications.mdx#order-is-in-the-delivery-service) -->
+<!-- * [Successful delivery](email-notifications.mdx#successful-delivery) -->
+
+<!-- The property <Code>tax_items</Code> of <Code>order</Code> object returns all tax lines in an order. You can use Liquid tags to iterate by order tax lines: -->
+
+<!-- {% for tax_line in tax_lines %} 
+  {{ tax_line.title }}
+{% endfor %}
+
+|Property       |Description                                                         |
+|:-------------:|:------------------------------------------------------------------:|
+|title          |The title of the tax                                                |
+|rate           |The decimal value of the tax rate. For example, 0.17 if rate is 17 %|
+|price          |The tax amount in order currency                                    |
+|rate_percentage|The decimal value of the tax rate as a percentage                   |
+-->

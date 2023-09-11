@@ -1,0 +1,137 @@
+---
+title: Integrations
+sidebar_position: 100
+description: Unistore provides you with the option to integrate third-party services into your store website. You can use them to track the traffic on your store website and send it to an analytics service (for example, Google Analytics), where you can study the overall website statistics and your customers' interactions on the website.
+keywords:
+    - integration
+---
+
+import Image from "@site/src/components/Image";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Unistore provides you with the option to integrate third-party services into your store website. You can use them to track the traffic on your store website and send it to an analytics service (for example, Google Analytics), where you can study the overall website statistics and your customers' interactions on the website.
+
+Usually, an integration consists in embedding a service code snippet into your website code. Unistore does it automatically; you only need to create a service account and provide a specific identifier for it.
+
+Unistore supports integrations with:
+* [Google Analytics](google-analytics.mdx)
+* [Google Tag Manager](google-tag-manager.mdx)
+* [Google Search Console](google-search-console.mdx)
+* [Meta pixel](meta-pixel.mdx)
+
+## Access {#access}
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+To access **Integrations** in admin interface, go to **Preferences** > **Integrations**.
+
+</TabItem>
+
+<TabItem value="tablet">
+
+To access **Integrations**:
+1. In admin interface, select <Image src="/img/hamburger-menu-button.png" alt="Menu button" width={20} height={20} /> and go to **Preferences**
+2. In **Preferences**, select <Image src="/img/hamburger-menu-button.png" alt="Menu button" width={20} height={20} /> and go to **Integrations**
+
+</TabItem>
+
+<TabItem value="mobile">
+
+To access **Integrations**:
+1. In admin interface, select <Image src="/img/hamburger-menu-button.png" alt="Menu button" width={20} height={20} /> and go to **Preferences**
+2. In **Preferences**, select <Image src="/img/hamburger-menu-button.png" alt="Menu button" width={20} height={20} /> and go to **Integrations**
+
+</TabItem>
+</Tabs>
+
+**Integrations** display as blocks the services available for integration. In each block, you can find:
+* the service name
+* the service account parameter needed for the integration
+* the current parameter value used in integration (if the integration is connected)
+* the current status of service integration in your store
+* the **Learn more** link to the article dedicated to the service
+* the buttons to manage the integration
+
+## Connect integration {#connect}
+
+Your store does not have any requirements for connecting any integration. <!-- If you [publish your store website with a password](../../store-settings/store-settings.mdx#set-up-website-publishing-status), the integration is still enabled. -->
+
+:::info
+
+The integration with Google Search Console is different from others. You do not need to connect it on Unistore side; instead, you enable it using the Google Search Console interface. Find more in the [dedicated article](google-search-console.mdx).
+
+:::
+
+Before connecting an integration, you need to:
+1. Create a service account if you do not have it
+2. Log into your service account
+3. Get the account data needed for integration:
+    * **Measurement ID** for Google Analytics
+    * **Container ID** for Google Tag Manager
+    * **Pixel ID** for Meta pixel
+
+:::tip
+
+You can find the needed account parameter in the service block in **Integrations**. Find the information on how to get the needed account data:
+* [Google Analytics Measurement ID](google-analytics.mdx#setup)
+* [Google Tag Manager Container ID](google-tag-manager.mdx#setup)
+* [Meta pixel ID](meta-pixel.mdx#creation)
+
+:::
+
+To connect an integration:
+1. [Access](#access) **Integrations**
+2. Select **Connect** for the integration
+3. In the pop-up window, insert your account data in the service
+
+:::caution
+
+Be careful while inserting the account data for integration. Make sure you use the data from your service account. Otherwise, someone else may get the data from your website. 
+
+:::
+
+4. Select **Connect**
+
+An integration is connected instantly. After connection, the integration status in the service block changes to *Connected*. The snippet with the service code is automatically embedded into your website code. It is done dynamically, so the code snippet is not visible in **Code editor**. 
+
+## Update integration {#update}
+
+Updating an integration means changing the service account used for it.
+
+To update an integration:
+1. [Access](#access) **Integrations**
+2. Select **Update** for the integration
+3. In the pop-up window, insert new account data
+
+:::caution
+
+Be careful while inserting the account data for integration. Make sure you use the data from your service account. Otherwise, someone else may get the data from your website. 
+
+:::
+
+4. Select **Save**
+
+An integration is updated instantly. The snippet with the service code is automatically changed, and the snippet starts to collect the website data immediately. 
+
+## Disconnect service {#disconnect}
+
+:::caution
+
+If you use [Google Analytics](google-analytics.mdx) or [Google Tag Manager](google-tag-manager.mdx) integration to [verify your site ownership](google-search-console.mdx#verify) in Google Search Console, the verification becomes invalid if you disconnect the service used for it.
+
+:::
+
+To disconnect an integration:
+1. In **Integrations**, select **Disconnect** for the integration
+2. In the pop-up window, select **Disconnect**
+
+An integration is disconnected instantly. After disconnection, the integration status in the service block changes to *Not connected*. A service code snippet is removed from your website code automatically, and the website data is no longer collected by a service.

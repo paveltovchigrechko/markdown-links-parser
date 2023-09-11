@@ -1,0 +1,383 @@
+---
+title: Store settings
+sidebar_position: 30
+sidebar_label: Set up your store
+description: Set up the main settings for your store.
+keywords:
+    - store
+    - settings
+    - publish website
+    - domain
+    - payment provider
+    - delivery option
+    - currency
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Image from "@site/src/components/Image";
+
+## Main
+
+<!-- On the main page of the **Settings**, you can find the information about the [domain](#domain) status, [payment methods](#payments), [delivery options](#delivery-options), and the [publishing status](#set-up-website-publishing-status) of the store's website. -->
+<!-- Also, you can set up your [main store settings](#set-up-main-store-settings), and add [currencies](#currencies) for customers from the specific regions. -->
+
+On the main page of the **Settings**, you can set up your main store settings.
+ 
+### Set up main store settings
+
+Steps:
+
+1. In the admin interface, go to **Settings**
+2. Change **Store contact email** if necessary
+
+:::info
+
+Store contact email is used by customers to [contact](../topics/customers/personal-account.mdx#contact-support) with you from their [personal account](../topics/customers/personal-account.mdx).
+
+:::
+
+<!-- 3. Select radio button to choose measurement system: *Metric* or *Imperial* -->
+<!-- 4. Select radio button to choose who can place orders: *All users* or *Only registered users* -->
+<!--
+:::caution
+
+If you select *Only registered users*, you will probably lose those potential customers who might have become your clients, but they do not want or do not have time to register in your store. 
+
+:::
+-->
+3. From the drop-down list, select your **Store timezone** 
+4. In your workspace, select **Save**
+
+<!-- ### Set up website publishing status -->
+<!--
+Your website may have one of statuses:
+- *Published*. Your website is available for everyone on the Internet. It is a default status
+- *Published with password*. Only those who know the password are able to access your website.
+
+Steps:
+1. In the admin interface, go to **Settings**
+2. Select the website status name
+3. From the drop-down list, select another status:
+- If you choose *Published* status, select **Publish**
+- If you choose *Published with password* status, fill in **Password** field and then select **Save** 
+-->
+## Domain 
+A domain is a web address where people will come to find your store in the Internet.
+
+By default, you have the Unistore domain connected and active. 
+
+:::note
+
+You can connect many domains, but only one of them can be active at a time.
+
+:::
+
+The active domain is at the top of the list in the green line.
+
+The address of your store has the following look: `storename.yourunistore.com`.
+You can use it or add your own domain. 
+
+### Add domain
+
+:::info Before you start
+
+ Before adding new domain to your store, you need to log in to your account on the domain provider’s website. In DNS settings, replace or create following data:
+- First **A record** with subdomain **@** and the Unlimit address, specified in **Add domain** pop-up
+- Second **A record** with subdomain **www** and the Unlimit address, specified in **Add domain** pop-up
+
+Save settings and go back to your admin interface at Unistore.
+
+:::
+
+Steps:
+
+1. In the admin interface, go to **Settings** > **Domains** or go to **Settings** and select <Image src="/img/settings-icon.png" alt="Settings icon" height={20} /> in the **Domains** section of the **Main** page
+2. Select **Add Domain**
+3. Fill in **Domain name**
+4. Select **Add**
+
+## Payments
+
+If you want to accept payment for products you sell, you need to [agree to use Unlimit's services](../topics/store-settings/payments/unlimint-onboarding.mdx) or connect a payment provider.
+
+In the **Payments** section, you can find a list of payment providers available for connection and their transaction fees.
+
+<!-- вставить тут оффер unlimint по эквайрингу -->
+
+In the **Payments** section, all payment methods are displayed as a list of blocks.
+
+
+:::tip
+
+Select the payment method to find more information about it.
+
+:::
+
+### Connect payment method
+
+Steps:
+
+1. In the admin interface, go to **Settings** > **Payments**
+2. In the **Unlimit** section, select **Apply**
+
+<!-- линк на онбординг -->
+<!-- 3. In the **PayPal** section, select **Connect**
+
+4. Sign in to your PayPal account or create new account -->
+
+## Delivery options
+
+Delivery options are the delivery terms under which [customers](../topics/customers/customers.mdx) receive their purchases. Delivery options are created for a specific [region](#create-region) and may have additional rules to the basic conditions ([delivery rules](#add-delivery-rule)). 
+
+:::info
+
+When you create a store, simultaneously a domestic region with your country is created.
+The country is defined by the IP-address under which you logged in to Unistore to create your store.
+
+:::
+
+You can [edit existing region](#edit-region) by adding new countires to it, or you can [create a new region](#create-region). In any of this cases, you need to [add delivery options](#add-delivery-option) to any of your regions.
+
+:::danger Warning
+
+If no delivery option is created in a region, no delivery is available to it. Customers from such regions will be unable to complete the checkout.
+
+:::
+
+### Region
+#### Create region
+
+<Tabs
+groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+  <TabItem value="desktop">
+  
+Steps:
+
+1. In the admin interface, go to **Settings** > **Delivery options**
+2. Select **Create Region**
+3. Fill in **Region name**
+4. Select **Add Country**
+
+:::info
+
+Countries that have already been added to a region are displayed with a label of that region. If the **Add** button is inactive, it means that all countries have already been added to the existing regions.
+
+:::
+
+5. Mark checkboxes of the countries you want to add to the created region
+6. Select **Add**
+7. Select **Save**
+
+
+</TabItem>
+
+<TabItem value="tablet">
+
+Steps:
+
+1. In the admin interface, go to **Settings** > **Delivery options**
+2. Select <Image src="/img/create-object-icon.png" alt="Create product" height={22} />
+3. Fill in **Region name**
+4. Select **Add Country**
+
+:::info
+
+Countries that have already been added to a region are displayed with a label of that region. If the **Add** button is inactive, it means that all countries have already been added to the existing regions.
+
+:::
+
+5. Mark checkboxes of the countries you want to add to the created region
+
+:::note
+
+Mark the checkbox to the left of the continent's name to select all the countries of that continent at once.
+
+:::
+
+6. Select **Add** 
+7. Select **Save**
+
+</TabItem>
+
+<TabItem value="mobile">
+
+Steps:
+
+1. In the admin interface, go to **Settings** > **Delivery options**
+2. Select <Image src="/img/create-object-icon.png" alt="Create product" height={22} />
+3. Fill in **Region name**
+4. Select **Add Country**
+
+:::info
+
+Countries that have already been added to a region are displayed with a label of that region. If the **Add** button is inactive, it means that all countries have already been added to the existing regions.
+
+:::
+
+5. Mark checkboxes of the countries you want to add to the created region
+
+6. Select **Add** 
+7. Select **Save**
+
+</TabItem>
+</Tabs>
+
+#### Edit region
+
+1. In the admin interface, go to **Settings** > **Delivery options**
+2. In the region section, select <Image src="/img/edit-button.png" alt="Edit button" height={22} />
+3. Make changes to region
+4. Select **Save**
+
+### Delivery option
+#### Add delivery option
+
+:::info Precondition
+
+You have already [created a region](#create-region).
+
+:::
+
+Steps:
+
+1. In the admin interface, go to **Settings** > **Delivery options**
+2. In the region section, select **Add Delivery**
+3. From the drop-down list, select currencies for this delivery option
+4. Fill in **Delivery option name**
+
+:::note
+
+Delivery option name should be unique within the region.
+
+:::
+
+5. Fill in the minimum and the maximum values for shipping time
+6. Fill in **Flat rate**
+
+:::info
+
+The flat rate will be displayed to customers in all cases when the rules do not apply or there are none at all.
+
+:::
+
+7. Select **Save**
+
+### Delivery rule
+#### Add delivery rule
+
+Delivery rules are the exceptions to the conditions of the main delivery option within which they are created. Rules can be based on the weight of the products or their price. 
+
+:::info
+
+You can create up to 10 delivery rules within one delivery option.
+
+:::
+
+:::info Precondition
+
+You are creating or editing a delivery option.
+
+:::
+
+Steps:
+
+1. Select radio button to choose the delivery rule type: *Price-based rule* or *Weight-based rule*
+2. Fill in the minimum and the maximum values
+3. Fill in **Delivery cost**
+4. Select **Save**
+
+## Currencies
+
+:::tip
+
+If you are creating a new store in Unistore from scratch rather than migrating it, create all the products first and then add the necessary currencies. Prices in the new currencies will be automatically recalculated using [Open exchange rates](https://openexchangerates.org/).
+
+If you create currencies first and then add products, you will have to specify prices in all currencies manually when creating new products.
+
+:::
+
+<!-- If you are an experienced seller who is migrating your store from one e-commerce platform to another, firstly import your product data from old platform to a CSV file. After that, on the new platform, add all currencies in which you have prices. After that, you can make export of your CSV file. Otherwise, you will need to manually specify product prices in additional currencies.  -->
+
+By default, prices are calculated in US dollars. You can add regions with a different currencies, so that customers from those countries can have prices for the products in their own currencies.
+
+The customer's region is determined by the IP that the customer uses to visit your store.
+
+### Add currency
+
+<Tabs
+groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+  <TabItem value="desktop">
+  
+Steps:
+
+1. In the admin interface, go to **Settings** > **Currencies**
+2. Select **Add Currency**
+3. In the pop-up window, select radio button of the country whose currency you want to add
+
+:::tip
+
+Use search bar to easily find currency by region.
+
+:::
+
+4. Select **Add**
+5. In the pop-up window, select **Continue** 
+6. Repeat steps 2-5 if needed
+
+
+</TabItem>
+
+<TabItem value="tablet">
+
+Steps:
+
+1. In the admin interface, go to **Settings** > **Currencies**
+2. Select <Image src="/img/create-object-icon.png" alt="Create product" height={22} />
+3. In the pop-up window, select radio button of the country whose currency you want to add
+
+:::tip
+
+Use search bar to easily find currency by region.
+
+:::
+
+4. Select **Add**
+5. In the pop-up window, select **Continue** 
+6. Repeat steps 2-5 if needed
+
+</TabItem>
+
+<TabItem value="mobile">
+
+
+Steps:
+
+1. In the admin interface, go to **Settings** > **Currencies**
+2. Select <Image src="/img/create-object-icon.png" alt="Create product" height={22} />
+3. In the pop-up window, select radio button of the country whose currency you want to add
+
+:::tip
+
+Use search bar to easily find currency by region.
+
+:::
+
+4. Select **Add**
+5. In the pop-up window, select **Continue** 
+6. Repeat steps 2-5 if needed
+
+</TabItem>
+</Tabs>

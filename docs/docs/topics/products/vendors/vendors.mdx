@@ -1,0 +1,453 @@
+---
+title: Vendors
+sidebar_position: 30
+description: A vendor represents a product manufacturer.
+keywords:
+    - vendor
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Image from "@site/src/components/Image";
+
+A vendor represents a product manufacturer. You can assign a vendor for each product. 
+
+<!-- Don't forget to mention settings in WE for hiding vendor name from the product page -->
+
+:::caution
+
+You can have up to 1 000 vendors within one store.
+
+:::
+
+To start working with vendors:
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+In admin interface, go to **Products** > **Vendors**.
+
+</TabItem>
+
+<TabItem value="tablet">
+
+1. In admin interface, select <Image src="/img/hamburger-menu-button.png" alt="Menu button" width={20} height={20} />
+2. In the sidebar, select **Products** > **Vendors**
+
+</TabItem>
+
+<TabItem value="mobile">
+
+1. In admin interface, select <Image src="/img/hamburger-menu-button.png" alt="Menu button" width={20} height={20} />, go to **Products**
+2. In the sidebar, select **Products** > **Vendors**
+
+</TabItem>
+</Tabs>
+
+The **Vendors** section contains the vendor table. Its appearance depends on the device you use to open the page in admin interface.
+
+In the **Vendors**, you can:
+* [Sort vendors](#sort-vendors)
+* [Find vendors](#search-vendors)
+* [Create vendor](#create-vendor)
+* [Edit vendor](#edit-vendor)
+* [Delete vendor](#delete-vendor)
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+The vendor table contains columns:
+1. Name
+2. Number of products
+
+</TabItem>
+
+<TabItem value="tablet">
+
+In tablet view, the vendors appear as a table of blocks with the vendor name and number of products.
+
+</TabItem>
+
+<TabItem value="mobile">
+
+In mobile view, the vendors appear as a table of blocks with the vendor name and number of products.
+
+</TabItem>
+</Tabs>
+
+## Sort vendors {#sort-vendors}
+
+To sort vendors:
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+1. In **Vendors**, select <Image src="/img/sort-icon.png" alt="Sort button" width={20} height={20} />
+2. Select the sorting you want to apply. Available sortings:
+    * number of products (by default, the vendors are sorted from the most products to the less)
+    * alphabetical order
+ 
+:::note
+
+If you apply non-default sorting, the sort button has the indication: <Image src="/img/non-default-sort-icon.png" alt="Non-default sort icon" width={20} height={20} />
+
+:::
+
+</TabItem>
+
+<TabItem value="tablet">
+
+1. In **Vendors**, select **Sort**
+2. Select the sorting you want to apply. Available sortings:
+    * number of products (by default, the vendors are sorted from the most products to the less)
+    * alphabetical order
+
+:::note
+
+If you apply non-default sorting, the sort button has the indication: <Image src="/img/tablet-non-default-sort-icon.png" alt="Non-default sort icon" width={350} />
+
+:::
+
+</TabItem>
+
+<TabItem value="mobile">
+
+1. In **Vendors**, select **Sort**
+2. Select the sorting you want to apply. Available sortings:
+    * number of products (by default, the vendors are sorted from the most products to the less)
+    * alphabetical order
+
+:::note
+
+If you apply non-default sorting, the sort button has the indication: <Image src="/img/tablet-non-default-sort-icon.png" alt="Non-default sort icon" width={350} />
+
+:::
+
+</TabItem>
+</Tabs>
+
+## Search vendors {#search-vendors}
+
+To find vendors by name, use the search bar above the vendors table.
+
+## Create vendor {#create-vendors}
+
+To create a vendor:
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+1. In **Vendors**, select **Create Vendor**
+2. Fill in vendor's **Name**
+
+:::caution
+
+A vendor must have a unique name within the store.
+
+:::
+
+3. Select **Save**
+
+</TabItem>
+
+<TabItem value="tablet">
+
+1. In **Vendors**, select <Image src="/img/create-object-icon.png" alt="Create vendor button" width={20} height={20} />
+2. Fill in vendor's **Name**
+
+:::caution
+
+A vendor must have a unique name within the store.
+
+:::
+
+3. Select **Save**
+
+</TabItem>
+
+<TabItem value="mobile">
+
+1. In **Vendors**, select <Image src="/img/create-object-icon.png" alt="Create vendor button" width={20} height={20} />
+2. Fill in vendor's **Name**
+
+:::caution
+
+A vendor must have a unique name within the store.
+
+:::
+
+3. Select **Save**
+
+</TabItem>
+</Tabs>
+
+After you create a vendor, a pop-up window appears. You can choose to return to **Vendors** section or [add products](#add-products) to the created vendor.
+
+## Edit vendor
+
+To edit a vendor and [manage its products](#manage-products):
+
+1. In **Vendors**, select the vendor you want to edit
+2. Change the vendor name
+3. Select **Save**
+
+## Manage products
+
+You can manage vendor products in **Products** section of **[Edit vendor](#edit-vendor)**.
+
+:::note
+
+All product changes (adding new products or deleting products from the vendor) made in **Products** section are saved automatically. You do not have to save the vendor if you work with its products only.
+
+:::
+
+In **Products** section, you can:
+* [Sort products](#sort-products)
+* [Find products](#search-products)
+* [Add products](#add-products)
+* [Delete products](#delete-products)
+
+#### Sort products
+
+:::note
+
+If a product has variants with different prices, only the lowest variant price is used for sorting by price.
+
+:::
+
+To sort the vendor products:
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+1. In **Products** section, select <Image src="/img/sort-icon.png" alt="Sort button" width={20} height={20} />
+2. Select the sorting you want to apply. Available sortings:
+    * creation date (by default, the products are sorted from the newest to the oldest ones)
+    * alphabetical order
+    * inventory amount (only for products with enabled amount tracking)
+    * price 
+
+:::note
+
+If you apply non-default sorting, the sort button has the indication: <Image src="/img/non-default-sort-icon.png" alt="Non-default sort icon" width={20} height={20} />
+
+:::
+
+</TabItem>
+
+<TabItem value="tablet">
+
+1. In **Products** section, select <Image src="/img/sort-icon.png" alt="Sort button" width={20} height={20} />
+2. Select the sorting you want to apply. Available sortings:
+    * creation date (by default, the products are sorted from the newest to the oldest ones)
+    * alphabetical order
+    * inventory amount (only for products with enabled amount tracking)
+    * price
+
+:::note
+
+If you apply non-default sorting, the sort button has the indication: <Image src="/img/non-default-sort-icon.png" alt="Non-default sort icon" width={20} height={20} />
+
+:::
+
+</TabItem>
+
+<TabItem value="mobile">
+
+1. In **Products** section, select **Sort**
+2. Select the sorting you want to apply. Available sortings:
+    * creation date (by default, the products are sorted from the newest to the oldest ones)
+    * alphabetical order
+    * inventory amount (only for products with enabled amount tracking)
+    * price
+
+:::note
+
+If you apply non-default sorting, the sort button has the indication: <Image src="/img/tablet-non-default-sort-icon.png" alt="Non-default sort icon" width={350} />
+:::
+
+</TabItem>
+</Tabs>
+
+### Search products {#search-products}
+
+To find the vendor products, use the search bar in **Products** section.
+
+### Add products {#add-products}
+
+:::caution
+
+You can add up to 1 000 products to a vendor.
+
+If you want to assign a new vendor to a product, the vendor will be changed without any notification.
+
+:::
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+1. In **Products** section, select **Add Product**
+2. Mark checkboxes for the products you want to add to the vendor
+
+:::tip
+
+Use the search bar to find a product by name.
+
+Mark the highest checkbox to select all products at once.
+
+:::
+
+3. Select **Add**
+
+</TabItem>
+
+<TabItem value="tablet">
+
+1. In **Products** section, select **Add Product**
+2. Mark checkboxes for the products you want to add to the vendor
+
+:::tip
+
+Use the search bar to find a product by name.
+
+Mark the highest checkbox to select all products at once.
+
+:::
+
+3. Select **Add**
+
+</TabItem>
+
+<TabItem value="mobile">
+
+1. In **Products** section, select <Image src="/img/create-object-icon.png" alt="Add vendor product button" width={20} height={20} />
+2. Mark checkboxes for the products you want to add to the vendor
+
+:::tip
+
+Use the search bar to find a product by name.
+
+:::
+
+3. Select **Add**
+
+</TabItem>
+</Tabs>
+
+### Delete products {#delete-products}
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+You can delete vendor products in two ways:
+1. In **Products** section, select <Image src="/img/delete-icon.png" alt="Delete button" width={20} height={20} /> for the product you want to delete
+2. In **Products** section, mark the checkboxes for the products you want to delete and select **Delete** in the bulk operation bar below. In the pop-up window, select **Delete**
+
+</TabItem>
+
+<TabItem value="tablet">
+
+You can delete vendor products in two ways:
+1. In **Products** section, select <Image src="/img/delete-icon.png" alt="Delete button" width={20} height={20} /> for the product you want to delete
+2. In **Products** section, mark the checkboxes for the products you want to delete and select **Delete** in the bulk operation bar below. In the pop-up window, select **Delete**
+
+</TabItem>
+
+<TabItem value="mobile">
+
+1. To delete vendor products in **Products** section, mark the checkboxes for the products you want to delete and select **Delete** in the bulk operation bar below
+2. In the pop-up window, select **Delete**
+
+</TabItem>
+</Tabs>
+
+## Delete vendor
+
+To delete a vendor:
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+I. First option:
+   1. In **Vendors**, select <Image src="/img/delete-icon.png" alt="Delete button" width={20} height={20} /> for vendor you want to  delete
+   2. In the pop-up window, select **Delete**
+
+II. Second option:  
+   1. In **Vendors**, select the vendor name you want to delete
+   2. In **Edit vendor**,  select **Delete** below
+   3. In the pop-up window, select **Delete**
+
+</TabItem>
+
+<TabItem value="tablet">
+
+1. In **Vendors**, select the vendor you want to delete
+2. In **Edit vendor**, select **Delete** below
+3. In the pop-up window, select **Delete**
+
+</TabItem>
+
+<TabItem value="mobile">
+
+1. In **Vendors**, select the vendor you want to delete
+2. In **Edit vendor**, select **Delete** below
+3. In the pop-up window, select **Delete**
+
+</TabItem>
+</Tabs>

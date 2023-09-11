@@ -1,0 +1,159 @@
+---
+title: Vendors basics
+sidebar_label: Add vendor
+sidebar_position: 60
+description: The vendor represents a product manufacturer or supplier.
+keywords:
+    - vendor
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Image from "@site/src/components/Image";
+
+:::note 
+
+This article describes the basics of vendor creation and product adding. For detailed information please refer to **[Vendors](../topics/products/vendors/vendors.mdx)**.
+
+:::
+
+A vendor represents a product manufacturer or supplier. You can assign a vendor for each product.
+<!-- Your customers see vendors names on the product page on your store website. You can also use vendors as additional parameter while filtering products on your store website or for advanced collection creation. -->
+
+## Create vendor {#create-vendor}
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+
+<TabItem value="desktop">
+
+1. In admin interface, go to **Products** > **Vendors**
+2. Select **Create Vendor**
+3. Fill in vendor **Name**
+
+:::caution
+
+A vendor must have a unique name within the store.
+
+:::
+
+4. Select **Save**
+5. In the pop-up window, Select **Add Products** 
+
+</TabItem>
+
+<TabItem value="tablet">
+
+1. In admin interface, select <Image src="/img/hamburger-menu-button.png" alt="Menu button" width={20} height={20} />
+2. In the sidebar, select **Products** > **Vendors**
+3. In **Vendors**, select <Image src="/img/create-object-icon.png" alt="Create vendor button" width={20} height={20} />
+4. Fill in vendor **Name**
+
+:::caution
+
+A vendor must have a unique name within the store.
+
+:::
+
+5. Select **Save**
+6. Select **Add Products**
+
+</TabItem>
+
+<TabItem value="mobile">
+
+1. In admin interface, select <Image src="/img/hamburger-menu-button.png" alt="Menu button" width={20} height={20} />
+2. In the sidebar, select **Products** > **Vendors**
+3. In **Vendors**, select <Image src="/img/create-object-icon.png" alt="Create vendor button" width={20} height={20} />
+4. Fill in vendor **Name**
+
+:::caution
+
+A vendor must have a unique name within the store.
+
+:::
+
+5. Select **Save**
+6. Select **Add Products**
+
+</TabItem>
+</Tabs>
+
+## Add products {#add-products}
+
+:::caution
+
+You must [create products](products.mdx#create-your-first-product) before adding them to the vendor.
+
+:::
+
+You can assign only one vendor for a product.
+
+If a product has already a vendor, when you assign another vendor to this product, the product vendor is changed without notification.
+
+:::note
+
+All product changes (adding new products or deleting products) made in **Products** section are saved automatically. You do not have to save the vendor if you work with its products only.
+
+:::
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+1. In **Edit vendor**, select **Add Product** in **Products** section
+2. Mark checkboxes for the products you want to add to the vendor
+
+:::tip
+
+To select all products at once, mark the highest checkbox.
+
+:::
+
+3. Select **Add**
+
+</TabItem>
+
+<TabItem value="tablet">
+
+1. In **Edit vendor**, select **Add Product** in **Products** section
+2. Mark checkboxes for the products you want to add to the vendor
+
+:::tip
+
+To select all products at once, mark the highest checkbox.
+
+:::
+
+3. Select **Add**
+
+</TabItem>
+
+<TabItem value="mobile">
+
+1. In **Edit vendor**, select <Image src="/img/create-object-icon.png" alt="Add product button" width={20} height={20} /> in **Products** section
+2. Mark checkboxes for the products you want to add to the vendor
+3. Select **Add**
+
+</TabItem>
+</Tabs>
+
+Now you can close **Edit vendor** by selecting **Cancel** below.
+
+:::tip
+
+Additionally, learn [how to manage vendor products](../topics/products/vendors/vendors.mdx#manage-products).
+
+:::

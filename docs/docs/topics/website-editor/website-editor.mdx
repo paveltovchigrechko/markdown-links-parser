@@ -1,0 +1,169 @@
+---
+title: Website editor
+sidebar_position: 80
+description: Website editor provides you with tools for customizing your store website.
+keywords:
+    - website editor
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Image from "@site/src/components/Image";
+
+## Introduction
+
+<Image src="/img/website-structure.png" alt="Website content hierarchy" block bordered rounded />
+
+The store website content has a hierarchy:
+1. Pages
+2. Sections
+3. Blocks
+
+Generally, the website contains pages of different types (for example, a product page, a home page, a checkout page). Each page divides into sections. A section is a single element that can contain a small visual block. For example, there can be several small product images and descriptions on the home page. While one product image with a description is a block, the whole set is a section.
+
+The website theme defines the page types, the available sections, and the settings. A website theme is a set of Liquid files.
+
+The website editor provides you with a set of instruments to customize the appearance of your store website.
+
+You can use the following website editor instruments:
+1. **[Page editor](page-editor/page-editor.mdx)**. It allows setting up the website pages and working with page sections
+2. **[Navigation](navigation.mdx)**. It allows creating and editing of the navigation menus. You can embed the navigation menu into the website section using **Page editor** or **Code editor**
+3. **[Theme settings](theme-settings.mdx)**. It contains the default theme settings and allows changing the website graphic and stylistic appearance
+4. **[Code editor](code-editor.mdx)**. It allows advanced website customizing via editing its theme files
+
+The **Page editor** and **Theme settings** instruments are designed for unexperienced users. They offer more user-friendly approach to website customizing.
+
+The **Code editor** and **Navigation** instruments allow deeper and tuned website customization but require experience with website building and programming knowledge.
+
+## Start working with website editor
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+To open the website editor for your store, in admin interface. select **Website editor**.
+
+</TabItem>
+
+<TabItem value="tablet">
+
+To open the website editor for your store:
+1. In admin interface, select <Image src="/img/hamburger-menu-button.png" alt="Menu button" width={20} height={20} />
+2. In the sidebar, select **Website editor**
+
+</TabItem>
+
+<TabItem value="mobile">
+
+To open the website editor for your store:
+1. In admin interface, select <Image src="/img/hamburger-menu-button.png" alt="Menu button" width={20} height={20} />
+2. In the sidebar, select **Website editor**
+
+</TabItem>
+</Tabs>
+
+## Interface {#interface}
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+In desktop view, the website editor divides into three areas:
+1. The website control bar. It contains the controls for website preview and saving
+2. The sidebar. It contains website editor pages, elements, and controls. The upper panel contains the name of the website editor page. Use <Image src="/img/website-editor-return-button.png" alt="Return button" width={20} height={20} /> to return to the previous page
+3. The website preview. The preview instantly applies all changes you make in the website settings and displays the website as it is shown to your customers
+
+The website control bar contains buttons:
+* **Close**. It closes the website editor and returns you to admin interface. If you have unsaved changes, a pop-up window appears. You can discard the unsaved changes or stay in the website editor and save it
+
+:::caution
+
+When you close the website editor, all unsaved changes will be permanently lost!
+
+:::
+
+* The preview buttons. You can use the preview buttons to display your website in other modes. To do so, select the button:
+    * <Image src="/img/desktop-view-icon.png" alt="Desktop view button" height={20} /> for desktop mode (enabled by default)
+    * <Image src="/img/tablet-view-icon.png" alt="Tablet view button" height={20} /> for tablet mode
+    * <Image src="/img/mobile-view-icon.png" alt="Mobile view button" height={20} /> for mobile devices mode
+* **Preview**. It opens the website preview in the new browser tab. The preview shows the website in desktop mode as it is displayed to your customers
+* **Save**. Use this button to save all changes made in the website editor
+
+:::note
+
+The **Save** button becomes active only if you have unsaved changes.
+
+:::
+
+</TabItem>
+
+<TabItem value="tablet">
+
+In tablet view, the website editor divides into three areas:
+1. The upper panel. It contains the name of the website editor page and buttons:
+    * <Image src="/img/website-editor-return-button.png" alt="Return button" width={20} height={20} /> returns you to the previous page of the website editor
+    * <Image src="/img/hamburger-menu-button.png" alt="Menu button" width={20} height={20} /> opens the sidebar. The sidebar contains website editor pages, elements, and controls
+2. The website control bar. It contains the controls for website preview and saving
+3. The website preview. It contains the website preview
+
+The website control bar contains buttons:
+* **Close**. It closes the website editor and returns you to admin interface. If you have unsaved changes, a pop-up window appears. You can discard the unsaved changes or stay in the website editor and save it
+
+:::caution
+
+When you close the website editor, all unsaved changes will be permanently lost!
+
+:::
+
+* **Preview**. It opens the website preview in the new browser tab. The preview shows the website in desktop mode as it is displayed to your customers
+* **Save**. Use this button to save all changes made in the website editor
+
+:::note
+
+The **Save** button becomes active only if you have unsaved changes.
+
+:::
+
+</TabItem>
+
+<TabItem value="mobile">
+
+In mobile view, the website editor divides into three areas:
+1. The upper panel. It contains the name of the website editor page and buttons:
+    * <Image src="/img/website-editor-return-button.png" alt="Return button" width={20} height={20} /> returns you to the previous page of the website editor
+    * <Image src="/img/hamburger-menu-button.png" alt="Menu button" width={20} height={20} /> opens the sidebar. The sidebar contains website editor pages, elements, and controls
+2. The website control bar. It contains the controls for website preview and saving
+3. The website preview. It contains the website preview
+
+The website control bar contains buttons:
+* **Close**. It closes the website editor and returns you to admin interface. If you have unsaved changes, a pop-up window appears. You can discard the unsaved changes or stay in the website editor and save it
+
+:::caution
+
+When you close the website editor, all unsaved changes will be permanently lost!
+
+:::
+
+* **Preview**. It opens the website preview in the new browser tab. The preview shows the website in desktop mode as it is displayed to your customers
+* **Save**. Use this button to save all changes made in the website editor
+
+:::note
+
+The **Save** button becomes active only if you have unsaved changes.
+
+:::
+
+</TabItem>
+</Tabs>

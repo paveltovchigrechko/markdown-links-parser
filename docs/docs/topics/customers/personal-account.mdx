@@ -1,0 +1,435 @@
+---
+title: Customer's personal account
+sidebar_position: 10
+description: This article describes customer registration and authorization, as well as the actions that the customer can perform in their personal store account.
+keywords:
+    - customer
+    - personal account
+    - customer sign up
+    - customer log in
+    - customer reset password
+    - shipping address
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Image from "@site/src/components/Image";
+
+This article describes customer registration and authorization, as well as the actions that the customer can perform in their personal store account.
+
+:::info
+
+You can use all the step-by-step instructions in this article for technical support: copy the instructions and send them to the customer. All the admonitions within the instructions are also addressed to customers.
+
+:::
+
+:::caution
+
+The instructions are written for the default store theme and may not be correct for themes created by other developers.
+
+:::
+
+Purchases in your store are available both to registered and unregistered customers.<!-- (if you have [allowed](../store-settings/store-settings.mdx#set-up-main-store-settings) such purchases in the store settings). -->
+
+To make a quick purchase without signing up at your store, your customers have to provide [contact information](checkout.mdx#contact-info) and specify the [shipping address](checkout.mdx#shipping-details) at the **[Checkout](checkout.mdx)**.
+
+Registering in the store gives the customer an opportunity to save contact information in the personal account and add up to three shipping addresses. It allows the customer to spend less time on placing an order. Also, having a personal account allows the customer to see the list and the payment and fulfillment statuses of all their orders.
+
+## Sign up
+
+There are two ways to sign up: from the sign-up page and from the **Checkout**.
+
+<Image src="/img/sign-up.png" alt="Sign up form" height={550} block bordered rounded />
+
+To sign up:
+
+1. Select **Log in** at the upper-right corner of any of store's page
+2. On **Log in** page, select **Sign up**
+3. Fill in **First name**, **Last name,** and **Email**
+4. Create a password in **Password** field
+
+:::note Password requirements
+
+- 7+ characters
+- digit
+- special symbol
+- uppercase letter
+
+:::
+
+:::tip
+
+To show password in this field, select <Image src="/img/visibility-button.png" alt="Show password" width={18} />. To hide password, use <Image src="/img/visibility-disabled-button.png" alt="Hide password" width={18} />. 
+
+:::
+
+5. Mark checkbox to agree to **Terms of Use** and **Privacy Policy**
+6. Select **Continue**
+
+After selecting the button, the customer will receive an email with a link to confirm the account. Explore the article about [email notifications](../marketing/email-notifications/email-notifications.mdx) to learn more about them.
+
+## Log in
+
+<Image src="/img/log-in.png" alt="Log in form" height={350} block bordered rounded/>
+
+To log in:
+
+1. Select **Log in** at the upper-right corner of any of the store's page
+2. Fill in **Email**
+
+:::info
+
+If **Email** field already contains another person's email, select **It's not me** and then enter your email in the field.
+
+:::
+
+3. Fill in **Password**
+
+:::tip
+
+Mark checkbox **Remember me** to save your email and password to authorize to your account faster.
+
+:::
+
+4. Select **Continue**
+
+:::info
+
+Do not remember your password? Select **Forgot password?** to [reset](#reset-password) it.
+
+:::
+
+## Reset password
+
+To reset the password:
+
+1. Select **Log in** at the upper-right corner of any of the store's page
+2. Select **Forgot password?**
+3. On **Password reset** page, fill in the **Email** field with the email you used when created your account
+
+:::info
+
+At this step, if you have your password remembered, you can follow **Log in** link under the **Reset password** button or select it at the upper-right corner of the page.
+
+:::
+
+4. Select **Reset password**
+5. In your email, open the letter from the store and follow the link in it to set a new password
+
+:::info
+
+The password recovery link expires 24 hours after it was generated. If you followed an expired link, at **Link has expired** page, select **Get new link** and check your email again.
+
+:::
+
+6. On **New password** page, create a new password and repeat it in the **Confirm password** field
+
+:::note Password requirements
+
+- 7+ characters
+- digit
+- special symbol
+- uppercase letter
+
+:::
+
+7. Select **Confirm**
+8. After the password has been changed, select **Log in** to get to the **[Log in](#log-in)** page
+
+:::info
+
+After the password change, you will receive the confirmation letter.
+
+:::
+
+## Account settings
+
+In the personal account customer can:
+- Check their [personal details](#personal-details)
+- Find the list of their [orders](#orders) and examine details
+- Contact store [technical support](#contact-support)
+- Manage their [delivery addresses](#shipping-address-management)
+
+### Access personal account
+
+If the customer specified their name when signing up, this name will be displayed in the menu as a link to the personal account. If the customer did not specify their name, the link to the account will be the word **Account**.
+
+<Tabs
+groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+  <TabItem value="desktop">
+
+On any store's page, select account link at upper-right corner of the page.
+
+
+</TabItem>
+<TabItem value="tablet">
+
+1. On any store's page, select **Menu** at the top of the page
+2. In the menu, select account link
+
+</TabItem>
+<TabItem value="mobile">
+
+1. On any store's page, select **Menu** at the top of the page
+2. In the menu, select account link
+
+</TabItem>
+</Tabs>
+
+### Personal details
+
+<Tabs
+groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+On this page, customers can check personal details they used to sign up for your store: first name, last name, and email. Also, customers can find the list of all their [orders](#orders) they placed at your store.
+<!-- and phone number? -->
+
+<!-- they are still not able to change these details -->
+
+<Image src="/img/personal-details-page.png" alt="Personal details page, desktop view" height={400} block bordered rounded/>
+
+</TabItem>
+<TabItem value="tablet">
+
+At this tab, customers can check personal details they used to sign up for your store: first name, last name, and email. Also, customers can find the list of all their [orders](#orders) they placed at your store.
+
+<Image src="/img/tablet-personal-details-tab.png" alt="Personal details tab, tablet view" height={400} block bordered rounded/>
+
+</TabItem>
+<TabItem value="mobile">
+
+At this tab, customers can check personal details they used to sign up for your store: first name, last name, and email. Also, customers can find the list of all their [orders](#orders) they placed at your store.
+
+<Image src="/img/mobile-personal-details-tab.png" alt="Personal details tab, mobile view" height={400} block bordered rounded/>
+
+</TabItem>
+</Tabs>
+
+#### Orders
+
+The personal account page also has a list of all customer orders.
+
+Information is displayed in the order list:
+
+- Order number
+- Creation date
+- [Payment status](../orders/orders.mdx#payment-status)
+- [Fulfillment status](../orders/orders.mdx#fulfillment-status)
+- Total cost of the order
+
+To get more information about the order, the customer needs to select it.
+
+#### Get receipt
+
+1. On your personal account, select the order you want to get receipt for
+2. On the order's page, select **Receipt** button
+
+You will get a PDF file that you can print or save.
+
+#### Contact support
+
+The customer can contact the support of the store from the order page in their personal account. In this case a form for writing a new email with the subject "Issue with order #____" is opened by the default email app. A link to the order in the admin interface is automatically attached to the email.
+
+The email address provided as the [store contact email](../store-settings/store-settings.mdx#set-up-main-store-settings) is specified as the recipient of the email.
+
+To contact support:
+
+<Tabs
+groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+  <TabItem value="desktop">
+
+1. On your personal account, find the order list
+2. In the order list, select the order you have an issue with
+3. On the order page, select **Support** at the upper-right corner of the page
+
+:::caution
+
+Please do not change the subject of the letter and do not delete the link in the message body. The order number and link help us find your order faster.
+
+:::
+
+4. Describe the issue about your order in as much detail as possible
+5. Send the letter
+
+</TabItem>
+<TabItem value="tablet">
+
+1. On your personal account, find the order list
+2. In the order list, select the order you have an issue with
+3. On the order page, select **Support** at the lower-right corner of the page
+
+:::caution
+
+Please do not change the subject of the letter and do not delete the link in the message body. The order number and link help us find your order faster.
+
+:::
+
+4. Describe the issue about your order in as much detail as possible
+5. Send the letter
+
+</TabItem>
+<TabItem value="mobile">
+
+1. On your personal account, find the order list
+2. In the order list, select the order you have an issue with
+3. On the order page, select **Support** at the lower-right corner of the page
+
+:::caution
+
+Please do not change the subject of the letter and do not delete the link in the message body. The order number and link help us find your order faster.
+
+:::
+
+4. Describe the issue about your order in as much detail as possible
+5. Send the letter
+
+</TabItem>
+</Tabs>
+
+:::tip
+
+You can send the customer a letter back to let them know that you received their letter and begun to deal with their issue. In this letter, you can mention that you received the message and, if possible, specify a timeframe in which the issue will be solved.
+
+:::
+
+### Shipping address management
+
+Each customer can save up to three shipping addresses in their personal account.
+
+#### Add address
+
+1. On your personal account, select **Shipping address** at the left menu.
+2. Select **Add Address** button
+
+:::info
+
+If all three addresses have already been added, the **Add Address** button is inactive. To add a new address, [edit](#change-address) or [delete](#delete-address) one of the previously added addresses.
+
+:::
+
+3. Fill in the fields with the recipient's name, address, and phone number.
+4. Select **Save**
+
+#### Set address as default
+
+The default address is automatically selected on the second step of **[Checkout](checkout.mdx)** process.
+
+1. On your personal account, select **Shipping address** at the left menu
+2. Select <Image src="/img/customer-edit-button.png" alt="Edit button" width={20} height={20} /> for address you want to set default
+3. Mark checkbox for **Select as default address**
+4. Select **Save**
+
+#### Change address
+
+1. On your personal account, select **Shipping address** at the left menu
+2. Select <Image src="/img/customer-edit-button.png" alt="Edit button" width={20} height={20} /> for address you want to edit
+3. Edit address
+4. Select **Save**
+
+#### Delete address
+
+You can delete addresses in two ways.
+
+<Tabs
+groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+First way:
+
+1. On your personal account, select **Shipping address** at the left menu
+2. Select <Image src="/img/customer-delete-button.png" alt="Delete button" width={20} height={20} /> for address you want to delete
+3. In the pop-up window, select **Delete**
+
+Second way:
+
+1. On your personal account, select **Shipping address** at the left menu
+2. Select <Image src="/img/customer-edit-button.png" alt="Edit button" width={20} height={20} /> for address you want to delete
+3. Select <Image src="/img/customer-delete-button.png" alt="Delete button" width={20} height={20} />
+4. In the pop-up window, select **Delete**
+
+
+</TabItem>
+<TabItem value="tablet">
+
+1. On your personal account, select **Shipping address** at the left menu
+2. Select <Image src="/img/customer-delete-button.png" alt="Delete button" width={20} height={20} /> for address you want to delete
+3. In the pop-up window, select **Delete**
+
+Second way:
+
+1. On your personal account, select **Shipping address** tab
+2. Select <Image src="/img/customer-edit-button.png" alt="Edit button" width={20} height={20} /> for address you want to delete
+3. Select <Image src="/img/customer-delete-button.png" alt="Delete button" width={20} height={20} />
+4. In the pop-up window, select **Delete**
+
+</TabItem>
+<TabItem value="mobile">
+
+1. On your personal account, select **Shipping address** at the left menu
+2. Select <Image src="/img/customer-delete-button.png" alt="Delete button" width={20} height={20} /> for address you want to delete
+3. In the pop-up window, select **Delete**
+
+Second way:
+
+1. On your personal account, select **Shipping address** tab
+2. Select <Image src="/img/customer-edit-button.png" alt="Edit button" width={20} height={20} /> for address you want to delete
+3. Select <Image src="/img/customer-delete-button.png" alt="Delete button" width={20} height={20} />
+4. In the pop-up window, select **Delete**
+
+</TabItem>
+</Tabs>
+
+## Log out
+
+<Tabs
+groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+1. On your personal account, select **Log out** at the left menu
+2. In the pop-up window, select **Continue**
+
+</TabItem>
+<TabItem value="tablet">
+
+1. On your personal account, select **Log out** at the upper-right corner of the page
+2. In the pop-up window, select **Continue**
+
+</TabItem>
+<TabItem value="mobile">
+
+1. On your personal account, select **Log out** at the upper-right corner of the page
+2. In the pop-up window, select **Continue**
+
+</TabItem>
+</Tabs>

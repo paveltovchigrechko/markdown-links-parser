@@ -1,0 +1,486 @@
+---
+title: Orders
+sidebar_position: 80
+sidebar_label: Check out orders
+description: Learn the basics of order management.
+keywords:
+    - order
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Image from "@site/src/components/Image";
+
+
+:::note
+
+This article describes the basics of creating and editing the orders, issuing refunds, changing statuses, and using order timeline. For detailed information, please check [Orders main article](../topics/orders/orders.mdx).
+
+:::
+
+The order is automatically created entity after the customer successfully passes the **[Checkout](../topics/customers/checkout.mdx)**. 
+
+The order contains:
+- list of the products
+- customer details
+- information about the selected shipping method
+- order payment details
+- additional data (statuses, comments)
+
+If you make sales outside of Unistore and you want to track the movement of all items in stock and have access to these sales in reports, you can [create orders](#create-order) for such sales manually.
+
+## Order statuses
+Each order has three independent statuses: 
+- Order status
+- Payment status
+- Fulfillment status
+
+### Order status
+Order statuses are:
+- Draft
+- Active
+- Archived
+
+**Draft**. The [manually created](#create-order) order with <Image src="/img/draft-status.png" alt="Draft status" height={22} /> label and at least one product added. Orders in *Draft* status have no payment status. Their status can only be changed to *Active* after order is marked as *Paid*.
+
+**Active**. An order that is in neither *Draft* nor *Archived* status. You can change order status from *Active* to *Archived* and back.
+
+**Archived**. An order that has both payment status and fulfillment status, and which is hidden from the list of orders. Use the [filter](../topics/orders/orders.mdx#filter-orders) by order status to display archived orders. You can change order status from *Active* to *Archived* and back.  
+
+### Payment status
+You can change payment status of the order by performing the [actions](#actions) with it. You can [confirm receiving](#change-payment-status-mark-order-as-paid) of the payment for the order, initiate a full or partial [refund](#issue-refund) to the customer, or [cancel the order](#cancel-order) and return all or part of the goods to the stock.
+
+Responses from the payment system are used to automatically change payment statuses. 
+
+The payment statuses are:
+
+- <Image src="/img/pending-status.png" alt="Pending status image" height={22} /> Pending
+- <Image src="/img/paid-status.png" alt="Paid status image" height={22} /> Paid
+- <Image src="/img/partially-refunded-status.png" alt="Partially refunded status image" height={22} /> Partially refunded
+- <Image src="/img/refunded-status.png" alt="Refunded status image" height={22} /> Refunded
+- <Image src="/img/canceled-status.png" alt="Canceled status image" height={22} /> Canceled
+
+### Fulfillment status
+The fulfillment status shows whether the order has been sent to the customer or not.
+
+The fulfillment statuses are the following:
+- <Image src="/img/unfulfilled-status.png" alt="Unfulfilled" height={22} /> Unfulfilled
+- <Image src="/img/fulfilled-status.png" alt="Fulfilled" height={22} /> Fulfilled
+
+## Create order
+
+:::note
+
+Manually created orders are not linked to the payment system, so their [payment statuses](#order-statuses) should also be changed manually.
+
+:::
+
+Before you create an order, make sure that the customer and [products](products.mdx#create-your-first-product) for that order already exist. [Create the customer profile manually](customers-gs.mdx#create-customer-profile-manually) if needed.
+
+The order creation window contains two tabs: **General** and **Details**.
+
+<Tabs
+groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+  
+<TabItem value="desktop">
+
+Steps:
+1. Select **Create Order**
+2. In the pop-up window, select radio button to choose order currency
+
+:::info
+
+The currencies listed are the currencies you added in the **[Currencies](store-settings.mdx#currencies)** section of the **Settings**. Make sure that the customer has prices for the products in the currency of their country.
+
+:::
+
+3. Select **Choose**
+4. Select **Choose Customer**
+5. In the pop-up window, select radio button to choose customer
+6. Select **Choose**
+7. Select **Add Address**
+8. In the sidebar, fill in address fields, if you want to add new address, or select **Available** tab and select radio button to choose address
+
+:::info
+
+The address added at the **New** tab is used only once for the current order and is not added to the list of customer shipping addresses.
+
+:::
+
+9. If needed, unmark the checkbox **Billing address is the same**
+
+:::info
+
+Billing address could be used by the companies, if they request the receipt for the purchase to this address. 
+
+:::
+
+10. Select **Add**
+11. Select **Add Products**
+
+
+:::info
+
+Only products with _Active_ [status](../topics/products/products.mdx#status) are displayed in **Add products** pop-up.
+
+:::
+
+12. Mark checkboxes for products you want to add
+13. Select **Add**
+14. In the **Delivery options** block, select radio button to choose one of them for this order
+15. Correct **Shipping cost** if necessary
+
+:::tip
+
+The shipping cost is the price of the selected delivery option, which is displayed in the **Payment info** block.
+
+:::
+
+16. Select **Save**
+
+:::info
+
+You can save an unpaid order in *Draft* status if at least one product is added to it. [Edit order](#change-payment-status-mark-order-as-paid) to change its status to *Paid*.
+
+:::
+
+</TabItem>
+<TabItem value="tablet">
+
+
+Steps:
+
+1. Select <Image src="/img/create-object-icon.png" alt="Create product" height={22} />
+2. In the pop-up window, select radio button to choose order currency
+
+:::info
+
+The currencies listed are the currencies you added in the **[Currencies](store-settings.mdx#currencies)** section of the **Settings**. Make sure that the customer has prices for the products in the currency of their country.
+
+:::
+
+3. Select **Choose**
+4. Select **Choose Customer**
+5. In the pop-up window, select radio button to choose customer
+6. Select **Choose**
+7. Select **Add Address**
+8. In the sidebar, fill in address fields, if you want to add new address, or select **Available** tab and select radio button to choose address
+
+:::info
+
+The address added at the **New** tab is used only once for the current order and is not added to the list of customer shipping addresses.
+
+:::
+
+9. If needed, unmark the checkbox **Billing address is the same**
+
+:::info
+
+Billing address could be used by the companies, if they request the receipt for the purchase to this address. 
+
+:::
+
+10. Select **Add**
+11. Select **Add Products**
+
+
+:::tip
+
+Use the search bar to find the products by name.
+
+:::
+
+12. Mark checkboxes for products you want to add
+13. Select **Add**
+14. In the **Delivery options** block, select radio button to choose one of them for this order
+15. Correct **Shipping cost** if necessary
+
+:::tip
+
+The shipping cost is the price of the selected delivery option, which is displayed in the **Payment info** block.
+
+:::
+
+16. Select **Save**
+
+:::info
+
+You can save an unpaid order in *Draft* status if at least one product is added to it. [Edit order](#change-payment-status-mark-order-as-paid) to change its status to *Paid*.
+
+:::
+
+</TabItem>
+<TabItem value="mobile">
+
+Steps:
+
+1. Select <Image src="/img/create-object-icon.png" alt="Create product" height={22} />
+2. In the pop-up window, select radio button to choose order currency
+
+:::info
+
+The currencies listed are the currencies you added in the **[Currencies](store-settings.mdx#currencies)** section of the **Settings**. Make sure that the customer has prices for the products in the currency of their country.
+
+:::
+
+3. Select **Choose**
+4. Select **Choose Customer**
+5. In the pop-up window, select radio button to choose customer
+6. Select **Choose**
+7. Select **Add Address**
+8. In the sidebar, fill in address fields, if you want to add new address, or select **Available** tab and select radio button to choose address
+
+:::info
+
+The address added at the **New** tab is used only once for the current order and is not added to the list of customer shipping addresses.
+
+:::
+
+9. If needed, unmark the checkbox **Billing address is the same**
+
+:::info
+
+Billing address could be used by the companies, if they request the receipt for the purchase to this address. 
+
+:::
+
+10. Select **Add**
+11. Select **Add Products**
+
+
+:::tip
+
+Use the search bar to find the products by name.
+
+:::
+
+12. Mark checkboxes for products you want to add
+13. Select **Add**
+14. In the **Delivery options** block, select radio button to choose one of them for this order
+15. Correct **Shipping cost** if necessary
+
+:::tip
+
+The shipping cost is the price of the selected delivery option, which is displayed in the **Payment info** block.
+
+:::
+
+16. Select **Save**
+
+:::info
+
+You can save an unpaid order in *Draft* status if at least one product is added to it. [Edit order](#change-payment-status-mark-order-as-paid) to change its status to *Paid*.
+
+:::
+
+</TabItem>
+</Tabs>
+
+## Edit order
+
+To edit an order go to **Orders** page and select an order you want to change.
+
+The order edition window contains two tabs: **Details** and **Timeline**. 
+
+### Details
+
+#### Actions
+
+Use the **Action** drop-down menu to change the payment or fulfillment status of an order.
+
+The selection of the following actions changes the payment status of the order:
+- Mark order as *Paid*
+- Get link for online payment (the payment status changes after the customer follows the link and pays for the order)
+- Issue refund
+- Cancel order
+- Delete order (only for the orders in *Draft* status)
+
+The selection of the following actions changes the fulfillment status of the order:
+- Mark order as *Unfulfilled*
+- Mark order as *Fulfilled*
+
+##### Change payment status (Mark order as *Paid*)
+
+Use this action to mark the receiving of the payment from the customer.
+
+Steps:
+
+1. In the admin interface, go to **Orders**
+2. Select the order you want to change
+3. Select <Image src="/img/actions-button.png" alt="Actions" height={20} /> 
+4. From the drop-down list, select **Mark order as *Paid***
+5. Select **Continue**
+
+##### Get link for online payment
+
+Use this action to generate payment link for the customer.
+
+Steps:
+
+1. In the admin interface, go to **Orders**
+2. Select the order you want to get link for
+3. Select <Image src="/img/actions-button.png" alt="Actions" height={20} /> 
+4. From the drop-down list, select **Get link for online payment**
+<!-- 5. тут нет понятных шагов пока -->
+
+##### Issue refund
+
+If you return the full amount of the order to the customer, the order is marked as *Refunded*. If you refund a part of the order amount, the order is marked as *Partially refunded*.
+
+:::note
+
+You can keep issuing refunds on the order until the total amount of refunds equals the total amount of the order. 
+
+:::
+
+Steps:
+
+1. In the admin interface, go to **Orders**
+2. Select the order you want to refund
+3. Select <Image src="/img/actions-button.png" alt="Actions" height={20} />
+4. From the drop-down list, select **Issue refund**
+5. Mark checkboxes for the products you want to issue a refund or / and change **Refund amount** if needed
+6. Select **Refund**
+7. In the pop-up window, mark checkbox if you want to return products back to stock and select **Confirm**
+8. Select **Close**
+
+##### Cancel order
+
+:::note
+
+You can only cancel orders in the *Pending* status. For paid orders, you need to make a refund.
+
+:::
+
+If the customer has paid for the order, but the order is still in **Pending** status, you can cancel such an order. In this case, the money will be returned back to the customer's bank account.
+
+Steps:
+
+1. In the admin interface, go to **Orders**
+2. Select the order you want to change
+3. Select <Image src="/img/actions-button.png" alt="Actions" height={20} />
+4. From the drop-down list, select **Cancel** payment status
+5. In the pop-up window, mark checkbox if you want to return products back to stock and select **Confirm**
+
+##### Delete order
+
+:::note
+
+You can only delete the orders in the *Draft* status.
+
+:::
+
+Steps:
+
+1. In the admin interface, go to **Orders**
+2. Select the order you want to delete
+3. Select <Image src="/img/actions-button.png" alt="Actions" height={20} />
+4. From the drop-down list, select **Delete order**
+5. Select **Delete**
+
+
+##### Change fulfillment status (Mark order as ...) 
+
+:::note
+
+Fulfillment statuses are changed only manually.
+
+:::
+
+Steps:
+
+1. In the admin interface, go to **Orders**
+2. Select the order you want to change
+3. Select <Image src="/img/actions-button.png" alt="Actions" height={20} />
+4. From the drop-down list, select the right fulfillment status
+5. Select **Confirm**
+
+#### Print page
+You can print the basic order details (or save a file of them to your device for later use).
+
+:::info
+
+When generating order page for printing, information from **Timeline** tab is not displayed.
+
+:::
+
+Steps:
+
+1. In the admin interface, go to **Orders**
+2. Select the order you want to print information for
+3. Select **Print page**
+
+#### Delete product from order
+
+If a customer has asked you to remove a product from the order, or if you need to do it yourself for some reason, it is much more convenient to remove the product from the order in *Draft* status than to use the **Refund** feature later.
+
+An order from which all products have been removed changes its status to *Canceled*.
+
+:::note
+
+You can delete products only from the orders in *Draft* status. 
+
+:::
+
+Steps:
+
+1. In the admin interface, go to **Orders**
+2. Select the order you want to change
+3. Select <Image src="/img/Delete-icon.png" alt="Delete" height={20} /> for the product you want to delete
+4. In the pop-up window, select **Delete**
+
+:::tip
+
+You can use bulk operation bar to delete more than one product at a time.
+
+<Image src="/img/delete-bulk-bar.png" alt="Bulk operation bar" height={20} /> 
+
+:::
+
+### Timeline
+
+The **Timeline** displays records of all events and comments related to this order.
+
+All records of actions with an order are saved with the date and time (in the store's timezone). 
+
+The manual action records, such as manual order creation, refund issue, change of a status, or order cancellation, contain also an email and avatar (if set) of the store staff who performed the action.
+
+#### Comment
+You can add to the **Timeline** any important information about order as comment. 
+
+There could be:
+- Comments on order products
+- Useful links
+- Details on refund
+- Additional customer's address or phone for delivery
+- Comments on chosen delivery service or payment method
+- Any kind of notifications for you and your store staff
+
+:::info
+
+Customers do not have access to order comments. This is internal store information.
+
+:::
+
+##### Add comment
+
+:::info
+
+You can add a comment up to 256 symbols.
+
+::: 
+
+To add comment to the **Timeline**:
+
+1. In the admin interface, go to **Orders**
+2. Select the order you want to change
+3. Select **Timeline** tab
+4. Select **Add Comment**
+5. Write comment
+6. Select **Add**

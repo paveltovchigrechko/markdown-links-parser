@@ -1,0 +1,259 @@
+---
+title: Delivery options
+sidebar_position: 50
+description: This article describes the basics of the customer creation and management.
+keywords:
+    - delivery option
+    - delivery region
+    - delivery rule
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Image from "@site/src/components/Image";
+
+Delivery options are the delivery terms under which [customers](../customers/customers.mdx) receive their purchases. Delivery options are created for a specific [region](#create-region) and may have exceptions to the basic conditions ([delivery rules](#add-delivery-rule)). 
+
+:::info
+
+When you create a store, simultaneously a domestic region with your country is created.
+The country is defined by the IP-address under which you logged in to Unistore to create your store.
+
+:::
+
+You can [edit existing region](#edit-region) by adding new countires to it, or you can [create a new region](#create-region). In any of this cases, you need to [add delivery options](#add-delivery-option) to any of your regions.
+
+:::danger Warning
+
+If no delivery option is created in a region, no delivery is available to it. Customers from such regions will be unable to complete the checkout. 
+
+:::
+
+## Regions
+
+### Create region
+
+<Tabs
+groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+  <TabItem value="desktop">
+  
+Steps:
+
+1. In the admin interface, go to **Settings** > **Delivery options**
+2. Select **Create Region**
+3. Fill in **Region name**
+4. Select **Add Country**
+
+:::info
+
+Countries that have already been added to a region are displayed with a label of that region. If the **Add** button is inactive, it means that all countries have already been added to the existing regions.
+
+:::
+
+5. Mark checkboxes of the countries you want to add to the created region
+
+:::note
+
+Mark the checkbox to the left of the continent's name to select all the countries of that continent at once.
+
+:::
+
+6. Select **Add**
+7. Select **Save**
+
+
+</TabItem>
+
+<TabItem value="tablet">
+
+Steps:
+
+1. In the admin interface, go to **Settings** > **Delivery options**
+2. Select <Image src="/img/create-object-icon.png" alt="Create product" height={22} />
+3. Fill in **Region name**
+4. Select **Add Country**
+
+:::info
+
+Countries that have already been added to a region are displayed with a label of that region. If the **Add** button is inactive, it means that all countries have already been added to the existing regions.
+
+:::
+
+5. Mark checkboxes of the countries you want to add to the created region
+
+:::note
+
+Mark the checkbox to the left of the continent's name to select all the countries of that continent at once.
+
+:::
+
+6. Select **Add** 
+7. Select **Save**
+
+</TabItem>
+
+<TabItem value="mobile">
+
+Steps:
+
+1. In the admin interface, go to **Settings** > **Delivery options**
+2. Select <Image src="/img/create-object-icon.png" alt="Create product" height={22} />
+3. Fill in **Region name**
+4. Select **Add Country**
+
+:::info
+
+Countries that have already been added to a region are displayed with a label of that region. If the **Add** button is inactive, it means that all countries have already been added to the existing regions.
+
+:::
+
+5. Mark checkboxes of the countries you want to add to the created region
+
+6. Select **Add** 
+7. Select **Save**
+
+</TabItem>
+</Tabs>
+
+### Edit region
+
+1. In the admin interface, go to **Settings** > **Delivery options**
+2. In the region section, select <Image src="/img/edit-button.png" alt="Edit button" height={22} />
+3. Make changes to region
+4. Select **Save**
+
+### Delete region
+
+You can delete region in two ways.
+
+First way:
+1. In the admin interface, go to **Settings** > **Delivery options**
+2. In the region section, select <Image src="/img/delete-button.png" alt="Delete button" height={22} />
+3. In the pop-up window, select **Delete**
+
+Second way:
+
+1. In the admin interface, go to **Settings** > **Delivery options**
+2. In the region section, select <Image src="/img/edit-button.png" alt="Edit button" height={22} />
+3. Select <Image src="/img/delete-trash-icon.png" alt="Delete button" height={22} />
+4. In the pop-up window, select **Delete**
+
+## Delivery options
+
+### Add delivery option
+
+:::info Precondition
+
+You have already [created a region](#create-region).
+
+:::
+
+Steps:
+
+1. In the admin interface, go to **Settings** > **Delivery options**
+2. In the region section, select **Add Delivery**
+3. From the drop-down list, select currency for this delivery option
+
+:::info
+
+If you have only default currency in your store, the currency selector is not displayed when you add a delivery option.
+
+:::
+
+4. Fill in **Delivery option name**
+
+:::note
+
+Delivery option name should be unique within the region.
+
+:::
+
+5. Fill in the minimum and the maximum values for shipping time
+6. Fill in **Flat rate**
+
+:::info
+
+The flat rate will be displayed to customers in all cases when the rules do not apply or there are none at all.
+
+:::
+
+7. Select **Save**
+
+### Edit delivery option
+
+1. In the admin interface, go to **Settings** > **Delivery options**
+2. In the region section, select <Image src="/img/edit-store-button.png" alt="Edit button" height={22} /> for the delivery option you want to change
+
+:::tip
+
+Use horizontal scroll to find button for editing delivery option in the mobile view.
+
+:::
+
+3. Make changes to delivery option
+4. Select **Save**
+
+### Delete delivery option
+
+You can delete delivery options in two ways:
+
+First way:
+1. In the admin interface, go to **Settings** > **Delivery options**
+2. In the region section, select <Image src="/img/delete-icon.png" alt="Delete button" height={22} /> for the delivery option you want to delete
+
+:::tip
+
+Use horizontal scroll to find button for deleting delivery option in the mobile view.
+
+:::
+
+3. In the pop-up window, select **Delete**
+
+Second way:
+
+1. In the admin interface, go to **Settings** > **Delivery options**
+2. In the region section, select <Image src="/img/edit-store-button.png" alt="Edit button" height={22} /> for the delivery option you want to delete
+3. Select <Image src="/img/delete-trash-icon.png" alt="Delete button" height={22} />
+4. In the pop-up window, select **Delete**
+
+
+## Rules
+### Add delivery rule
+
+Delivery rules are the exceptions to the conditions of the main delivery option within which they are created. Rules can be based on the weight of the products or their price. 
+
+:::info
+
+You can create up to 10 delivery rules within one delivery option.
+
+:::
+
+:::info Precondition
+
+You are creating or editing a delivery option.
+
+:::
+
+Steps:
+
+1. Select radio button to choose the delivery rule type: *Price-based rule* or *Weight-based rule*
+2. Fill in the minimum and the maximum values
+3. Fill in **Delivery cost**
+4. Select **Save**
+
+### Edit rule
+
+Editing delivery rules is a part of [editing the delivery options](#edit-delivery-option).
+
+### Delete rule
+
+1. In the admin interface, go to **Settings** > **Delivery options**
+2. In the region section, select <Image src="/img/edit-store-button.png" alt="Edit button" height={22} /> for the delivery option from which you want to delete the rule
+3. Select <Image src="/img/delete-icon.png" alt="Delete button" height={22} /> for delivery rule you want to delete
+<!-- pop-up? -->
+4. Select **Save**

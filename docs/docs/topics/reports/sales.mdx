@@ -1,0 +1,49 @@
+---
+title: Sales report
+sidebar_position: 50
+description: Sales report contains the records of all sales in your store.
+keywords:
+    - sales
+    - statistics
+    - store metrics
+---
+
+import Image from "@site/src/components/Image";
+
+The **Sales** report contains the records of all sales in your store. A sale is a single transaction for one position (also known as a line item) in an order. Transactions for shipping and refunds are counted as separate sales. 
+
+For example, an order has three line items and a shipping charge. In this case, the **Sales** report displays four records for this order: a record for each line item (three in total) and a record for shipping. If you refund one line item to a customer, another record for the refund is added to the report.
+
+<!-- The actuality of the data. When a merchant opens the report how actual is the report? See Shopify remarks (https://help.shopify.com/en/manual/reports-and-analytics/shopify-reports/report-types/sales-report) -->
+
+:::note
+
+Orders with [payment statuses](../orders/orders.mdx#payment-status) *Pending* and *Canceled* do not have any sales yet, as well as draft orders. Thus, the **Sales** report contains the records for actual sales only.
+
+:::
+
+<!-- Sales currency: always in USD. The conversion on the date of sale? -->
+
+The table below describes the properties of **Sales** report records. 
+
+| Report              |Description                                                                                                                                                      |
+| :-----------------: |:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Date**            |The date of a sale                                                                                                                                               |
+| **Order**           |The number of the [order](../orders/orders.mdx) within which the sale occurred                                                                                   |
+| **Product title**   |The title of [product](../products/products.mdx) for which the sale was made                                                                                     |
+| **Variant options** |The [product variant](../products/products.mdx#options-and-variants) for which the sale was made                                                                 |
+| **Quantity**        |The number of [product](../products/products.mdx) items in the sale. The value equals to 1 for refunds and shipping charges                                      |
+| **Gross sales**     |The sale amount with taxes and shipping excluded. The value cannot be less than 0 and is always displayed in the store's main currency                           |
+| **Discounts**       |The applied discount. The value cannot be more than 0                                                                                                            |
+| **Refund**          |The [refund](../orders/orders.mdx#issue-refund) amount                                                                                                           |
+| **Net sales**       |The sale amount with taxes, shipping, and refund included. The value can be positive (for sales and shipping charges) or negative (for refunds)                  |
+| **Shipping cost**   |The shipping charge for all order positions. The value can be positive (when a customer pays for shipping), 0 (free shipping), or negative (you pay for shipping)|
+| **Total sales**     |The total amount of a sale that includes **Gross sales**, **Discounts**, **Refund**, **Shipping**                                                                |
+| **Channel**         |The storefront used to make a sale                                                                                                                               |
+| **Country**         |The country of sale shipping                                                                                                                                     |
+| **Sale type**       |The type of sale. Possible values: **Sale** (a line item purchase), **Refund** (a line item refund)                              |
+
+In **Sales** report, you can:
+1. Sort the sales by **Date** and **Total sales**
+2. Filter the sales by **Date** and **Channel**
+3. [Export](reports.mdx#export-reports) sales

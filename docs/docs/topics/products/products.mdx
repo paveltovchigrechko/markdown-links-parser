@@ -1,0 +1,870 @@
+---
+title: Products
+sidebar_position: 30
+description: The product is one of the most important entities in setting up a store.
+keywords:
+    - products
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Image from "@site/src/components/Image";
+
+The product is one of the most important entities in setting up a store.
+
+Create, edit, and delete products in the **Products** section.
+
+You can create up to 100 000 products within one store.
+
+## Products page
+
+### Listing
+<Tabs
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+
+<TabItem value="desktop">
+
+
+All the store's products are displayed in the **Products** section as a table.
+
+You can find the following information for each product:
+- Product name
+- Price (in default currency)
+- Inventory (amount of the product in stock if tracking is enabled)
+- Collection
+- Status
+
+Use the search bar to find products by name:
+
+<Image src="/img/search-bar.png" alt="Search bar" width={300} /> 
+
+</TabItem>
+<TabItem value="tablet">
+
+All the store's products are displayed in the **Products** section as blocks.
+
+You can find the following information for each product:
+- Product name
+- Price (in default currency)
+- Inventory (amount of the product in stock if tracking is enabled)
+- Collection
+- Status
+
+Use the search bar to find products by name:
+
+<Image src="/img/search-bar.png" alt="Search bar" width={300} /> 
+
+</TabItem>
+<TabItem value="mobile">
+
+All the store's products are displayed in the **Products** section as blocks.
+
+You can find the following information for each product:
+- Product name
+- Price (in default currency)
+- Inventory (amount of the product in stock if tracking is enabled)
+- Collection
+- Status
+
+Use the search bar to find products by name:
+
+<Image src="/img/search-bar.png" alt="Search bar" width={300} /> 
+
+</TabItem>
+</Tabs>
+
+### Filter products
+Use the filter to find the products you need easier.
+
+You can filter products by:
+- Status
+- Inventory
+- Vendors
+- Collections
+
+:::info
+
+If the non-default filtering method is selected, the icon has an indication <Image src="/img/non-default-filtering-pc.png" alt="Non-default indication" height={22} /> 
+
+:::
+
+<Tabs
+groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+Steps:
+
+1. Select <Image src="/img/filter-button.png" alt="Filter by" height={22} />
+2. Hover the mouse cursor over the required filtering method
+3. From the drop-down list select the value
+
+
+</TabItem>
+<TabItem value="tablet">
+
+Steps:
+1. Select <Image src="/img/filter-tablet.png" alt="Filter by" height={22} /> 
+2. Select the required filtering method
+3. Select the value
+
+</TabItem>
+<TabItem value="mobile">
+
+Steps:
+1. Select <Image src="/img/filter-mobile.png" alt="Filter by" height={22} /> 
+2. Select the required filtering method
+3. Select the value
+
+</TabItem>
+</Tabs>
+
+### Sort products
+
+Use the sorting to find the products you need easier.
+You can sort products by:
+
+- Creation date
+- Name
+- Inventory
+- Price
+
+By default, all the products are sorted by creation date, newest products are on the top of the list.
+
+:::info
+
+If the non-default sorting method is selected, the icon has an indication <Image src="/img/non-default-sorting-pc.png" alt="Non-default indication" height={22} /> 
+
+:::
+
+<Tabs
+groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+  
+<TabItem value="desktop">
+
+Steps:
+
+1. Select <Image src="/img/sort-button.png" alt="Sort by" height={22} /> 
+2. Hover the mouse cursor over the required sorting method
+3. From the drop-down list select the value
+
+
+</TabItem>
+<TabItem value="tablet">
+
+Steps:
+1. Select <Image src="/img/sort-tablet.png" alt="Sort by" height={22} /> 
+2. Select the required sorting method
+3. Select the value
+
+
+</TabItem>
+<TabItem value="mobile">
+
+Steps:
+1. Select <Image src="/img/sort-mobile.png" alt="Sort by" height={22} /> 
+2. Select the required sorting method
+3. Select the value
+
+</TabItem>
+</Tabs>
+
+## Status
+
+You can save the product in one of the statuses: *Draft*, *Archived* or *Active*.
+Product with *Draft* status can be saved only with filled in **Product name** field. 
+Products with *Draft* status are visible in the general product list in the admin interface, but they are not displayed in Collections and in the product lists in the **Website editor** menu section.
+
+The *Archived* status is used for products that are not currently available for sale, but can be sold in the future.
+
+:::info
+
+Products with this status are displayed only in the admin interface in the list of products when the *Archived* filter is selected.
+
+:::
+
+For a product with *Active* status you need to fill in the **Price** field. The *Active* status is used for those products that are ready for sale.
+There are no display limitations for such products.
+
+:::caution
+
+When you change product status form *Active* to *Draft* or *Archived*, such products are deleted from sections in [Website editor](../website-editor/website-editor.mdx), from additional [sales channels](../other-sales-channels/other-sales-channels.mdx), and from active and [abandoned carts](../marketing/abandoned-carts.mdx). Also, such products are not displayed in [collections](collections/collections.mdx).
+
+:::
+
+<!-- :::tip
+
+You can set the status for multiple products at once using the bulk operations bar.
+
+<Image src="/img/bulk-operation-bar.png" alt="Bulk operation bar" width={500} /> 
+
+::: -->
+
+## Type
+
+:::info
+
+The ability to add a *Digital* type product is an upcoming feature.
+
+:::
+
+You can create only *Physical* products (goods).
+
+<!-- Products can be *Physical* (goods) or *Digital* (anything that customer can get without using shipping). Once you save the created product, you cannot change its type. -->
+
+<!-- :::info
+
+When creating or modifying a product with the *Digital* type, the **Weight** section, which is necessary for the correct calculation of shipping costs, is not displayed.
+
+::: -->
+
+## Create product
+
+The product creation window contains two tabs: **General** and **Options**.
+
+:::tip
+
+If you want to offer products also in [additional sales channels](../other-sales-channels/other-sales-channels.mdx), make sure to choose *Active* status for products, add [media](#media), and fill in following [parameters](#product-parameters):
+
+- SKU / ID (also, fill it in for each variant of the product)
+- Barcode / ISBN, UPC, GTIN, etc.
+- Description
+- Vendor
+- Current quantity of product in stock (mark checkbox **Track inventory** and set quantity)
+
+Products that do not have these parameters filled in may be excluded from the list for sale on the platform.
+
+:::
+
+<Tabs
+groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+  
+<TabItem value="desktop">
+
+Steps:
+
+1. In the admin interface, go to **Products**
+2. Select **Create Product**
+3. Mark checkbox to choose product status: *Draft* or *Active*
+4. Mark checkbox to choose product type: *Physical* (Goods) or *Digital*
+5. Fill in **Product name**
+6. In the **Pricing** block, enter prices for all currencies
+7. In the workspace, select **Save**
+
+</TabItem>
+<TabItem value="tablet">
+
+Steps:
+
+1. In the admin interface, go to **Products**
+2. Select <Image src="/img/create-object-icon.png" alt="Create product" height={22} />
+3. Mark checkbox to choose product status: *Draft* or *Active*
+4. Mark checkbox to choose product type: *Physical* (Goods) or *Digital*
+5. Fill in **Product name**
+6. In the **Pricing** block, enter actual prices for all currencies
+7. In the workspace, select **Save**
+
+</TabItem>
+<TabItem value="mobile">
+
+Steps:
+
+1. In the admin interface, go to **Products**
+2. Select <Image src="/img/create-object-icon.png" alt="Create product" height={22} />
+3. Mark checkbox to choose product status: *Draft* or *Active*
+4. Mark checkbox to choose product type: *Physical* (Goods) or *Digital*
+5. Fill in **Product name**
+6. In the **Pricing** block, enter actual prices for all currencies
+7. In the workspace, select **Save**
+
+</TabItem>
+</Tabs>
+
+<details>
+
+<summary>Optionally you can:</summary>
+
+<div>
+
+- Fill in **SKU** field manually or select <Image src="/img/generate-sku-button.png" alt="Generate SKU" height={22} /> to generate SKU automatically ([details](#description))
+- Fill in **Barcode** and **Description** fields ([details](#description))
+- Correct the information in the **SEO settings** block ([details](#seo-snippets))
+- Select **Theme template** for this page ([details](#management))
+- Add **Vendor** and **Collections** ([details](#management))
+- Add or create and add **Tags** ([details](#management))
+- Enter **Comparative price** ([details](#pricing))
+- Upload images and add YouTube links ([details](#media))
+- Mark **Track inventory** checkbox and set the current quantity of the product in stock ([details](#tracking))
+- Add options and variants of the product ([details](#options-and-variants))
+
+</div>
+</details>
+
+
+## Edit product
+
+
+Steps:
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to change
+3. Change the data
+4. Select **Save**
+
+## Delete product
+
+<Tabs
+groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+  
+<TabItem value="desktop">
+
+You can delete product in two different ways.
+
+First way:
+
+1. In the admin interface, go to **Products**
+2. In the table, select <Image src="/img/Delete-icon.png" alt="Delete" height={22} /> for the product you want to delete
+3. In the pop-up window, select **Delete**
+
+Second way:
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to delete
+3. In the bottom of the product page, select <Image src="/img/Delete-trash-icon.png" alt="Delete" height={22} /> 
+4. In the pop-up window, select **Delete**
+
+<!-- Third way:
+
+1. In the admin interface, go to **Products**
+2. Mark the checkbox of the product you want to delete 
+3. In the bulk operation bar, select **Delete**
+
+<Image src="/img/bulk-operation-bar.png" alt="Bulk operation bar" width={500} /> 
+
+4. In the pop-up window, select **Delete**
+
+You can use the bulk operation bar to delete more than one product at a time.
+
+:::tip
+
+Mark the topmost checkbox to select all products.
+
+::: -->
+
+</TabItem>
+<TabItem value="tablet">
+
+<!-- You can delete product in two different ways.
+
+First way: -->
+Steps:
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to delete
+3. In the bottom of the product page, select <Image src="/img/Delete-trash-icon.png" alt="Delete" height={22} /> 
+4. In the pop-up window, select **Delete**
+
+<!-- Second way:
+
+1. In the admin interface, go to **Products**
+2. Mark the checkbox of the product you want to delete 
+3. In the bulk operation bar, select **Delete**
+
+<Image src="/img/bulk-operation-bar.png" alt="Bulk operation bar" width={500} /> 
+
+4. In the pop-up window, select **Delete**
+
+You can use the bulk operation bar to delete more than one product at a time.
+
+:::tip
+
+Mark the topmost checkbox to select all products.
+
+::: -->
+
+</TabItem>
+<TabItem value="mobile">
+
+<!-- You can delete product in two different ways.
+
+First way: -->
+Steps:
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to delete
+3. In the bottom of the product page, select <Image src="/img/Delete-trash-icon.png" alt="Delete" height={22} /> 
+4. In the pop-up window, select **Delete**
+
+<!-- Second way:
+
+1. In the admin interface, go to **Products**
+2. Mark the checkbox of the product you want to delete 
+3. In the bulk operation bar, select **Delete**
+
+<Image src="/img/bulk-operation-bar.png" alt="Bulk operation bar" width={500} /> 
+
+4. In the pop-up window, select **Delete**
+
+You can use the bulk operation bar to delete more than one product at a time.
+
+:::tip
+
+Mark the topmost checkbox to select all products.
+
+::: -->
+
+</TabItem>
+</Tabs>
+
+## Product parameters
+
+### Description
+**Product name**.
+Product name is the title of the product, as it is presented to your customers. 
+
+:::note
+
+The product name must be unique within the store.
+
+:::
+
+**SKU**.
+SKU (stock keeping unit)—a unique identification number of goods within the store. 
+
+:::tip
+
+You can enter the SKU manually in the input field or generate it automatically by selecting <Image src="/img/generate-sku-button.png" alt="Generate SKU" height={22} /> in the field.
+
+:::
+
+**Barcode, ISBN, UPC, GTIN, etc.**
+If your product has a Global Trade Item Number (GTIN), barcode, ISBN or UPS, you can enter that number in the input field.
+
+**Description**.
+
+:::tip
+
+You can use the format bar to highlight in the description important things for the customer.
+
+:::
+
+Describe the product for the customer in as much detail as possible: its functions, features, and details. In this way, your customer's expectations are more likely to match reality, so they will be satisfied and you will have less product returns.
+
+:::info
+
+Explore [article](../preferences/SEO/on-page-seo.mdx#how-to-write-product-descriptions) to find a few recommendations on how to write strong product descriptions.
+
+:::
+
+If your product is not original, but a copy of the brand, this must be stated in the product description.
+
+
+:::danger WARNING
+
+We can delete products that do not match the description. If there are many such products, we may completely delete the entire store. Please, be honest with your customers.
+
+:::
+
+### Management
+<!-- на тесте и стейдже это organization, но мы с Ваней договорились поменять -->
+**Theme template**.
+At the moment, there is only a default template. It is not available to change it.
+
+**Vendor**.
+You can specify a vendor for each product. In the future, you can make your search for products easier by using a filter by vendor name. Explore [full article](vendors/vendors.mdx) for more detailed information.
+
+**Collection**.
+You can create product collections to help customers easily find the products they're interested in or highlight the store's special offers. Explore [full article](collections/collections.mdx) for more detailed information.
+
+**Tags**.
+Tag products to organize them, simplify the search for your customers and create the best recommendations for the related products.
+You can use up to 250 tags for one product.
+Explore [full article](../admin-tools/tags.mdx) for more detailed information.
+
+### Tracking
+When creating a product, mark the **Track inventory** checkbox to keep track of product stock in the store.
+
+:::tip
+
+**Keep selling product if out of stock**. You can mark this checkbox if you expect this product to arrive in stock soon or if the actual quantity of the product in your stock does not match the quantity in the Unistore stock.
+
+:::
+
+### Pricing
+In the **Pricing** block, specify the cost of the product. If you trade using multiple currencies, set the price in all of them.
+You can add or remove [currencies](../store-settings/currencies.mdx) in the **Settings**. By default, all prices are calculated in US dollars.
+
+:::note
+
+The **Price** field is required if you select the *Active* product status.
+
+:::
+
+In the **Comparative price** field, enter the price of the product without discounts, special offers, or promotions. Due to the presence of a comparative price, your customers understand the benefits of buying that particular product. The **Comparative price** field is optional.
+
+### Media
+
+:::tip
+
+Check our [Media optimization article](../preferences/SEO/on-page-seo.mdx#media-optimization) to learn more about it.
+
+:::
+
+Images serve to draw the customer's attention to the product and give a better sense of it. 
+
+:::tip
+
+Images show details to the customer: how the product works, what its color, size, and quality are.
+
+:::
+
+Use YouTube links to add product reviews to the description. You can add to product up to 5 images and up to 1 YouTube link.
+
+All the uploaded images and added links are presented in the list under the upload files button. 
+Explore [full article](../admin-tools/media-gallery.mdx) for more detailed information.
+
+<!--  
+## Weight -->
+
+<!--  Specify the weight of the product to correctly calculate shipping costs. If you select the _Digital_ product type, the **Weight** block is not displayed. -->
+
+### SEO snippets
+
+SEO stands for "Search Engine Optimization", which is a process of attracting users to your website through search queries.
+
+:::tip
+
+SEO can make your website more visible for the potential customers, which means more traffic and more possibilities for converting leads into customers.
+
+:::
+
+A snippet is a short description of a web page that appears on the search engine results page. It helps users better understand the content of the website and decide whether to choose it. Make the snippet more appealing by adding a page title, an attractive description, and quick link.
+
+:::tip
+
+Check our [What is SEO?](../preferences/SEO/what-is-seo.mdx) and [SEO basics](../preferences/SEO/on-page-seo.mdx) articles to learn more about it.
+
+:::
+
+By default, data in the **Title of search snippet** field is copied from the **Product name** field, data in the **Description of search snippet** field is copied from the **Description** field. The **URL** value is generated automatically.
+
+:::note
+
+All values are in the input fields, so you can change them.
+
+:::
+
+## Options and variants
+
+If you sell many kinds of one product, you can add options and variants to it. Each option should have its variants.
+In total, you can add up to 3 options for any type of the product and no more than 100 variants for each product in total.
+
+### Options and variants listing
+
+Use **Options** tab of the product creation or edition page to add, edit or delete options and variants within the product.
+
+All the product's variants are displayed in the **Options** tab as a table.
+
+:::tip
+
+Use horizontal scroll to find full content in the mobile view.
+
+:::
+
+You can find the following information:
+- Options names
+- Variants names
+- Inventory (amount of the product in stock)
+- SKU / ID
+- Price (in default currency)
+
+
+The options names are displayed at the top of the table columns from left to right (max.3) in the order they were added to the product.
+
+:::note
+
+**Inventory**, **SKU / ID**, and **Price** are fixed columns.
+
+:::
+
+The variants are displayed in the table from top to bottom in the order they were added to the option.
+
+:::info
+
+There is no way to sort or filter variants of the product in the **Options** tab.
+
+:::
+
+###  Add options and variants
+
+Steps:
+
+1. In the admin interface, go to **Products**
+2. In the table, select the product you want to change
+3. Select **Options** tab
+4. Select **Add Option** 
+5. In the sidebar, enter the option name into the input field
+6. Select <Image src="/img/add-variant-chips.png" alt="Add variant" height={22} /> 
+7. In the empty chips, enter variant value 
+8. Repeat if needed
+9. Close the sidebar
+10. In the workspace, select **Save**
+
+### Edit options
+
+Steps:
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to change
+3. Select **Options** tab
+4. Select **Edit Options** button
+5. In the **Edit Options**sidebar, change options data
+6. Close the sidebar
+7. Select **Save** button
+
+### Edit variants
+
+You can edit variants in two different ways.
+
+First way:
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to change
+3. Select **Options** tab
+4. Select **Edit Options** button
+5. Select variant chips
+6. Change variant value
+7. Close the sidebar
+8. Select **Save** button
+
+Second way:
+
+:::tip
+
+Use this way to mass edit variants by switching between them using the list in the left panel.
+
+:::
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to change
+3. Select **Options** tab
+4. In the table, select the variant you want to change
+5. Make changes
+
+:::tip
+
+You can quickly edit all variants of one product by switching them in the left menu.
+
+:::
+
+6. Select **Save** button
+
+### Delete options
+
+:::danger
+
+When you delete an option, all of its variants are also automatically deleted.
+
+:::
+
+Steps:
+1. In the admin interface, go to **Products**
+2. Select the product you want to change
+3. Select **Options** tab
+4. Select **Edit Options** button
+5. In the **Edit Options** sidebar, select <Image src="/img/Delete-icon.png" alt="Delete" height={20} /> next to the option you want to delete
+6. In the pop-up window, select **Delete**
+7. Select **Save** button
+
+### Delete variants
+
+<Tabs
+groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+  
+<TabItem value="desktop">
+
+You can delete variants in three different ways.
+
+First way:
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to change
+3. Select **Options** tab
+4. Select **Edit Options** button
+5. In the **Edit Options** sidebar, select cross on the variant chips you want to delete
+6. In the pop-up window, select **Delete**
+7. Close the sidebar
+8. In your workspace, select **Save** button
+
+Second way:
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to change
+3. Select **Options** tab
+4. In the table, select the variant you want to delete
+5. In the bottom of the variant page, select <Image src="/img/Delete-trash-icon.png" alt="Delete" height={22} /> 
+6. In the pop-up window select **Delete**
+7. In your workspace, select **Cancel** button to go back the product editing
+
+Third way:
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to change
+3. Select **Options** tab
+4. Select the variant you want to delete 
+5. In the bottom of the variant page, select <Image src="/img/Delete-icon.png" alt="Delete" height={20} />
+6. In the pop-up window, select **Delete**
+7. In your workspace, select **Save** button
+
+<!-- Fourth way:
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to change
+3. Select **Options** tab
+4. Mark the checkbox of the variant you want to delete 
+5. In the bulk operation bar, select **Delete**
+6. In the pop-up window, select **Delete**
+7. In your workspace, select **Save** button
+
+You can use the bulk operation bar to delete more than one variant at a time.
+
+:::tip
+
+Mark the topmost checkbox to select all variants.
+
+::: -->
+
+</TabItem>
+<TabItem value="tablet">
+
+You can delete variants in three different ways.
+
+First way:
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to change
+3. Select **Options** tab
+4. Select **Edit Options** button
+5. In the **Edit Options** sidebar, select cross on the variant chips you want to delete
+6. In the pop-up window, select **Delete**
+7. Close the sidebar
+8. In your workspace, select **Save** button
+
+Second way:
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to change
+3. Select **Options** tab
+4. In the table, select the variant you want to delete
+5. In the bottom of the variant page, select <Image src="/img/Delete-trash-icon.png" alt="Delete" height={22} /> 
+6. In the pop-up window select **Delete**
+7. In your workspace, select **Cancel** button to go back the product editing
+
+Third way:
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to change
+3. Select **Options** tab
+4. Scroll the row of the variant you want to delete
+5. At the end of the variant row, select <Image src="/img/Delete-icon.png" alt="Delete" height={22} /> 
+6. In the pop-up window select **Delete**
+7. In your workspace, select **Save** button
+
+<!-- Fourth way:
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to change
+3. Select **Options** tab
+4. Mark the checkbox of the variant you want to delete 
+5. In the bulk operation bar, select **Delete**
+6. In the pop-up window, select **Delete**
+7. In your workspace, select **Save** button
+
+You can use the bulk operation bar to delete more than one variant at a time.
+
+:::tip
+
+Mark the topmost checkbox to select all variants.
+
+:::
+ -->
+</TabItem>
+<TabItem value="mobile">
+
+You can delete variants in two different ways.
+
+First way:
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to change
+3. Select **Options** tab
+4. In the table, select the variant you want to delete
+5. In the bottom of the variant page, select <Image src="/img/Delete-trash-icon.png" alt="Delete" height={22} /> 
+6. In the pop-up window select **Delete**
+7. In your workspace, select **Cancel** button to go back the product editing
+
+Second way:
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to change
+3. Select **Options** tab
+4. Scroll the row of the variant you want to delete
+5. At the end of the variant row, select <Image src="/img/Delete-icon.png" alt="Delete" height={22} /> 
+6. In the pop-up window select **Delete**
+7. In your workspace, select **Save** button
+
+<!-- Third way:
+
+1. In the admin interface, go to **Products**
+2. Select the product you want to change
+3. Select **Options** tab
+4. Mark the checkbox of the variant you want to delete 
+5. In the bulk operation bar, select **Delete**
+6. In the pop-up window, select **Delete**
+7. In your workspace, select **Save** button
+
+You can use the bulk operation bar to delete more than one variant at a time.
+
+
+:::tip
+
+Mark the topmost checkbox to select all variants.
+
+::: -->
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,447 @@
+---
+title: Code editor
+sidebar_position: 40
+description: The code editor allows you to browse and manage the code used in a store website theme.
+keywords:
+    - code editor
+    - website
+    - theme
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Image from "@site/src/components/Image";
+
+The code editor allows you to browse and manage the files used in a store website theme. 
+
+:::caution
+
+The code editor is a powerful tool that allows you to change a theme completely. However, with this power comes responsibility. When you use the code editor to change a theme, you take full responsibility for any consequences that your changes can bring. 
+
+Unistore **does not** take any responsibility for any harm, damage, or other negative impacts to your stores, accounts, customers, and website visitors that changes made in the theme can cause.
+
+:::
+
+By default, the code editor contains files of the active theme (you can check your active theme in [**Theme library**](../themes/themes.mdx)). However, if you use **Edit theme** option in **Theme library**, the code editor contains files of the selected theme.
+
+Note that generally, any changes made in the code of the active theme are applied instantly to your store website. We recommend you work with an inactive theme code, make small changes at the time, and check the impact of your changes in the website preview of the **Page editor**. Potentially dangerous changes are editing the source code, renaming and deleting files.
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+To start working with the code editor, select **Code editor** in **Website editor**.
+
+</TabItem>
+
+<TabItem value="tablet">
+
+To start working with the code editor:
+1. In **Website editor**, select <Image src="/img/hamburger-menu-button.png" alt="Menu button" width={20} height={20} /> to open the sidebar
+2. In the sidebar, select **Code editor**
+
+</TabItem>
+
+<TabItem value="mobile">
+
+To start working with the code editor:
+1. In **Website editor**, select <Image src="/img/hamburger-menu-button.png" alt="Menu button" width={20} height={20} /> to open the sidebar
+2. In the sidebar, select **Code editor**
+
+</TabItem>
+</Tabs>
+
+In the code editor, you can:
+* [Create new files](#create-file)
+* [Search files](#search)
+* [Edit existing files](#edit-file)
+* [Rename files](#rename-file)
+* [Delete files](#delete-file)
+
+:::info
+
+If you add cookies or any other similar technologies in default Unistore theme files, you have to include the information about them in the cookie consent banner and on your cookie policy page. 
+
+If your cookies are not essential for proper website functioning, you must explicitly ask your customers permission to use them. You must also provide an option to reject cookies or edit cookie consent choices made previously. If a customer rejects cookie usage, your code should not use them.
+
+:::
+
+## Create file {#create-file}
+
+All theme files are distributed into theme directories. Depending on the directory, each file has a specific type and role in a theme, so it is important to create new file in the appropriate directory. <!-- To learn more about theme directories, refer to dev documentation link -->
+
+You can create a theme file in any directory except **Config**.
+
+:::note
+
+All file names must be unique within a directory.
+
+:::
+
+To create a code file:
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+<ol>
+    <li>
+        In the sidebar, select the directory you want to create a file in
+    </li>
+    <li>
+        In the sidebar, select <strong>Add</strong> near the directory name
+    </li>
+    <li>
+        In the pop-up window, fill in file parameters depending on the directory
+    </li>
+    <p></p>
+    <p>
+        For <strong>Layout</strong> and <strong>Templates</strong>: 
+        <ul>
+            <li>
+                In <strong>New layout from</strong> / <strong>New template from</strong>, select the base file for the new one. All base file code is copied into the new one
+            </li>
+            <li>
+                In <strong>Name</strong>, fill in the file name without extension. For example, <code>new_template</code>
+            </li>
+        </ul>
+    </p>
+    <p>
+        For <strong>Sections</strong> and <strong>Snippets</strong>: in <strong>Name</strong>, fill in the name of the file without extension. For example, <code>new_section</code>.
+    </p>
+    <p>
+        For <strong>Assets</strong>, you can upload an existing file or create a new one. To upload a file, make sure you select <strong>Upload</strong> tab in the pop-up window. You can drag and drop the file or select the frame and choose the image file in the file explorer. You can upload assets with extensions .css, .js, .png, .svg.
+    </p>
+    <p>
+        To create an asset file, select <strong>Create</strong> tab in the pop-up window. In <strong>Name</strong>, fill in the file name, and in <strong>Format</strong> select the file extension.
+    </p>
+    <p>
+        For <strong>Locales</strong>: in <strong>Name</strong>, fill in the name of the file <strong>with</strong> <code>json</code> extension. The locale name must follow ISO 639-1 alpha-2 code. For example, <code>jp.json</code>.
+    </p>
+    <li>
+        In the pop-up window, select <strong>Continue</strong>
+    </li>
+</ol>
+
+</TabItem>
+
+<TabItem value="tablet">
+
+<ol>
+    <li>
+        In the upper bar, select <Image src="/img/hamburger-menu-button-dark.png" alt="Menu button" width={20} height={20} /> to open the sidebar
+    </li>
+    <li>
+        In the sidebar, select the directory you want to create a file in
+    </li>
+    <li>
+        In the sidebar, select <strong>Add</strong> near the directory name
+    </li>
+    <li>
+        In the pop-up window, fill in file parameters depending on the directory
+    </li>
+    <p></p>
+    <p>
+        For <strong>Layout</strong> and <strong>Templates</strong>: 
+        <ul>
+            <li>
+                In <strong>New layout from</strong> / <strong>New template from</strong>, select the base file for the new one. All base file code is copied into the new one
+            </li>
+            <li>
+                In <strong>Name</strong>, fill in the file name without extension. For example, <code>new_template</code>
+            </li>
+        </ul>
+    </p>
+    <p>
+        For <strong>Sections</strong> and <strong>Snippets</strong>: in <strong>Name</strong>, fill in the name of the file without extension. For example, <code>new_section</code>.
+    </p>
+    <p>
+        For <strong>Assets</strong>, you can upload an existing file or create a new one. To upload a file, make sure you select <strong>Upload</strong> tab in the pop-up window. You can drag and drop file or select the frame and choose the image file in the file explorer. You can upload assets with extensions .css, .js, .png, .svg.
+    </p>
+    <p>
+        To create an asset file, select <strong>Create</strong> tab in the pop-up window. In <strong>Name</strong>, fill in the file name, and in <strong>Format</strong> select the file extension.
+    </p>
+    <p>
+        For <strong>Locales</strong>: in <strong>Name</strong>, fill in the name of the file <strong>with</strong> <code>json</code> extension. The locale name must follow ISO 639-1 alpha-2 code. For example, <code>jp.json</code>.
+    </p>
+    <li>
+        In the pop-up window, select <strong>Continue</strong>
+    </li>
+</ol>
+
+</TabItem>
+
+<TabItem value="mobile">
+
+<ol>
+    <li>
+        In the upper bar, select <Image src="/img/hamburger-menu-button-dark.png" alt="Menu button" width={20} height={20} /> to open the sidebar
+    </li>
+    <li>
+        In the sidebar, select the directory you want to create a file in
+    </li>
+    <li>
+        In the sidebar, select <strong>Add</strong> near the directory name
+    </li>
+    <li>
+        In the pop-up window, fill in file parameters depending on the directory
+    </li>
+    <p></p>
+    <p>
+        For <strong>Layout</strong> and <strong>Templates</strong>: 
+        <ul>
+            <li>
+                In <strong>New layout from</strong> / <strong>New template from</strong>, select the base file for the new one. All base file code is copied into the new one
+            </li>
+            <li>
+                In <strong>Name</strong>, fill in the file name without extension. For example, <code>new_template</code>
+            </li>
+        </ul>
+    </p>
+    <p>
+        For <strong>Sections</strong> and <strong>Snippets</strong>: in <strong>Name</strong>, fill in the name of the file without extension. For example, <code>new_section</code>.
+    </p>
+    <p>
+        For <strong>Assets</strong>, you can upload an existing file or create a new one. To upload a file, make sure you select <strong>Upload</strong> tab in the pop-up window. Select the frame and choose the image file in the file explorer. You can upload assets with extensions .css, .js, .png, .svg.
+    </p>
+    <p>
+        For <strong>Assets</strong>, select <strong>Create</strong> tab in the pop-up window. In <strong>Name</strong>, fill in the file name, and in <strong>Format</strong> select the file extension.
+    </p>
+    <p>
+        For <strong>Locales</strong>: in <strong>Name</strong>, fill in the name of the file <strong>with</strong> <code>json</code> extension. The locale name must follow ISO 639-1 alpha-2 code. For example, <code>jp.json</code>.
+    </p>
+    <li>
+        In the pop-up window, select <strong>Continue</strong>
+    </li>
+</ol>
+
+</TabItem>
+</Tabs>
+
+## Search file {#search}
+
+You can search theme files by name and extension.
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+To find a file, use the search bar in the sidebar.
+
+</TabItem>
+
+<TabItem value="tablet">
+
+To find a file:
+1. In the upper bar, select <Image src="/img/hamburger-menu-button-dark.png" alt="Menu button" width={20} height={20} /> to open the sidebar
+2. In the sidebar, use the search bar
+
+</TabItem>
+
+<TabItem value="mobile">
+
+To find a file:
+1. In the upper bar, select <Image src="/img/hamburger-menu-button-dark.png" alt="Menu button" width={20} height={20} /> to open the sidebar
+2. In the sidebar, use the search bar
+
+</TabItem>
+</Tabs>
+
+The search results are displayed in the sidebar.
+
+## Edit file {#edit-file}
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+To edit a file:
+1. In the sidebar, select the file
+2. Edit the file
+3. In the upper bar, select **Save** 
+
+</TabItem>
+
+<TabItem value="tablet">
+
+To edit a file:
+1. In the upper bar, select <Image src="/img/hamburger-menu-button-dark.png" alt="Menu button" width={20} height={20} /> to open the sidebar
+2. In the sidebar, select the file
+3. Edit the file 
+4. In the upper bar, select **Save**
+
+</TabItem>
+
+<TabItem value="mobile">
+
+To edit a file:
+1. In the upper bar, select <Image src="/img/hamburger-menu-button-dark.png" alt="Menu button" width={20} height={20} /> to open the sidebar
+2. In the sidebar, select the file
+3. Edit the file
+4. In the upper bar, select **Save**
+
+</TabItem>
+</Tabs>
+
+Each file opens in a separate tab in the editor, so you can edit multiple files at once.
+
+The code editor is based on [Monaco Editor](https://microsoft.github.io/monaco-editor/) and provides most features of Visual Studio Code, including Command Palette, IntelliSense, code validation, basic syntax colorization, and so on. You can learn about these features in [Visual Studio Code documentation](https://code.visualstudio.com/docs/editor/editingevolved/).
+
+## Rename file {#rename-file}
+
+:::info
+
+The main layout file `theme.liquid` and all files in **Config** directory are crucial for rendering any theme, so you cannot rename any of these files.
+
+:::
+
+To rename a file:
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+1. In the sidebar, select the file
+2. Select **Rename**
+3. In the pop-up window, edit the file name and select **Save**
+
+</TabItem>
+
+<TabItem value="tablet">
+
+1. In the upper bar, select <Image src="/img/hamburger-menu-button-dark.png" alt="Menu button" width={20} height={20} /> to open the sidebar
+2. In the sidebar, select the file
+3. In the upper bar, select **Rename**
+4. In the pop-up window, rename the file and select **Save**
+
+</TabItem>
+
+<TabItem value="mobile">
+
+1. In the upper bar, select <Image src="/img/hamburger-menu-button-dark.png" alt="Menu button" width={20} height={20} /> to open the sidebar
+2. In the sidebar, select the file
+3. In the upper bar, select **File** > **Rename**
+4. In the pop-up window, rename the file and select **Save**
+
+</TabItem>
+</Tabs>
+
+## Delete file {#delete-file}
+
+:::caution
+
+You cannot restore a deleted file. For that reason, before you delete any file, make sure it is not used anymore in the theme. To do so, you can:
+
+1. Save the file code locally or into another temporary file in the code editor
+2. Delete the file
+3. Check out your store website in the website preview of the **Page editor**
+
+If your store website misses some functionality or demonstrates some unexpected behavior after deleting a file, you can use the saved source code to restore the theme.
+
+<!-- Restore default theme source code -->
+
+The main layout file `theme.liquid` and all files in **Config** directory are crucial for rendering any theme, so you cannot delete any of these files.
+
+:::
+
+To delete a file:
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+1. In the sidebar, select the file
+2. Select **Delete**
+3. In the pop-up window, select **Delete**
+
+</TabItem>
+
+<TabItem value="tablet">
+
+1. In the upper bar, select <Image src="/img/hamburger-menu-button-dark.png" alt="Menu button" width={20} height={20} /> to open the sidebar
+2. In the sidebar, select the file
+3. In the upper bar, select **Delete**
+4. In the pop-up window, select **Delete**
+
+</TabItem>
+
+<TabItem value="mobile">
+
+1. In the upper bar, select <Image src="/img/hamburger-menu-button-dark.png" alt="Menu button" width={20} height={20} /> to open the sidebar
+2. In the sidebar, select the file
+3. In the upper bar, select **File** > **Delete**
+4. In the pop-up window, select **Delete**
+
+</TabItem>
+</Tabs>
+
+## Return to Website editor
+
+To close the code editor and return to the website editor:
+
+<Tabs
+  groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+<TabItem value="desktop">
+
+In the sidebar, select **Back to Website editor**.
+
+</TabItem>
+
+<TabItem value="tablet">
+
+In the upper bar, select **Back to Website editor**.
+
+</TabItem>
+
+<TabItem value="mobile">
+
+In the upper bar, select **Back to Website editor**.
+
+</TabItem>
+</Tabs>
+
+If you have any unsaved changes, a pop-up window appears. Confirm exit without saving or cancel.
+
+<!-- ## Preview file {#preview-file} -->
+<!-- ## File version {#file-version} -->

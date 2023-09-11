@@ -1,0 +1,101 @@
+---
+title: Payouts
+sidebar_position: 80
+description: Receive payments from customers to your bank account.
+keywords:
+    - Unlimit
+    - payment service
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Image from "@site/src/components/Image";
+
+:::info Precondition
+
+You have already [connected Unlimit payment service](unlimint-onboarding.mdx) to your store.
+
+:::
+
+To let Unistore transfer money from product sales to your bank account, you need to add your bank account details to Unistore.
+
+## Connection statuses
+A request to add details can have three statuses:
+
+- <Image src="/img/payment-method-status-in-progress.png" alt="In progress" height={22} /> The request has been sent for the review, but no response has been received yet
+- <Image src="/img/payment-method-status-connected.png" alt="Connected" height={22} /> Bank account is connected
+- <Image src="/img/rejected-status.png" alt="Rejected" height={22} /> The request to connect a bank account was rejected
+
+## Add bank account
+
+<Tabs
+groupId="view-mode"
+  defaultValue="desktop"
+  values={[
+    {label: 'Desktop', value: 'desktop'},
+    {label: 'Tablet', value: 'tablet'},
+    {label: 'Mobile', value: 'mobile'},
+  ]}>
+  
+<TabItem value="desktop">
+
+Steps:
+
+1. In the admin interface, go to **Settings** > **Payouts**
+2. Select **Add Bank Account**
+3. Fill in data in **Beneficiary** and **Bank** blocks
+4. Mark the checkbox next to each statement to confirm that you agree with them
+5. In the workspace, select **Send Form**
+
+</TabItem>
+<TabItem value="tablet">
+
+Steps:
+
+1. In the admin interface, go to **Settings** > **Payouts**
+2. Select <Image src="/img/create-object-icon.png" alt="Create product" height={22} />
+3. Fill in data in **Beneficiary** and **Bank** blocks
+4. Mark the checkbox next to each statement to confirm that you agree with them
+5. In the workspace, select **Send Form**
+
+</TabItem>
+<TabItem value="mobile">
+
+Steps:
+
+1. In the admin interface, go to **Settings** > **Payouts**
+2. Select <Image src="/img/create-object-icon.png" alt="Create product" height={22} />
+3. Fill in data in **Beneficiary** and **Bank** blocks
+4. Mark the checkbox next to each statement to confirm that you agree with them
+5. In the workspace, select **Send Form**
+
+</TabItem>
+</Tabs>
+
+When you select **Send Form** button, your request is immediately sent for review. You can no longer change data in it.
+
+It may take up to 5 days for the request to be approved.
+
+##  Check bank account details
+After sending a request to add bank details, you will be able to view the card with the information you sent. 
+
+To check details, in the admin interface, go to **Settings** > **Payouts** and select the card with details.
+
+If there is a mistake in the data and the request is *In progress*, you will need to contact support. In other cases, you can [delete](#delete-bank-account) the data yourself.
+<!-- I think we should add mailto contact support link here later -->
+
+##  Delete bank account
+
+You can delete bank account in *Connected* and *Rejected* statuses from details card:
+
+1. In the admin interface, go to **Settings** > **Payouts** 
+2. Select the card with details
+3. Select **Delete**
+4. In the pop-up window, select **Delete**
+5. In the pop-up window, select **Close**
+
+Also, you can delete bank account details in *Rejected* status without viewing the card:
+
+1. In the admin interface, go to **Settings** > **Payouts** 
+2. Select **Delete** on the card with details
+3. In the pop-up window, select **Delete**
+4. In the pop-up window, select **Close**
