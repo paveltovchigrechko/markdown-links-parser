@@ -130,13 +130,13 @@ class Dir:
                 if self.broken_internal_links[file]:
                     output_file.write(f"\nFile: {file}")
                     for (line, link) in self.broken_internal_links[file]:
-                        output_file.write(f"Line {line}: not found {link}")
+                        output_file.write(f"\nLine {line}: not found {link}")
             output_file.write("\nBroken external links\n================")
             for file in self.broken_external_links:
                 if self.broken_external_links[file]:
                     output_file.write(f"\nFile: {file}")
                     for (line, link) in self.broken_external_links[file]:
-                        output_file.write(f"Line {line}: not found {link}")
+                        output_file.write(f"\nLine {line}: not found {link}")
 
     def print_all_links(self):
         if not self.parsed_files:
