@@ -32,12 +32,12 @@ action: check_links
 output: console
 ```
 
-## Script files
+## Script files and directories
 
 * `main.py` is the main runner. Reads config and runs the corresponding methods
-* `parser.py` contains the objects and methods for parsing directories, files, checking links, searching given line
-* `config.py` contains the config object and methods
-* `test_config.py` and `test_parser.py` contain tests for the corresponding files
+* `parser` directory contains the objects and methods for parsing directories, files, checking links, searching given line
+* `config` directory contains the config object and methods
+* `tests` directory contains tests for the corresponding modules
 
 ## Using as Git action
 
