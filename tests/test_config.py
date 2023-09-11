@@ -1,8 +1,7 @@
-import config
-
 import os
 import unittest
 
+from config import config
 
 class ConfigTests(unittest.TestCase):
     def test_correct_config_file(self):

@@ -1,43 +1,43 @@
-from parser import Link, File, Dir
 import unittest
 
+from parser import link, parsedfile
 
 class LinkTests(unittest.TestCase):
     def test_init_with_full_link(self):
-        link = Link("path/to/file#heading")
-        self.assertEqual(link.path, "path/to/")
-        self.assertEqual(link.file, "file")
-        self.assertEqual(link.heading, "heading")
+        test_link = link.Link("path/to/file#heading")
+        self.assertEqual(test_link.path, "path/to/")
+        self.assertEqual(test_link.file, "file")
+        self.assertEqual(test_link.heading, "heading")
 
     def test_init_with_internal_link(self):
-        link = Link("#heading")
-        self.assertIsNone(link.path)
-        self.assertEqual(link.file, "")
-        self.assertEqual(link.heading, "heading")
+        test_link = link.Link("#heading")
+        self.assertIsNone(test_link.path)
+        self.assertEqual(test_link.file, "")
+        self.assertEqual(test_link.heading, "heading")
 
     def test_init_with_external_link(self):
-        link = Link("https://example.com/")
-        self.assertEqual(link.path, "https://example.com/")
-        self.assertEqual(link.file, "")
-        self.assertIsNone(link.heading)
+        test_link = link.Link("https://example.com/")
+        self.assertEqual(test_link.path, "https://example.com/")
+        self.assertEqual(test_link.file, "")
+        self.assertIsNone(test_link.heading)
 
     def test_str_with_full_link(self):
-        link = Link("path/to/file#heading")
-        self.assertEqual(str(link), "path/to/file#heading")
+        test_link = link.Link("path/to/file#heading")
+        self.assertEqual(str(test_link), "path/to/file#heading")
 
     def test_str_with_internal_link(self):
-        link = Link("#heading")
-        self.assertEqual(str(link), "#heading")
+        test_link = link.Link("#heading")
+        self.assertEqual(str(test_link), "#heading")
 
     def test_str_with_external_link(self):
-        link = Link("https://example.com/")
-        self.assertEqual(str(link), "https://example.com/")
+        test_link = link.Link("https://example.com/")
+        self.assertEqual(str(test_link), "https://example.com/")
 
 
 class FileTests(unittest.TestCase):
     def setUp(self):
         self.path = "path/to/file"
-        self.file = File(self.path)
+        self.file = parsedfile.File(self.path)
 
     def test_init(self):
         self.assertEqual(self.file.path, "path/to/")
@@ -53,9 +53,9 @@ class FileTests(unittest.TestCase):
 
     def test_check_internal_links_positive(self):
         self.file.inbound_links = {"heading1", "heading2", "heading3"}
-        self.file.internal_links = [(1, Link("#heading1")),
-                                    (10, Link("#heading2")),
-                                    (20, Link("#heading3"))]
+        self.file.internal_links = [(1, link.Link("#heading1")),
+                                    (10, link.Link("#heading2")),
+                                    (20, link.Link("#heading3"))]
         broken_links = self.file.check_internal_links()
         self.assertEqual(len(broken_links), 0)
 
@@ -65,9 +65,9 @@ class FileTests(unittest.TestCase):
 
     def test_check_internal_links_negative(self):
         self.file.inbound_links = {"heading1", "heading2"}
-        self.file.internal_links = [(1, Link("#heading1")),
-                                    (10, Link("#heading2")),
-                                    (30, Link("#heading4"))]
+        self.file.internal_links = [(1, link.Link("#heading1")),
+                                    (10, link.Link("#heading2")),
+                                    (30, link.Link("#heading4"))]
         broken_links = self.file.check_internal_links()
         self.assertEqual(len(broken_links), 1)
         self.assertEqual(broken_links[0][0], 30)
