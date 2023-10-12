@@ -183,3 +183,7 @@ class Dir:
                         output_file.write(f"\nLine {line_num}: {outside_link}")
                 else:
                     output_file.write("\nNo outside links found.")
+
+
+if __name__ == "__main__":
+    pass

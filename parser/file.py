@@ -138,3 +138,7 @@ class File:
                 print(f"Line {line_num}: {outside_link}")
         else:
             print("No outside links found.")
+
+
+if __name__ == "__main__":
+    pass

@@ -21,3 +21,7 @@ class Link:
         if self.heading is not None:
             link_string += "#" + self.heading
         return link_string
+
+
+if __name__ == "__main__":
+    pass
