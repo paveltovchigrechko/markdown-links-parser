@@ -1,8 +1,8 @@
 from pathlib import Path
-import sys
 import time
 
 from parser import file as parsed_file
+
 
 class Dir:
     def __init__(self, path):
@@ -84,7 +84,8 @@ class Dir:
                 print(f"{string_to_search} was not found.")
 
         elif output == "file":
-            with open(time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime())+f'-search-result-{string_to_search}.txt', 'w')\
+            with open(time.strftime('%Y-%m-%d-%H:%M:%S', time.localtime()) + f'-search-result-{string_to_search}.txt',
+                      'w') \
                     as output_file:
                 if search_result:
                     output_file.write(f"Search results for {string_to_search}\n")
@@ -119,7 +120,7 @@ class Dir:
                     print(f"Line {line}: not found {link}")
 
     def fprint_broken_links(self):
-        with open(time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime())+'-broken-links.txt', 'w') as output_file:
+        with open(time.strftime('%Y-%m-%d-%H:%M:%S', time.localtime()) + '-broken-links.txt', 'w') as output_file:
             if not self.broken_external_links and not self.broken_internal_links:
                 output_file.write("No broken links found")
                 return
@@ -170,8 +171,8 @@ class Dir:
                 if file.external_links:
                     for (line_num, external_link) in file.external_links:
                         output_file.write(f"\nLine {line_num}: path: {external_link.path}, "
-                              f"file: {external_link.file}, "
-                              f"heading: {external_link.heading}")
+                                          f"file: {external_link.file}, "
+                                          f"heading: {external_link.heading}")
                 else:
                     output_file.write("\nNo external links found")
 

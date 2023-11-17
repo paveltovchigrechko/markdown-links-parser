@@ -2,6 +2,7 @@ import unittest
 
 from parser import link, file
 
+
 class LinkTests(unittest.TestCase):
     def test_init_with_full_link(self):
         test_link = link.Link("path/to/file#heading")

@@ -13,6 +13,7 @@ MARKDOWN_FULL_LINK_PATTERN = re.compile(r"(\[[^]]+]\([^)]+\))")
 # Matches link URL in Markdown link: the part between '(' and ')' symbols.
 MARKDOWN_LINK_PATTERN = re.compile(r"\(([^)]+)\)")
 
+
 class File:
     def __init__(self, path_to_file):
         path_parts = re.match(link.SPLIT_LINK_PATTERN, path_to_file)
@@ -26,7 +27,7 @@ class File:
 
     def parse_links(self, ignore_commented_lines=True):
         with open(self.path_with_name) as file:
-            def process_heading (heading_match):
+            def process_heading(heading_match):
                 raw_heading = heading_match.group().strip("# ").lower()
                 heading_words = raw_heading.split()
                 processed_words = []
@@ -35,7 +36,7 @@ class File:
                     processed_words.append(processed_word)
                 return "-".join(processed_words)
 
-            def process_heading_id (heading_id_match):
+            def process_heading_id(heading_id_match):
                 return heading_id_match.group().strip("{#}")
 
             inbound_links_list = []

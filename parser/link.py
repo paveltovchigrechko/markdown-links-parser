@@ -5,6 +5,7 @@ import re
 # Equals to the file. 3 group includes everything after '#' symbol. Equals to the heading.
 SPLIT_LINK_PATTERN = re.compile(r"^(.*?/)?([^/#]*)(?:#(.*))?$")
 
+
 class Link:
     def __init__(self, link_string):
         link_parts = re.match(SPLIT_LINK_PATTERN, link_string)

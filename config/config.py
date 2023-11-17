@@ -2,14 +2,17 @@ from enum import Enum
 from pathlib import Path
 import configparser
 
+
 class Output(Enum):
     CONSOLE = "console"
     FILE = "file"
+
 
 class Action(Enum):
     CHECK_LINKS = "check_links"
     PRINT_LINKS = "print_links"
     SEARCH = "search"
+
 
 CONFIG_NAME = "config.ini"
 DEFAULT_CONFIG = configparser.ConfigParser()
@@ -19,6 +22,7 @@ DEFAULT_CONFIG['MAIN'] = {
     "output": Output.CONSOLE.value,
     "action": Action.CHECK_LINKS.value,
 }
+
 
 def set_config(config_file=CONFIG_NAME):
     config = configparser.ConfigParser()
@@ -64,6 +68,7 @@ def set_config(config_file=CONFIG_NAME):
                                   f"using value from default configuration ('{DEFAULT_CONFIG['MAIN'][obligatory_key]}')")
                             config["MAIN"][obligatory_key] = DEFAULT_CONFIG['MAIN'][obligatory_key]
     return config
+
 
 if __name__ == "__main__":
     pass
