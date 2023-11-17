@@ -76,7 +76,7 @@ class Dir:
                 print(f"Search results for {string_to_search}")
                 print(f"Found total: {found_matches} matches")
                 for file in search_result.keys():
-                    print(f"File: {file}")
+                    print(f"\nFile: {file}")
                     for (line_num, occurrences) in search_result[file]:
                         print(f"Line {line_num}: found {occurrences} occurrence(s)")
 
@@ -117,8 +117,6 @@ class Dir:
                 print(f"\nFile: {file}")
                 for (line, link) in self.broken_external_links[file]:
                     print(f"Line {line}: not found {link}")
-
-        sys.exit("Found broken links!")
 
     def fprint_broken_links(self):
         with open(time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime())+'-broken-links.txt', 'w') as output_file:
