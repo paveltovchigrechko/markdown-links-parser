@@ -2,25 +2,25 @@
 
 ## What is it? 
 
-This is an auxiliary Python script for parsing and checking text files. The main problem it solves is verifying Markdown links between text files. 
+This is an auxiliary Python script for parsing and checking text files. The main problem it solves is verifying Markdown links between text files. For example, the Docusaurus, a static site generator that we use for documentation, recognizes the link to a non-existing file like [a link to a file](non-existing-path-to-file). But it cannot recognize a link to a non-existing heading inside a file: [link to a paragraph](existing-file#non-existing-heading). So, when we change a heading we might break a link to it in other files. This script is intended to catch such situations. 
 
 ## Configuration
 
 The script is configurable. You can define a `config.ini` file in a script directory to adjust the script action. The configuration must have a section `[MAIN]` and the following parameters:
-* `root` is the root directory where the files are scanned. Note that script works with all files of given extension in the root recursively. Root can be an absolute path or a relative path. 
-* `file_extension` is the extension of files that are being parsed. Accepts only one value with leading dot, for example `.md`. You can use any text extension that can be opened with default Python `open` function.
-* `action` is intended action of the script. Accepts one of the following values: 
-  * `check_links` parses all files with given extension in given root and checks all Markdown links in them. If there are broken links, outputs them in a stream specified in `output` parameter.
-  * `print_links` parses all files with given extension in given root and prints them in a stream specified in `output` parameter.
-  * `search` asks for a non-empty string to search, parses all files with given extension in given root and searches the string. Then outputs the result in a stream specified in `output` parameter.
+* `root` is the root directory where the files are scanned. Note that the script works with all files of the given extension in the root recursively. The root can be an absolute path or a relative path. 
+* `file_extension` is the extension of files that are being parsed. Accepts only one value with a leading dot, for example `.md`. You can use any text extension that can be opened with the default Python `open` function.
+* `action` is the intended action of the script. Accepts one of the following values: 
+  * `check_links` parses all files with a given extension in a given root and checks all Markdown links. If there are broken links, it outputs them in a stream specified in `output` parameter.
+  * `print_links` parses all files with a given extension in a given root and prints them in a stream specified in `output` parameter.
+  * `search` asks for a non-empty string to search, parses all files with the given extension in the given root, and searches the string. Then outputs the result in a stream specified in `output` parameter.
 * `output` defines the stream for outputting the action result. Accepts one of the following values:
-  * `console` outputs the result in standard OS console stream
-  * `file` creates a `txt` file in script directory with the result 
+  * `console` outputs the result in the standard OS console stream
+  * `file` creates a `txt` file in the script directory with the result 
 
 If `config.ini` misses `[MAIN]` section, the default configuration is used.
 If `config.ini` misses one or more obligatory parameters in `[MAIN]` section, the default values are used.
 If a path specified in `root` parameter is not found or not a directory or empty string, the default value is used.
-If `action` and / or `output` parameters have the value that is not accepted, the default value is used.
+If `action` and / or `output` parameters have a value that is not accepted, the default value is used.
 All other sections and parameters are ignored.
 
 Default configuration:
