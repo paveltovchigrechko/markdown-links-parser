@@ -21,7 +21,7 @@ class Dir:
         if not self.filenames:
             return
         for filename in self.filenames:
-            new_file = parsed_file.File(str(filename))
+            new_file = parsed_file.File(str(filename.resolve()))
             new_file.parse_links()
             self.parsed_files[new_file.path_with_name] = new_file
 
