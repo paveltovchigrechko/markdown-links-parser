@@ -35,6 +35,7 @@ class Dir:
 
     def check_external_links(self):
         if not self.parsed_files:
+            print("No files were parsed.")
             return
         for file in self.parsed_files.values():
             broken_external_links = []

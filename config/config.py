@@ -17,14 +17,29 @@ class Action(Enum):
 CONFIG_NAME = "config.ini"
 DEFAULT_CONFIG = configparser.ConfigParser()
 DEFAULT_CONFIG['MAIN'] = {
-    "root": "./docs",
+    "root": ".",
     "file_extension": ".mdx",
     "output": Output.CONSOLE.value,
     "action": Action.CHECK_LINKS.value,
 }
 
 
-def set_config(config_file=CONFIG_NAME):
+def set_config_from_args(arguments):
+    config = configparser.ConfigParser()
+
+    config.add_section('MAIN')
+    for parameter in vars(arguments):
+        config['MAIN'][parameter] = vars(arguments)[parameter]
+    return config
+
+
+def set_config(config_file=CONFIG_NAME, arguments=None):
+    # If there are passed arguments, use them to create configuration
+    if arguments:
+        config = set_config_from_args(arguments)
+        return config
+
+    # if there are no passed arguments, try to read configuration file
     config = configparser.ConfigParser()
     try:
         config.read(config_file)
