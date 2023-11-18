@@ -1,4 +1,5 @@
 from pathlib import Path
+import sys
 import time
 
 from parser import file as parsed_file
@@ -118,6 +119,8 @@ class Dir:
                 print(f"\nFile: {file}")
                 for (line, link) in self.broken_external_links[file]:
                     print(f"Line {line}: not found {link}")
+
+        sys.exit("Found broken links!")
 
     def fprint_broken_links(self):
         with open(time.strftime('%Y-%m-%d-%H:%M:%S', time.localtime()) + '-broken-links.txt', 'w') as output_file:
