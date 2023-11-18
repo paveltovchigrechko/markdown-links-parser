@@ -27,3 +27,7 @@ def run_parser(configuration_file):
             directory.print_all_links()
         else:
             directory.fprint_all_links()
+
+
+if __name__ == "__main__":
+    pass

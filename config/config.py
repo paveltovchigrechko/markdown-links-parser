@@ -17,7 +17,7 @@ class Action(Enum):
 CONFIG_NAME = "config.ini"
 DEFAULT_CONFIG = configparser.ConfigParser()
 DEFAULT_CONFIG['MAIN'] = {
-    "root": "./docs",
+    "root": ".",
     "file_extension": ".mdx",
     "output": Output.CONSOLE.value,
     "action": Action.CHECK_LINKS.value,

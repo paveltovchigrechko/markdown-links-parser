@@ -71,3 +71,7 @@ def process_args():
     parser = create_parser()
     args = parser.parse_args()
     return check_and_set_args(args)
+
+
+if __name__ == "__main__":
+    pass
