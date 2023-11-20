@@ -6,7 +6,11 @@ This is an auxiliary Python script for parsing and checking text files. The main
 
 ## Configuration
 
-The script is configurable. You can define a `config.ini` file in a script directory to adjust the script action. The configuration must have a section `[MAIN]` and the following parameters:
+The script is configurable. You can define configuration parameters either in a `config.ini` file or pass them as arguments when running the script. 
+
+### Config file
+
+The configuration must have a section `[MAIN]` and the following parameters:
 * `root` is the root directory where the files are scanned. Note that the script works with all files of the given extension in the root recursively. The root can be an absolute path or a relative path. 
 * `file_extension` is the extension of files that are being parsed. Accepts only one value with a leading dot, for example `.md`. You can use any text extension that can be opened with the default Python `open` function.
 * `action` is the intended action of the script. Accepts one of the following values: 
@@ -30,6 +34,24 @@ root: .
 file_extension: .mdx
 action: check_links
 output: console
+```
+
+### Arguments
+
+Note if you pass configuration arguments, the config file is ignored.
+
+All arguments are optional, if you don't pass an argument the default value will be used.
+You can use the following configuration arguments in command line:
+* `-r` or `--root` to define the root directory
+* `-f` or `--file` to define the file extension
+* `-o` or `--output` to define the output format. The argument accepts `file` or `console` values only
+* `-a` or `--action` to define the action. The argument accepts `check_links`, `print_links`, or `search` values only
+
+Run `python3 main.py -h` to see the help in console.
+
+Example of using arguments:
+```commandline
+python3 main.py -r ../../docs -f .md -o file -a print_links
 ```
 
 ## Script files and directories
