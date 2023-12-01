@@ -1,3 +1,4 @@
+import argparse
 from enum import Enum
 from pathlib import Path
 import configparser
@@ -24,7 +25,7 @@ DEFAULT_CONFIG['MAIN'] = {
 }
 
 
-def set_config_from_args(arguments):
+def set_config_from_args(arguments: argparse.Namespace) -> configparser.ConfigParser:
     config = configparser.ConfigParser()
 
     config.add_section('MAIN')
@@ -33,7 +34,7 @@ def set_config_from_args(arguments):
     return config
 
 
-def set_config(config_file=CONFIG_NAME, arguments=None):
+def set_config(*, config_file=CONFIG_NAME, arguments=None) -> configparser.ConfigParser:
     # If there are passed arguments, use them to create configuration
     if arguments:
         config = set_config_from_args(arguments)
