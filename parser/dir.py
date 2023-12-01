@@ -66,10 +66,11 @@ class Dir:
         found_matches = 0
 
         for filename in self.filenames:
-            new_file = parsed_file.File(str(filename))
+            resolved_path = str(filename.resolve())
+            new_file = parsed_file.File(resolved_path)
             occurrences_in_file = new_file.search(string_to_search)
             if occurrences_in_file:
-                search_result[filename] = occurrences_in_file
+                search_result[resolved_path] = occurrences_in_file
                 for (line, matches) in occurrences_in_file:
                     found_matches += matches
 
