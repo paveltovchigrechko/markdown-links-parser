@@ -106,17 +106,18 @@ class Directory:
 
         return broken_links
 
+    def search(self, string_to_search, case_sensitive: bool = True) -> defaultdict[str, list] | None:
+        if not self.files:
+            print('There are no initiated files in directory.')
+            return None
+
+        search_results = {}
+        for markdown_file in self.files.values():
+            result = markdown_file.search(string_to_search, case_sensitive=case_sensitive)
+            if result:
+                search_results[str(markdown_file.path)] = result
+
+        return search_results
 
 if __name__ == "__main__":
     pass
-# d = Directory('../../../doc-dev/docs')
-# d.scan_files_by_extension(['.mdx'])
-# d.init_files()
-# # for file in d.files:
-# #     print(file)
-# br = d.validate_markdown_links()
-# for file, broken_links in br.items():
-#     print(f'File: {file}')
-#     for line, broken_link in broken_links:
-#         print(f'Line {line}: not found "{broken_link.url}"')
-#     print('======================\n')

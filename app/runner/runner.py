@@ -8,11 +8,11 @@ def run_parser(configuration_file):
     # output = configuration_file["MAIN"]["output"]
     directory.scan_files_by_extension(file_extensions=[configuration_file["MAIN"]["file_extension"]])
 
+    directory.init_files()
     if action == config.Action.CHECK_LINKS.value:
-        directory.init_files()
         broken_links = directory.validate_markdown_links()
         if broken_links:
-            print()
+            print('\nFound broken links!')
             for file, links in broken_links.items():
                 print(f'File: {file}')
                 for line, broken_link in links:
@@ -20,21 +20,18 @@ def run_parser(configuration_file):
                 print('======================\n')
         else:
             print('No broken links found.')
-        # if output == config.config.Output.CONSOLE.value:
-        #     directory.print_broken_links()
-        # else:
-        #     directory.fprint_broken_links()
-
-    # elif action == config.Action.SEARCH.value:
-    #     str_to_find = input("Enter the string to find: ")
-        # directory.search(str_to_find, configuration_file["MAIN"]["output"])
-
-    # elif action == config.Action.PRINT_LINKS.value:
-    #     directory.parse_files()
-    #     if output == config.config.Output.CONSOLE.value:
-    #         directory.print_all_links()
-    #     else:
-    #         directory.fprint_all_links()
+    elif action == config.Action.SEARCH.value:
+        str_to_find = input("Enter the string to find: ")
+        search_results = directory.search(str_to_find)
+        if search_results:
+            print(f'Search results for {str_to_find}:\n')
+            for file, results in search_results.items():
+                print(f'File: {file}')
+                for line, occurence in results:
+                    print(f'Line {line}: found {occurence} occurences.')
+                print('======================\n')
+        else:
+            print(f'{str_to_find} was not found.')
 
 
 if __name__ == "__main__":
