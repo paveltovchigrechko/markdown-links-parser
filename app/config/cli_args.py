@@ -1,5 +1,6 @@
 import argparse
-import config.config
+
+from app.config import config
 
 
 def create_parser() -> argparse.ArgumentParser:
@@ -26,13 +27,18 @@ def create_parser() -> argparse.ArgumentParser:
 
     parser.add_argument('-o',
                         '--output',
-                        help=f"The parser output. Accepted values: {config.config.Output.CONSOLE.value}, {config.config.Output.FILE.value}.",
+                        help=f"The parser output. "
+                             f"Accepted values: {config.Output.CONSOLE.value}, "
+                             f"{config.Output.FILE.value}.",
                         type=str,
                         required=False)
 
     parser.add_argument('-a',
                         '--action',
-                        help=f'The action that the parser will perform. Accepted values: {config.config.Action.CHECK_LINKS.value}, {config.config.Action.PRINT_LINKS.value}, {config.config.Action.SEARCH.value}',
+                        help=f'The action that the parser will perform. '
+                             f'Accepted values: {config.Action.CHECK_LINKS.value}, '
+                             f'{config.Action.PRINT_LINKS.value}, '
+                             f'{config.Action.SEARCH.value}',
                         type=str,
                         required=False)
 
@@ -46,19 +52,19 @@ def check_and_set_args(args: argparse.Namespace) -> argparse.Namespace | None:
 
     if not args.root:
         print("No root in args, using the default value.")
-        args.root = config.config.DEFAULT_CONFIG['MAIN']['root']
+        args.root = config.DEFAULT_CONFIG['MAIN']['root']
 
     if not args.file_extension:
         print("No file in args, using the default value.")
-        args.file_extension = config.config.DEFAULT_CONFIG['MAIN']['file_extension']
+        args.file_extension = config.DEFAULT_CONFIG['MAIN']['file_extension']
 
-    if not args.output or args.output not in {item.value for item in config.config.Output}:
+    if not args.output or args.output not in {item.value for item in config.Output}:
         print("No output in args or output has incorrect value, using the default value.")
-        args.output = config.config.DEFAULT_CONFIG['MAIN']['output']
+        args.output = config.DEFAULT_CONFIG['MAIN']['output']
 
-    if not args.action or args.action not in {item.value for item in config.config.Action}:
+    if not args.action or args.action not in {item.value for item in config.Action}:
         print("No action in args or action has incorrect value, using the default value.")
-        args.action = config.config.DEFAULT_CONFIG['MAIN']['action']
+        args.action = config.DEFAULT_CONFIG['MAIN']['action']
 
     return args
 
