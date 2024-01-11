@@ -1,3 +1,5 @@
+import sys
+
 import app.config.config as config
 from app.models.directory import Directory
 
@@ -18,6 +20,7 @@ def run_parser(configuration_file):
                 for line, broken_link in links:
                     print(f'Line {line}: not found "{broken_link.url}"')
                 print('======================\n')
+            sys.exit('\nFound broken links!')
         else:
             print('No broken links found.')
     elif action == config.Action.SEARCH.value:
