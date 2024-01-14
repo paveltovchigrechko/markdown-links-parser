@@ -1,9 +1,16 @@
+"""
+Parser for CLI arguments passed to the main module.
+"""
 import argparse
 
 from app.config import config
 
 
 def create_parser() -> argparse.ArgumentParser:
+    """
+    Create a parser for CLI arguments.
+    :return: The argument parser.
+    """
     parser = argparse.ArgumentParser(description="")
     # TODO: implement config file passed in arguments
     # parser.add_argument('-c',
@@ -46,9 +53,15 @@ def create_parser() -> argparse.ArgumentParser:
 
 
 def check_and_set_args(args: argparse.Namespace) -> argparse.Namespace | None:
+    """
+    Check CLI arguments and set the default value for missing and invalid ones.
+    :param args: CLI arguments.
+    :return: Return None if no arguments were passed.
+    Return argparse.Namespace if at least one argument was passed.
+    """
     if not args.root and not args.file_extension and not args.output and not args.action:
         print("No arguments passed.")
-        return
+        return None
 
     if not args.root:
         print("No root in args, using the default value.")
@@ -69,7 +82,12 @@ def check_and_set_args(args: argparse.Namespace) -> argparse.Namespace | None:
     return args
 
 
-def process_args() -> argparse.Namespace:
+def process_args() -> argparse.Namespace | None:
+    """
+    Create a CLI argument parser, read passed arguments, and set the default values for missing arguments.
+    :return: Return None if no arguments were passed.
+    Return argparse.Namespace if at least one argument was passed.
+    """
     parser = create_parser()
     args = parser.parse_args()
     return check_and_set_args(args)

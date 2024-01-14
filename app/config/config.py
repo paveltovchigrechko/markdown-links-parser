@@ -1,3 +1,7 @@
+"""
+Default configuration settings, functions, and values.
+"""
+
 import argparse
 from enum import Enum
 from pathlib import Path
@@ -26,6 +30,12 @@ DEFAULT_CONFIG['MAIN'] = {
 
 
 def set_config_from_args(arguments: argparse.Namespace) -> configparser.ConfigParser:
+    """
+    Accept the CLI arguments passed to the script, and create a configuration object based on them.
+    Use the default values for invalid or missing arguments.
+    :param arguments: CLI arguments.
+    :return: The script configuration.
+    """
     config = configparser.ConfigParser()
 
     config.add_section('MAIN')
