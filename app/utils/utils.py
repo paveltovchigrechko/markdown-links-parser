@@ -3,7 +3,6 @@ Utility functions used in other modules.
 """
 
 import re
-from typing import LiteralString, Tuple
 
 from app.utils import constants
 
@@ -23,7 +22,7 @@ def process_heading(heading_match: re.Match) -> str:
     return "-".join(processed_words)
 
 
-def process_heading_id(heading_id_match: re.Match) -> LiteralString | bytes:
+def process_heading_id(heading_id_match: re.Match) -> str:
     """
     Strips the `#` from a MArkdown heading match.
     :param heading_id_match: The re.Match object for a Markdown heading.
@@ -35,7 +34,7 @@ def process_heading_id(heading_id_match: re.Match) -> LiteralString | bytes:
 def is_commented_line(comment_pattern: re.compile, line: str) -> True | False:
     """
     Checks if a line is commented (i.e. matches a passed pattern).
-    :param comment_pattern: The re.compile pattern for a commented line.
+    :param comment_pattern: The pattern for a commented line.
     :param line: The line string.
     :return: True if the `line` matches the `comment_pattern`, False otherwise.
     """
@@ -45,7 +44,7 @@ def is_commented_line(comment_pattern: re.compile, line: str) -> True | False:
     return False
 
 
-def parse_heading(line: str) -> tuple[None, LiteralString | bytes] | tuple[str, None] | tuple[None, None]:
+def parse_heading(line: str) -> tuple[None, str] | tuple[str, None] | tuple[None, None]:
     """
     Parses a Markdown line and returns the heading or heading ID (`{#heading-id}`) if exists.
     :param line: The line string.
