@@ -2,7 +2,7 @@
 
 ## What is it? 
 
-This is an auxiliary Python script for parsing and checking text files. The main problem it solves is verifying Markdown links between text files. For example, the Docusaurus, a static site generator that we use for documentation, recognizes the link to a non-existing file like [a link to a file](non-existing-path-to-file). But it cannot recognize a link to a non-existing heading inside a file: [link to a paragraph](existing-file#non-existing-heading). So, when we change a heading we might break a link to it in other files. This script is intended to catch such situations. 
+This is an auxiliary Python script for parsing and checking text files. The main problem it solves is verifying Markdown links between text files. For example, the Docusaurus, a static site generator that we use for documentation, recognizes the link to a non-existing file like \[a link to a file\](non-existing-path-to-file). But it cannot recognize a link to a non-existing heading inside a file: \[link to a paragraph\](existing-file#non-existing-heading). So, when we change a heading we might break a link to it in other files. This script is intended to catch such situations. 
 
 ## Configuration
 
@@ -14,17 +14,17 @@ The configuration must have a section `[MAIN]` and the following parameters:
 * `root` is the root directory where the files are scanned. Note that the script works with all files of the given extension in the root recursively. The root can be an absolute path or a relative path. 
 * `file_extension` is the extension of files that are being parsed. Accepts only one value with a leading dot, for example `.md`. You can use any text extension that can be opened with the default Python `open` function.
 * `action` is the intended action of the script. Accepts one of the following values: 
-  * `check_links` parses all files with a given extension in a given root and checks all Markdown links. If there are broken links, it outputs them in a stream specified in `output` parameter.
-  * `print_links` parses all files with a given extension in a given root and prints them in a stream specified in `output` parameter.
+<!--  * `check_links` parses all files with a given extension in a given root and checks all Markdown links. If there are broken links, it outputs them in a stream specified in `output` parameter. -->
+<!--  * `print_links` parses all files with a given extension in a given root and prints them in a stream specified in `output` parameter. -->
   * `search` asks for a non-empty string to search, parses all files with the given extension in the given root, and searches the string. Then outputs the result in a stream specified in `output` parameter.
-* `output` defines the stream for outputting the action result. Accepts one of the following values:
-  * `console` outputs the result in the standard OS console stream
-  * `file` creates a `txt` file in the script directory with the result 
+<!-- * `output` defines the stream for outputting the action result. Accepts one of the following values: -->
+<!--  * `console` outputs the result in the standard OS console stream -->
+<!--  * `file` creates a `txt` file in the script directory with the result -->
 
 If `config.ini` misses `[MAIN]` section, the default configuration is used.
 If `config.ini` misses one or more obligatory parameters in `[MAIN]` section, the default values are used.
 If a path specified in `root` parameter is not found or not a directory or empty string, the default value is used.
-If `action` and / or `output` parameters have a value that is not accepted, the default value is used.
+If `action` <!-- and / or `output` parameters have --> has a value that is not accepted, the default value is used.
 All other sections and parameters are ignored.
 
 Default configuration:
@@ -33,7 +33,7 @@ Default configuration:
 root: .
 file_extension: .mdx
 action: check_links
-output: console
+<!-- output: console -->
 ```
 
 ### Arguments
@@ -44,22 +44,19 @@ All arguments are optional, if you don't pass an argument the default value will
 You can use the following configuration arguments in command line:
 * `-r` or `--root` to define the root directory
 * `-f` or `--file` to define the file extension
-* `-o` or `--output` to define the output format. The argument accepts `file` or `console` values only
-* `-a` or `--action` to define the action. The argument accepts `check_links`, `print_links`, or `search` values only
+<!-- * `-o` or `--output` to define the output format. The argument accepts `file` or `console` values only -->
+* `-a` or `--action` to define the action. The argument accepts `check_links`<!-- , `print_links`, --> or `search` values only
 
 Run `python3 main.py -h` to see the help in console.
 
 Example of using arguments:
 ```commandline
-python3 main.py -r ../../docs -f .md -o file -a print_links
+python3 main.py -r ../../docs -f .md <!-- -o file --> -a print_links
 ```
 
 ## Script files and directories
 
-* `main.py` is the main runner. Reads config and runs the corresponding methods
-* `parser` directory contains the objects and methods for parsing directories, files, checking links, searching given line
-* `config` directory contains the config object and methods
-* `tests` directory contains tests for the corresponding modules
+TBD.
 
 ## Using as Git action
 
