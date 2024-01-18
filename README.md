@@ -14,7 +14,7 @@ The configuration must have a section `[MAIN]` and the following parameters:
 * `root` is the root directory where the files are scanned. Note that the script works with all files of the given extension in the root recursively. The root can be an absolute path or a relative path. 
 * `file_extension` is the extension of files that are being parsed. Accepts only one value with a leading dot, for example `.md`. You can use any text extension that can be opened with the default Python `open` function.
 * `action` is the intended action of the script. Accepts one of the following values: 
-<!--  * `check_links` parses all files with a given extension in a given root and checks all Markdown links. If there are broken links, it outputs them in a stream specified in `output` parameter. -->
+  * `check_links` parses all files with a given extension in a given root and checks all Markdown links. If there are broken links, it outputs them in a stream specified in `output` parameter.
 <!--  * `print_links` parses all files with a given extension in a given root and prints them in a stream specified in `output` parameter. -->
   * `search` asks for a non-empty string to search, parses all files with the given extension in the given root, and searches the string. Then outputs the result in a stream specified in `output` parameter.
 <!-- * `output` defines the stream for outputting the action result. Accepts one of the following values: -->
@@ -33,8 +33,8 @@ Default configuration:
 root: .
 file_extension: .mdx
 action: check_links
-<!-- output: console -->
 ```
+<!-- output: console -->
 
 ### Arguments
 
@@ -51,7 +51,7 @@ Run `python3 main.py -h` to see the help in console.
 
 Example of using arguments:
 ```commandline
-python3 main.py -r ../../docs -f .md <!-- -o file --> -a print_links
+python3 main.py -r ../../docs -f .md -a print_links
 ```
 
 ## Script files and directories
