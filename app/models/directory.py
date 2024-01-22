@@ -101,7 +101,7 @@ class Directory:
                     else:
                         continue
                 else:
-                    print(f'Not found file by {reference_path}')
+                    # print(f'Not found file by {reference_path}')
                     broken_links[str(markdown_file.path)].append((line_num, markdown_link))
 
         return broken_links
