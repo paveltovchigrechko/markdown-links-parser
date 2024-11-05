@@ -14,7 +14,6 @@ def run_parser(configuration_file):
     if action == config.Action.CHECK_LINKS.value:
         broken_links = directory.validate_markdown_links()
         if broken_links:
-            print('\nFound broken links!')
             for file, links in broken_links.items():
                 print(f'File: {file}')
                 for line, broken_link in links:
